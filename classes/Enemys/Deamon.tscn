@@ -1,0 +1,340 @@
+[gd_scene load_steps=61 format=2]
+
+[ext_resource path="res://img/undead-executioner/Ghost-Files/PNG/ghost-vanish.png" type="Texture" id=1]
+[ext_resource path="res://img/undead-executioner/demon-Files/PNG/demon-idle.png" type="Texture" id=2]
+[ext_resource path="res://img/undead-executioner/demon-Files/PNG/demon-attack-no-breath.png" type="Texture" id=3]
+[ext_resource path="res://img/undead-executioner/Ghost-Files/PNG/ghost-appears.png" type="Texture" id=4]
+[ext_resource path="res://img/undead-executioner/demon-Files/PNG/demon-attack.png" type="Texture" id=5]
+[ext_resource path="res://classes/Enemys/Deamon.gd" type="Script" id=6]
+[ext_resource path="res://img/minibar.png" type="Texture" id=7]
+[ext_resource path="res://img/mini-health-bar.png" type="Texture" id=8]
+[ext_resource path="res://classes/Enemys/Breath.gd" type="Script" id=9]
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 160, 144 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 160, 0, 160, 144 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 320, 0, 160, 144 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 480, 0, 160, 144 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 640, 0, 160, 144 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 800, 0, 160, 144 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 3 )
+region = Rect2( 576, 0, 192, 176 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 3 )
+region = Rect2( 768, 0, 192, 176 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 3 )
+region = Rect2( 960, 0, 192, 176 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 3 )
+region = Rect2( 1152, 0, 192, 176 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 240, 192 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 5 )
+region = Rect2( 240, 0, 240, 192 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 5 )
+region = Rect2( 480, 0, 240, 192 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 5 )
+region = Rect2( 720, 0, 240, 192 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 5 )
+region = Rect2( 960, 0, 240, 192 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 5 )
+region = Rect2( 1200, 0, 240, 192 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 5 )
+region = Rect2( 1440, 0, 240, 192 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 5 )
+region = Rect2( 1680, 0, 240, 192 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 5 )
+region = Rect2( 1920, 0, 240, 192 )
+
+[sub_resource type="AtlasTexture" id=45]
+atlas = ExtResource( 5 )
+region = Rect2( 2160, 0, 240, 192 )
+
+[sub_resource type="AtlasTexture" id=46]
+atlas = ExtResource( 5 )
+region = Rect2( 2400, 0, 240, 192 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 192, 176 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 3 )
+region = Rect2( 576, 0, 192, 176 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 3 )
+region = Rect2( 192, 0, 192, 176 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 3 )
+region = Rect2( 384, 0, 192, 176 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 1 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 1 )
+region = Rect2( 192, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 1 )
+region = Rect2( 256, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 1 )
+region = Rect2( 320, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 1 )
+region = Rect2( 384, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 192, 176 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 3 )
+region = Rect2( 192, 0, 192, 176 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 3 )
+region = Rect2( 384, 0, 192, 176 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 3 )
+region = Rect2( 576, 0, 192, 176 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 3 )
+region = Rect2( 768, 0, 192, 176 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 3 )
+region = Rect2( 960, 0, 192, 176 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 3 )
+region = Rect2( 1152, 0, 192, 176 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 3 )
+region = Rect2( 1344, 0, 192, 176 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 64, 48 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 4 )
+region = Rect2( 64, 0, 64, 48 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 4 )
+region = Rect2( 128, 0, 64, 48 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 4 )
+region = Rect2( 192, 0, 64, 48 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 160, 144 )
+
+[sub_resource type="SpriteFrames" id=35]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": false,
+"name": "Hurt",
+"speed": 7.0
+}, {
+"frames": [ SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ) ],
+"loop": false,
+"name": "Breath",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
+"loop": false,
+"name": "Death",
+"speed": 8.0
+}, {
+"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
+"loop": false,
+"name": "Attack",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ) ],
+"loop": false,
+"name": "Appear",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=48]
+extents = Vector2( 22, 38 )
+
+[sub_resource type="CapsuleShape2D" id=49]
+radius = 22.0
+
+[sub_resource type="CapsuleShape2D" id=47]
+radius = 37.0
+height = 62.0
+
+[sub_resource type="CapsuleShape2D" id=50]
+radius = 50.0
+height = 58.0
+
+[sub_resource type="CapsuleShape2D" id=51]
+radius = 84.0
+height = 322.0
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends \"res://classes/EnemyStats.gd\"
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[node name="Deamon" type="KinematicBody2D"]
+script = ExtResource( 6 )
+move_speed = 110
+
+[node name="Body" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -72 )
+frames = SubResource( 35 )
+animation = "Appear"
+frame = 4
+playing = true
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -38 )
+shape = SubResource( 48 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -62 )
+shape = SubResource( 49 )
+
+[node name="Weapon" type="Node2D" parent="."]
+
+[node name="Breath" type="Area2D" parent="Weapon" groups=["enemy_weapon"]]
+position = Vector2( -54, -37 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon/Breath"]
+rotation = 1.5708
+shape = SubResource( 47 )
+disabled = true
+
+[node name="Timer" type="Timer" parent="Weapon"]
+wait_time = 4.5
+one_shot = true
+
+[node name="Hitbox" type="Area2D" parent="." groups=["enemy_hitbox"]]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( 0, -63 )
+rotation = 1.5708
+shape = SubResource( 50 )
+
+[node name="PlayerDetect" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
+position = Vector2( 0, -84 )
+rotation = -1.5708
+shape = SubResource( 51 )
+
+[node name="EnemyStats" type="Node" parent="."]
+script = SubResource( 1 )
+max_health = 15
+max_damage = 4
+
+[node name="HealthPlate" type="TextureRect" parent="."]
+visible = false
+margin_left = -30.0
+margin_top = -142.0
+margin_right = 30.0
+margin_bottom = -128.0
+texture = ExtResource( 7 )
+expand = true
+
+[node name="HealthBar" type="TextureRect" parent="HealthPlate"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 8 )
+expand = true
+
+[connection signal="animation_finished" from="Body" to="." method="_on_Body_animation_finished"]
+[connection signal="frame_changed" from="Body" to="." method="_on_Body_frame_changed"]
+[connection signal="timeout" from="Weapon/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
+[connection signal="body_entered" from="PlayerDetect" to="." method="_on_PlayerDetect_body_entered"]
+[connection signal="body_exited" from="PlayerDetect" to="." method="_on_PlayerDetect_body_exited"]
+[connection signal="damage_changed" from="EnemyStats" to="Weapon/Breath" method="_on_EnemyStats_damage_changed"]
+[connection signal="health_changed" from="EnemyStats" to="." method="_on_EnemyStats_health_changed"]

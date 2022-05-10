@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/food-B.ogg-0bb44c2a24e63a3e1b2a65fffd31dd8d.oggstr"
+
+[deps]
+
+source_file="res://audio/audioassets/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Movement/food-B.ogg"
+dest_files=[ "res://.import/food-B.ogg-0bb44c2a24e63a3e1b2a65fffd31dd8d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0.0

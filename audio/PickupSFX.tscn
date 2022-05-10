@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://audio/SwordSlashSFX.gd" type="Script" id=1]
+[ext_resource path="res://audio/audioassets/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/General Sounds/Interactions/sfx_sounds_interaction9.wav" type="AudioStream" id=2]
+
+[node name="PickupSFX" type="AudioStreamPlayer"]
+stream = ExtResource( 2 )
+autoplay = true
+bus = "World"
+script = ExtResource( 1 )

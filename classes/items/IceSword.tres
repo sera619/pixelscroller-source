@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://classes/items/item.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = ""
+item_type = ""
+value_to_add = 0
+weapon_damage = 0
+weapon_energie = 0
+amor_defense = 0
+element_type = ""
+item_costs = 0

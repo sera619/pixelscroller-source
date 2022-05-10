@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_exp_cluster9.wav-581f8ef3e1db24717341ff970ed17e2e.sample"
+
+[deps]
+
+source_file="res://audio/audioassets/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Explosions/Clusters/sfx_exp_cluster9.wav"
+dest_files=[ "res://.import/sfx_exp_cluster9.wav-581f8ef3e1db24717341ff970ed17e2e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_sounds_powerup5.wav-afa1d0f4c2759e777c6ade3a5ebe75fd.sample"
+
+[deps]
+
+source_file="res://audio/audioassets/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/General Sounds/Positive Sounds/sfx_sounds_powerup5.wav"
+dest_files=[ "res://.import/sfx_sounds_powerup5.wav-afa1d0f4c2759e777c6ade3a5ebe75fd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

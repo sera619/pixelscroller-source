@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://FinishedNotes/Shader.gd" type="Script" id=1]
+
+[sub_resource type="Shader" id=15]
+code = "shader_type canvas_item;
+
+uniform vec2 scroll = vec2(0.1, 0.1);
+uniform vec2 scroll2 = vec2(0.2, 0.2);
+uniform bool active = false;
+
+void fragment(){
+	if(active){
+		vec4 textureColor = texture(TEXTURE, UV + scroll * (TIME / 8.0));
+		COLOR = textureColor;
+	}else{
+		
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id=16]
+shader = SubResource( 15 )
+shader_param/scroll = Vector2( 0.08, 0.05 )
+shader_param/scroll2 = Vector2( 0.2, 0.2 )
+shader_param/active = true
+
+[sub_resource type="OpenSimplexNoise" id=17]
+seed = 4
+octaves = 4
+period = 108.0
+persistence = 0.04
+lacunarity = 0.14
+
+[sub_resource type="NoiseTexture" id=18]
+width = 2400
+height = 800
+seamless = true
+noise = SubResource( 17 )
+
+[node name="ShaderFogg" type="Sprite"]
+modulate = Color( 0.556863, 0.545098, 0.580392, 0.411765 )
+material = SubResource( 16 )
+position = Vector2( 320, 180 )
+texture = SubResource( 18 )
+script = ExtResource( 1 )

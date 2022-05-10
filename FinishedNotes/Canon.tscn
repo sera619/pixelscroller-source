@@ -1,0 +1,69 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://img/kings-and-pigs/Sprites/10-Cannon/Shoot (44x28).png" type="Texture" id=1]
+[ext_resource path="res://img/kings-and-pigs/Sprites/10-Cannon/Idle.png" type="Texture" id=2]
+[ext_resource path="res://FinishedNotes/Canon.gd" type="Script" id=3]
+[ext_resource path="res://FinishedNotes/Spells/CanonBall.tscn" type="PackedScene" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 44, 28 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 44, 28 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 44, 0, 44, 28 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 88, 0, 44, 28 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 132, 0, 44, 28 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": false,
+"name": "Shoot",
+"speed": 9.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 12, 9 )
+
+[node name="Canon" type="Node2D"]
+script = ExtResource( 3 )
+canon_ball = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 6 )
+animation = "Shoot"
+frame = 3
+playing = true
+offset = Vector2( 0, -11 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 7, -9 )
+shape = SubResource( 7 )
+
+[node name="AtkTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( -14, -12 )
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="timeout" from="AtkTimer" to="." method="_on_AtkTimer_timeout"]

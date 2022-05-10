@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Unpause.wav-1a7a0bf7c9c6971b0e6b5bd7abd00602.sample"
+
+[deps]
+
+source_file="res://audio/audioassets/Unpause.wav"
+dest_files=[ "res://.import/Unpause.wav-1a7a0bf7c9c6971b0e6b5bd7abd00602.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

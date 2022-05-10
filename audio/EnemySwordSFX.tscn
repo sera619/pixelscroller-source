@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://audio/audioassets/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Weapons/Melee/sfx_wpn_punch3.wav" type="AudioStream" id=1]
+[ext_resource path="res://audio/SwordSlashSFX.gd" type="Script" id=2]
+
+[node name="EnemySwordSFX" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+autoplay = true
+bus = "NPC"
+script = ExtResource( 2 )

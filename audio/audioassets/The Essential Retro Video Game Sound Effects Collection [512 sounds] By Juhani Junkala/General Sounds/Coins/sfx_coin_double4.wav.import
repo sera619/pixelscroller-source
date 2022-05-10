@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_coin_double4.wav-bfd8ffef9d1614f3ddd818c273c5c34a.sample"
+
+[deps]
+
+source_file="res://audio/audioassets/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/General Sounds/Coins/sfx_coin_double4.wav"
+dest_files=[ "res://.import/sfx_coin_double4.wav-bfd8ffef9d1614f3ddd818c273c5c34a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

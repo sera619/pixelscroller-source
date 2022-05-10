@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/NPC 2.png-b94bed2612667928762a1ea6c0cf8495.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://img/16x16 Fantasy Platformer Pack/Portraits/NPC 2.png"
+dest_files=[ "res://.import/NPC 2.png-b94bed2612667928762a1ea6c0cf8495.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

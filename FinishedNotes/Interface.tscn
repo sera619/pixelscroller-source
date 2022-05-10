@@ -1,0 +1,2054 @@
+[gd_scene load_steps=67 format=2]
+
+[ext_resource path="res://img/Skull.png" type="Texture" id=1]
+[ext_resource path="res://img/pixel-art-gui-elements/playerplate.png" type="Texture" id=2]
+[ext_resource path="res://FinishedNotes/CharStats.gd" type="Script" id=3]
+[ext_resource path="res://materials/font1.tres" type="DynamicFont" id=4]
+[ext_resource path="res://FinishedNotes/Interface.gd" type="Script" id=5]
+[ext_resource path="res://img/button-pressed.png" type="Texture" id=6]
+[ext_resource path="res://FinishedNotes/UI/Android/HelpAndroid.tscn" type="PackedScene" id=7]
+[ext_resource path="res://img/button-normal.png" type="Texture" id=8]
+[ext_resource path="res://img/key.png" type="Texture" id=9]
+[ext_resource path="res://img/pixel-art-gui-elements/HotkeyPlate.png" type="Texture" id=10]
+[ext_resource path="res://FinishedNotes/GameMenu.gd" type="Script" id=11]
+[ext_resource path="res://img/pixel-art-gui-elements/q-Key.png" type="Texture" id=12]
+[ext_resource path="res://img/text-paper.png" type="Texture" id=13]
+[ext_resource path="res://FinishedNotes/InfoBox.gd" type="Script" id=14]
+[ext_resource path="res://img/singleUIelements/button_home.png" type="Texture" id=15]
+[ext_resource path="res://img/button-small-normal.png" type="Texture" id=16]
+[ext_resource path="res://img/singleUIelements/button_X.png" type="Texture" id=17]
+[ext_resource path="res://img/Icons/items/Light Body.png" type="Texture" id=18]
+[ext_resource path="res://img/Icons/items/Mana Potion.png" type="Texture" id=19]
+[ext_resource path="res://img/singleUIelements/button_stats.png" type="Texture" id=20]
+[ext_resource path="res://img/Icons/items/normalBlade.png" type="Texture" id=21]
+[ext_resource path="res://img/button-small-pressed.png" type="Texture" id=22]
+[ext_resource path="res://img/singleUIelements/button_help.png" type="Texture" id=23]
+[ext_resource path="res://img/Icons/items/Health Potion.png" type="Texture" id=24]
+[ext_resource path="res://img/button-small-hover.png" type="Texture" id=25]
+[ext_resource path="res://img/button-small-disabled.png" type="Texture" id=26]
+[ext_resource path="res://img/button-hover.png" type="Texture" id=27]
+[ext_resource path="res://img/button-disabled.png" type="Texture" id=28]
+[ext_resource path="res://img/pixel-art-gui-elements/ESCt-Key.png" type="Texture" id=29]
+[ext_resource path="res://img/pixel-art-gui-elements/E-Key.png" type="Texture" id=30]
+[ext_resource path="res://img/pixel-art-gui-elements/Shift-Key.png" type="Texture" id=31]
+[ext_resource path="res://img/pixel-art-gui-elements/Space-Key.png" type="Texture" id=32]
+[ext_resource path="res://img/pixel-art-gui-elements/1-Key.png" type="Texture" id=33]
+[ext_resource path="res://img/pixel-art-gui-elements/2-Key.png" type="Texture" id=34]
+[ext_resource path="res://img/pixel-art-gui-elements/3-Key.png" type="Texture" id=35]
+[ext_resource path="res://img/pixel-art-gui-elements/WASD.png" type="Texture" id=36]
+[ext_resource path="res://img/pixel-art-gui-elements/Goldplate.png" type="Texture" id=37]
+[ext_resource path="res://img/pixel-art-gui-elements/w-Key.png" type="Texture" id=38]
+[ext_resource path="res://img/pixel-art-gui-elements/R-Key.png" type="Texture" id=39]
+[ext_resource path="res://img/red-button-pressed.png" type="Texture" id=40]
+[ext_resource path="res://img/red-button-hover.png" type="Texture" id=41]
+[ext_resource path="res://img/red-button-normal.png" type="Texture" id=42]
+[ext_resource path="res://materials/font2.tres" type="DynamicFont" id=43]
+[ext_resource path="res://audio/audioassets/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/General Sounds/Buttons/sfx_sounds_button11.wav" type="AudioStream" id=44]
+[ext_resource path="res://img/pixel-art-gui-elements/weaponbar-frame.png" type="Texture" id=45]
+[ext_resource path="res://img/wood-box.png" type="Texture" id=46]
+[ext_resource path="res://materials/font2-bigger.tres" type="DynamicFont" id=47]
+[ext_resource path="res://img/chest-key.png" type="Texture" id=48]
+[ext_resource path="res://img/button-red-small-pressedt.png" type="Texture" id=49]
+[ext_resource path="res://img/Icons/items/frostlBlade.png" type="Texture" id=50]
+[ext_resource path="res://img/button-red-small-hovert.png" type="Texture" id=51]
+[ext_resource path="res://img/pixel-art-gui-elements/arrow-right.png" type="Texture" id=52]
+[ext_resource path="res://img/pixel-art-gui-elements/arrow-left.png" type="Texture" id=53]
+[ext_resource path="res://img/button-red-small-normalt.png" type="Texture" id=54]
+[ext_resource path="res://classes/items/PracticeSword.tres" type="Resource" id=55]
+[ext_resource path="res://classes/items/FireSword.tres" type="Resource" id=56]
+
+[sub_resource type="StyleBoxLine" id=15]
+color = Color( 0.964706, 0.580392, 0.0823529, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0431373, 0.0431373, 0.0431373, 0.368627 )
+border_width_bottom = 1
+border_color = Color( 0.105882, 0.101961, 0.0980392, 1 )
+shadow_color = Color( 0.647059, 0.772549, 0.776471, 0.6 )
+shadow_size = 1
+
+[sub_resource type="StyleBoxLine" id=6]
+color = Color( 0.94902, 0.686275, 0.0666667, 1 )
+grow_begin = 0.0
+grow_end = 0.0
+
+[sub_resource type="StyleBoxLine" id=16]
+color = Color( 0.964706, 0.580392, 0.0823529, 1 )
+
+[sub_resource type="StyleBoxLine" id=17]
+color = Color( 0.964706, 0.580392, 0.0823529, 1 )
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BG:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BG/M/H/Skull:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BG/M/H/V/Header:visible_characters")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BG/M/H/V/MainText:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("BG/M/H/V/H:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("BG/M:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../Control:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../Control:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "fadeIn_deathscreen"
+length = 5.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("BG:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BG/M/H/Skull:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.2, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BG/M/H/V/Header:visible_characters")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.2, 3.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 0, 21 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BG/M/H/V/MainText:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3.7, 4.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("BG/M/H/V/H:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 4.3, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "fadeOut_deathscreen"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("BG/M:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BG/M/H/V/H:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BG/M/H/V/MainText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BG:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.2, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("BG/M/H/Skull:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("BG/M/H/V/Header:visible_characters")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ -1, -1 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "level_fadeIn"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Control:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Control:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 2.2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "start"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Control:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Control:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.6, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Interface" type="CanvasLayer"]
+follow_viewport_enable = true
+script = ExtResource( 5 )
+
+[node name="StatBar" type="Control" parent="."]
+margin_left = 5.0
+margin_top = 4.0
+margin_right = 164.0
+margin_bottom = 35.0
+
+[node name="VBoxContainer" type="ColorRect" parent="StatBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = -2.0
+color = Color( 1, 1, 1, 0 )
+
+[node name="AmorBar" type="ColorRect" parent="StatBar/VBoxContainer"]
+anchor_right = 0.992
+margin_right = 0.0159912
+margin_bottom = 5.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.917647, 0.964706, 0.384314, 1 )
+
+[node name="HealthBar" type="ColorRect" parent="StatBar/VBoxContainer"]
+anchor_top = 0.5
+anchor_right = 0.929
+anchor_bottom = 0.5
+margin_top = -5.5
+margin_right = 0.0169983
+margin_bottom = 4.5
+size_flags_vertical = 3
+color = Color( 0.713726, 0.0431373, 0.0431373, 1 )
+
+[node name="ManaBar" type="ColorRect" parent="StatBar/VBoxContainer"]
+anchor_top = 1.0
+anchor_right = 0.858
+anchor_bottom = 1.0
+margin_top = -6.0
+margin_right = 0.0339966
+size_flags_vertical = 3
+color = Color( 0.00392157, 0.133333, 0.827451, 1 )
+
+[node name="BG" type="NinePatchRect" parent="StatBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 104, 28 )
+patch_margin_left = 52
+patch_margin_top = 14
+patch_margin_right = 52
+patch_margin_bottom = 14
+
+[node name="WeaponEnergie" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -51.0
+margin_top = -16.0
+margin_right = 48.0
+margin_bottom = -7.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="WeaponEnergiePlate" type="TextureRect" parent="WeaponEnergie"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 45 )
+expand = true
+
+[node name="WEnergieBar" type="ColorRect" parent="WeaponEnergie/WeaponEnergiePlate"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.0
+margin_top = 2.0
+margin_right = -3.0
+margin_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color( 0.8, 0.533333, 0.0235294, 1 )
+
+[node name="GameMenu" type="Control" parent="."]
+pause_mode = 2
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -65.0
+margin_top = -83.0
+margin_right = 50.0
+margin_bottom = 80.0
+script = ExtResource( 11 )
+exitBtn = NodePath("NinePatchRect/MarginContainer/VBoxContainer/ExitBtn")
+macro_menu_path = NodePath("../MarcroMenu")
+stat_panel_path = NodePath("../CharStats")
+help_path = NodePath("../Help")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="GameMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 46 )
+region_rect = Rect2( 0, 0, 48, 32 )
+patch_margin_left = 24
+patch_margin_top = 16
+patch_margin_right = 24
+patch_margin_bottom = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="GameMenu/NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 5
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameMenu/NinePatchRect/MarginContainer"]
+margin_left = 10.0
+margin_top = 5.0
+margin_right = 105.0
+margin_bottom = 153.0
+custom_constants/separation = 2
+
+[node name="Label" type="Label" parent="GameMenu/NinePatchRect/MarginContainer/VBoxContainer"]
+margin_right = 95.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0.964706, 0.580392, 0.0823529, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = ExtResource( 43 )
+text = "MENU"
+align = 1
+valign = 1
+
+[node name="HSeparator" type="HSeparator" parent="GameMenu/NinePatchRect/MarginContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 95.0
+margin_bottom = 28.0
+custom_styles/separator = SubResource( 15 )
+
+[node name="BackBtn" type="TextureButton" parent="GameMenu/NinePatchRect/MarginContainer/VBoxContainer"]
+margin_top = 30.0
+margin_right = 95.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 27 )
+expand = true
+
+[node name="Label" type="Label" parent="GameMenu/NinePatchRect/MarginContainer/VBoxContainer/BackBtn"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -27.5
+margin_top = -8.5
+margin_right = 27.5
+margin_bottom = 8.5
+custom_colors/font_color = Color( 0.631373, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "BACK"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Save" type="TextureButton" parent="GameMenu/NinePatchRect/MarginContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 95.0
+margin_bottom = 76.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 27 )
+expand = true
+
+[node name="Label2" type="Label" parent="GameMenu/NinePatchRect/MarginContainer/VBoxContainer/Save"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -27.5
+margin_top = -8.5
+margin_right = 27.5
+margin_bottom = 8.5
+custom_colors/font_color = Color( 0.631373, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "SAVE"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="ExitBtn" type="TextureButton" parent="GameMenu/NinePatchRect/MarginContainer/VBoxContainer"]
+margin_top = 78.0
+margin_right = 95.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 27 )
+expand = true
+
+[node name="Label2" type="Label" parent="GameMenu/NinePatchRect/MarginContainer/VBoxContainer/ExitBtn"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -27.5
+margin_top = -8.5
+margin_right = 27.5
+margin_bottom = 8.5
+custom_colors/font_color = Color( 0.631373, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "EXIT"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="DevMap" type="TextureButton" parent="GameMenu/NinePatchRect/MarginContainer/VBoxContainer"]
+margin_top = 102.0
+margin_right = 95.0
+margin_bottom = 124.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 42 )
+texture_pressed = ExtResource( 40 )
+texture_hover = ExtResource( 41 )
+expand = true
+
+[node name="Label" type="Label" parent="GameMenu/NinePatchRect/MarginContainer/VBoxContainer/DevMap"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Dev"
+align = 1
+valign = 1
+
+[node name="TimeHeader" type="Label" parent="GameMenu/NinePatchRect/MarginContainer/VBoxContainer"]
+margin_top = 126.0
+margin_right = 95.0
+margin_bottom = 136.0
+custom_colors/font_color = Color( 0.964706, 0.580392, 0.0823529, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Spielzeit"
+align = 1
+valign = 1
+
+[node name="Time" type="Label" parent="GameMenu/NinePatchRect/MarginContainer/VBoxContainer"]
+margin_top = 138.0
+margin_right = 95.0
+margin_bottom = 148.0
+custom_colors/font_color = Color( 0.964706, 0.580392, 0.0823529, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+align = 1
+valign = 1
+
+[node name="Inv" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -120.0
+margin_top = 3.0
+margin_right = -3.0
+margin_bottom = 44.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="H" type="VBoxContainer" parent="Inv"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+custom_constants/separation = 2
+alignment = 2
+
+[node name="BG" type="NinePatchRect" parent="Inv/H"]
+margin_right = 117.0
+margin_bottom = 41.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 117, 40 )
+patch_margin_left = 58
+patch_margin_top = 20
+patch_margin_right = 59
+patch_margin_bottom = 20
+
+[node name="M" type="MarginContainer" parent="Inv/H/BG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 8
+custom_constants/margin_top = 8
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 8
+
+[node name="H" type="HBoxContainer" parent="Inv/H/BG/M"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 109.0
+margin_bottom = 33.0
+custom_constants/separation = 4
+
+[node name="HPotion" type="TextureRect" parent="Inv/H/BG/M/H"]
+margin_right = 31.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
+stretch_mode = 6
+
+[node name="HPotIocn" type="TextureRect" parent="Inv/H/BG/M/H/HPotion"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -11.5
+margin_top = -4.5
+margin_right = 4.5
+margin_bottom = 6.5
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 24 )
+expand = true
+stretch_mode = 6
+
+[node name="StackTxt" type="Label" parent="Inv/H/BG/M/H/HPotion"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -13.0
+margin_top = -10.0
+rect_pivot_offset = Vector2( 14, 12 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.811765, 0.811765, 0.811765, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.239216, 0.235294, 0.235294, 0.545098 )
+custom_fonts/font = ExtResource( 4 )
+text = "0"
+valign = 2
+
+[node name="MPotion" type="TextureRect" parent="Inv/H/BG/M/H"]
+margin_left = 35.0
+margin_right = 66.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MPotIcon" type="TextureRect" parent="Inv/H/BG/M/H/MPotion"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 19 )
+expand = true
+stretch_mode = 6
+
+[node name="StackTxt" type="Label" parent="Inv/H/BG/M/H/MPotion"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -13.0
+margin_top = -15.0
+margin_right = -4.0
+rect_pivot_offset = Vector2( 14, 12 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.811765, 0.811765, 0.811765, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.239216, 0.235294, 0.235294, 0.545098 )
+custom_fonts/font = ExtResource( 4 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="Keys" type="TextureRect" parent="Inv/H/BG/M/H"]
+margin_left = 70.0
+margin_right = 101.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="KeyIcon" type="TextureRect" parent="Inv/H/BG/M/H/Keys"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 6
+
+[node name="StackTxt" type="Label" parent="Inv/H/BG/M/H/Keys"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -13.0
+margin_top = -10.0
+margin_right = -2.0
+rect_pivot_offset = Vector2( 14, 12 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.811765, 0.811765, 0.811765, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.239216, 0.235294, 0.235294, 0.545098 )
+custom_fonts/font = ExtResource( 4 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="Gold" type="TextureRect" parent="Inv"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -68.0
+margin_top = 43.0
+margin_bottom = 63.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 37 )
+
+[node name="GoldAmount" type="Label" parent="Inv/Gold"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_right = -4.0
+custom_fonts/font = ExtResource( 4 )
+text = "00"
+align = 2
+valign = 1
+
+[node name="ChestKey" type="TextureRect" parent="Inv"]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 9.0
+margin_top = 3.0
+margin_right = 38.0
+margin_bottom = 21.0
+texture = ExtResource( 48 )
+expand = true
+
+[node name="InfoBox" type="Control" parent="."]
+pause_mode = 2
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -129.0
+margin_right = 131.0
+margin_bottom = 99.0
+script = ExtResource( 14 )
+
+[node name="BG" type="NinePatchRect" parent="InfoBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 13 )
+region_rect = Rect2( 0, 0, 32, 32 )
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="M" type="MarginContainer" parent="InfoBox/BG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 5
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 5
+
+[node name="V" type="VBoxContainer" parent="InfoBox/BG/M"]
+margin_left = 10.0
+margin_top = 5.0
+margin_right = 250.0
+margin_bottom = 94.0
+custom_constants/separation = 0
+alignment = 1
+
+[node name="HeadLabel" type="Label" parent="InfoBox/BG/M/V"]
+margin_right = 240.0
+margin_bottom = 11.0
+size_flags_vertical = 0
+custom_colors/font_color = Color( 0.372549, 0.909804, 0.184314, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+custom_styles/normal = SubResource( 3 )
+text = "Information"
+align = 1
+autowrap = true
+uppercase = true
+
+[node name="TextLabel" type="Label" parent="InfoBox/BG/M/V"]
+margin_top = 11.0
+margin_right = 240.0
+margin_bottom = 89.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0.0431373, 0.0431373, 0.0431373, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "test text"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Timer" type="Timer" parent="InfoBox"]
+one_shot = true
+
+[node name="MarcroMenu" type="Control" parent="."]
+pause_mode = 2
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -111.0
+margin_right = 47.0
+margin_bottom = -15.0
+
+[node name="Bg" type="NinePatchRect" parent="MarcroMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+region_rect = Rect2( 0, 0, 48, 48 )
+patch_margin_left = 24
+patch_margin_top = 15
+patch_margin_right = 24
+patch_margin_bottom = 15
+
+[node name="M" type="MarginContainer" parent="MarcroMenu/Bg"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 8
+custom_constants/margin_top = 8
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 8
+
+[node name="H" type="VBoxContainer" parent="MarcroMenu/Bg/M"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 40.0
+margin_bottom = 88.0
+custom_constants/separation = 0
+alignment = 1
+
+[node name="HomeBtn" type="TextureButton" parent="MarcroMenu/Bg/M/H"]
+margin_right = 32.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 22 )
+texture_hover = ExtResource( 25 )
+texture_disabled = ExtResource( 26 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="MarcroMenu/Bg/M/H/HomeBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 15 )
+expand = true
+stretch_mode = 6
+
+[node name="StatsBtn" type="TextureButton" parent="MarcroMenu/Bg/M/H"]
+margin_top = 26.0
+margin_right = 32.0
+margin_bottom = 53.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 22 )
+texture_hover = ExtResource( 25 )
+texture_disabled = ExtResource( 26 )
+expand = true
+
+[node name="TextureRect2" type="TextureRect" parent="MarcroMenu/Bg/M/H/StatsBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 20 )
+expand = true
+stretch_mode = 6
+
+[node name="HelpBtn" type="TextureButton" parent="MarcroMenu/Bg/M/H"]
+margin_top = 53.0
+margin_right = 32.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 22 )
+texture_hover = ExtResource( 25 )
+texture_disabled = ExtResource( 26 )
+expand = true
+
+[node name="TextureRect4" type="TextureRect" parent="MarcroMenu/Bg/M/H/HelpBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 23 )
+expand = true
+stretch_mode = 6
+
+[node name="MenuBtn" type="TextureButton" parent="MarcroMenu/Bg/M/H"]
+visible = false
+margin_left = 108.0
+margin_right = 136.0
+margin_bottom = 21.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 22 )
+expand = true
+
+[node name="TextureRect5" type="TextureRect" parent="MarcroMenu/Bg/M/H/MenuBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 17 )
+expand = true
+stretch_mode = 6
+
+[node name="CharStats" type="Control" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -122.0
+margin_top = 10.0
+margin_right = 121.0
+margin_bottom = 185.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+firesword_item = ExtResource( 56 )
+practicesword_item = ExtResource( 55 )
+
+[node name="Bg" type="NinePatchRect" parent="CharStats"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 46 )
+patch_margin_left = 24
+patch_margin_top = 16
+patch_margin_right = 24
+patch_margin_bottom = 16
+
+[node name="M" type="MarginContainer" parent="CharStats/Bg"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 10
+custom_constants/margin_top = 6
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 6
+
+[node name="V" type="VBoxContainer" parent="CharStats/Bg/M"]
+margin_left = 10.0
+margin_top = 6.0
+margin_right = 233.0
+margin_bottom = 169.0
+custom_constants/separation = 7
+alignment = 1
+
+[node name="HeadLabel" type="Label" parent="CharStats/Bg/M/V"]
+margin_top = 2.0
+margin_right = 223.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.94902, 0.686275, 0.0666667, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 43 )
+text = "Stats"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="HS" type="HSeparator" parent="CharStats/Bg/M/V"]
+margin_top = 24.0
+margin_right = 223.0
+margin_bottom = 25.0
+custom_constants/separation = 1
+custom_styles/separator = SubResource( 6 )
+
+[node name="StatContainer" type="GridContainer" parent="CharStats/Bg/M/V"]
+margin_top = 32.0
+margin_right = 223.0
+margin_bottom = 66.0
+size_flags_horizontal = 3
+custom_constants/vseparation = 2
+custom_constants/hseparation = 8
+columns = 4
+
+[node name="name" type="Label" parent="CharStats/Bg/M/V/StatContainer"]
+margin_right = 49.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_colors/font_color = Color( 0.0117647, 0.0705882, 0.207843, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.952941, 0.952941, 0.952941, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Name"
+align = 2
+valign = 1
+uppercase = true
+
+[node name="namevalue" type="Label" parent="CharStats/Bg/M/V/StatContainer"]
+margin_left = 57.0
+margin_right = 106.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_colors/font_color = Color( 0.137255, 0.733333, 0.831373, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "value"
+
+[node name="health" type="Label" parent="CharStats/Bg/M/V/StatContainer"]
+margin_left = 114.0
+margin_right = 163.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_colors/font_color = Color( 0.0117647, 0.0705882, 0.207843, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.952941, 0.952941, 0.952941, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Leben"
+align = 2
+valign = 1
+uppercase = true
+
+[node name="healthvalue" type="Label" parent="CharStats/Bg/M/V/StatContainer"]
+margin_left = 171.0
+margin_right = 220.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_colors/font_color = Color( 0.137255, 0.733333, 0.831373, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "value"
+
+[node name="amor" type="Label" parent="CharStats/Bg/M/V/StatContainer"]
+margin_top = 12.0
+margin_right = 49.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_colors/font_color = Color( 0.0117647, 0.0705882, 0.207843, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.952941, 0.952941, 0.952941, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Ruestung"
+align = 2
+valign = 1
+uppercase = true
+
+[node name="amorvalue" type="Label" parent="CharStats/Bg/M/V/StatContainer"]
+margin_left = 57.0
+margin_top = 12.0
+margin_right = 106.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_colors/font_color = Color( 0.137255, 0.733333, 0.831373, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "value"
+
+[node name="Stamina" type="Label" parent="CharStats/Bg/M/V/StatContainer"]
+margin_left = 114.0
+margin_top = 12.0
+margin_right = 163.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_colors/font_color = Color( 0.0117647, 0.0705882, 0.207843, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.952941, 0.952941, 0.952941, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Ausdauer"
+align = 2
+valign = 1
+uppercase = true
+
+[node name="StaminaValue" type="Label" parent="CharStats/Bg/M/V/StatContainer"]
+margin_left = 171.0
+margin_top = 12.0
+margin_right = 220.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_colors/font_color = Color( 0.137255, 0.733333, 0.831373, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "value"
+
+[node name="Damage" type="Label" parent="CharStats/Bg/M/V/StatContainer"]
+margin_top = 24.0
+margin_right = 49.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_colors/font_color = Color( 0.0117647, 0.0705882, 0.207843, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.952941, 0.952941, 0.952941, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Schaden"
+align = 2
+valign = 1
+uppercase = true
+
+[node name="DamageValue" type="Label" parent="CharStats/Bg/M/V/StatContainer"]
+margin_left = 57.0
+margin_top = 24.0
+margin_right = 106.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_colors/font_color = Color( 0.137255, 0.733333, 0.831373, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "value"
+
+[node name="Element" type="Label" parent="CharStats/Bg/M/V/StatContainer"]
+margin_left = 114.0
+margin_top = 24.0
+margin_right = 163.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_colors/font_color = Color( 0.0117647, 0.0705882, 0.207843, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.952941, 0.952941, 0.952941, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Element"
+align = 2
+valign = 1
+uppercase = true
+
+[node name="ElementValue" type="Label" parent="CharStats/Bg/M/V/StatContainer"]
+margin_left = 171.0
+margin_top = 24.0
+margin_right = 220.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_colors/font_color = Color( 0.137255, 0.733333, 0.831373, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "value"
+
+[node name="HS2" type="HSeparator" parent="CharStats/Bg/M/V"]
+margin_top = 73.0
+margin_right = 223.0
+margin_bottom = 74.0
+custom_constants/separation = 1
+custom_styles/separator = SubResource( 6 )
+
+[node name="Equipment" type="Label" parent="CharStats/Bg/M/V"]
+margin_top = 81.0
+margin_right = 223.0
+margin_bottom = 91.0
+custom_colors/font_color = Color( 0.807843, 0.588235, 0.0745098, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Equipment"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Equip" type="GridContainer" parent="CharStats/Bg/M/V"]
+margin_top = 98.0
+margin_right = 223.0
+margin_bottom = 130.0
+columns = 4
+
+[node name="WeaponIcon" type="TextureButton" parent="CharStats/Bg/M/V/Equip"]
+margin_right = 32.0
+margin_bottom = 32.0
+size_flags_horizontal = 0
+texture_normal = ExtResource( 21 )
+
+[node name="WeaponStats" type="ColorRect" parent="CharStats/Bg/M/V/Equip"]
+margin_left = 36.0
+margin_right = 109.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.560784, 0.788235, 0.756863, 1 )
+
+[node name="V" type="VBoxContainer" parent="CharStats/Bg/M/V/Equip/WeaponStats"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = -1
+alignment = 2
+
+[node name="WeaponName" type="Label" parent="CharStats/Bg/M/V/Equip/WeaponStats/V"]
+margin_right = 73.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Weaponname"
+align = 1
+valign = 1
+
+[node name="WeaponElement" type="Label" parent="CharStats/Bg/M/V/Equip/WeaponStats/V"]
+margin_top = 15.0
+margin_right = 73.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Damage"
+align = 1
+valign = 1
+
+[node name="AmorIcon" type="TextureButton" parent="CharStats/Bg/M/V/Equip"]
+margin_left = 113.0
+margin_right = 145.0
+margin_bottom = 32.0
+size_flags_horizontal = 0
+texture_normal = ExtResource( 18 )
+
+[node name="AmorStats" type="ColorRect" parent="CharStats/Bg/M/V/Equip"]
+margin_left = 149.0
+margin_right = 222.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.560784, 0.788235, 0.756863, 1 )
+
+[node name="V" type="VBoxContainer" parent="CharStats/Bg/M/V/Equip/AmorStats"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+
+[node name="AmorName" type="Label" parent="CharStats/Bg/M/V/Equip/AmorStats/V"]
+margin_top = 4.0
+margin_right = 73.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Amorname"
+align = 1
+valign = 1
+
+[node name="AmorElement" type="Label" parent="CharStats/Bg/M/V/Equip/AmorStats/V"]
+margin_top = 18.0
+margin_right = 73.0
+margin_bottom = 28.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Defense"
+align = 1
+valign = 2
+
+[node name="HS3" type="HSeparator" parent="CharStats/Bg/M/V"]
+margin_top = 137.0
+margin_right = 223.0
+margin_bottom = 138.0
+custom_constants/separation = 1
+custom_styles/separator = SubResource( 6 )
+
+[node name="OkStatsBtn" type="TextureButton" parent="CharStats/Bg/M/V"]
+margin_left = 87.0
+margin_top = 145.0
+margin_right = 135.0
+margin_bottom = 161.0
+size_flags_horizontal = 6
+size_flags_vertical = 0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 27 )
+texture_disabled = ExtResource( 28 )
+
+[node name="Label" type="Label" parent="CharStats/Bg/M/V/OkStatsBtn"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+custom_colors/font_color = Color( 0.882353, 0.878431, 0.878431, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "OKAY"
+align = 1
+valign = 1
+
+[node name="EQWeapon" type="NinePatchRect" parent="CharStats"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 46 )
+patch_margin_left = 24
+patch_margin_top = 16
+patch_margin_right = 24
+patch_margin_bottom = 16
+
+[node name="M" type="MarginContainer" parent="CharStats/EQWeapon"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="V" type="VBoxContainer" parent="CharStats/EQWeapon/M"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 233.0
+margin_bottom = 165.0
+custom_constants/separation = 4
+
+[node name="WHead" type="Label" parent="CharStats/EQWeapon/M/V"]
+margin_right = 223.0
+margin_bottom = 15.0
+custom_colors/font_color = Color( 0.964706, 0.580392, 0.0823529, 1 )
+custom_fonts/font = ExtResource( 43 )
+text = "Waffen"
+align = 1
+valign = 1
+
+[node name="HS" type="HSeparator" parent="CharStats/EQWeapon/M/V"]
+margin_top = 19.0
+margin_right = 223.0
+margin_bottom = 23.0
+custom_styles/separator = SubResource( 16 )
+
+[node name="WeaponName" type="Label" parent="CharStats/EQWeapon/M/V"]
+margin_top = 27.0
+margin_right = 223.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0.129412, 0.717647, 0.898039, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "WeaponName"
+align = 1
+valign = 1
+
+[node name="H" type="HBoxContainer" parent="CharStats/EQWeapon/M/V"]
+margin_top = 41.0
+margin_right = 223.0
+margin_bottom = 73.0
+custom_constants/separation = 22
+alignment = 1
+
+[node name="BeforeBtn" type="TextureButton" parent="CharStats/EQWeapon/M/V/H"]
+margin_left = 57.0
+margin_top = 8.0
+margin_right = 73.0
+margin_bottom = 24.0
+size_flags_vertical = 6
+texture_normal = ExtResource( 54 )
+texture_pressed = ExtResource( 49 )
+texture_hover = ExtResource( 51 )
+texture_disabled = ExtResource( 26 )
+
+[node name="Icon" type="TextureRect" parent="CharStats/EQWeapon/M/V/H/BeforeBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 53 )
+
+[node name="WeaponIcon" type="TextureRect" parent="CharStats/EQWeapon/M/V/H"]
+margin_left = 95.0
+margin_right = 127.0
+margin_bottom = 32.0
+texture = ExtResource( 50 )
+stretch_mode = 6
+
+[node name="NextBtn" type="TextureButton" parent="CharStats/EQWeapon/M/V/H"]
+margin_left = 149.0
+margin_top = 8.0
+margin_right = 165.0
+margin_bottom = 24.0
+size_flags_vertical = 6
+texture_normal = ExtResource( 54 )
+texture_pressed = ExtResource( 49 )
+texture_hover = ExtResource( 51 )
+texture_disabled = ExtResource( 26 )
+
+[node name="Icon" type="TextureRect" parent="CharStats/EQWeapon/M/V/H/NextBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 52 )
+
+[node name="HS2" type="HSeparator" parent="CharStats/EQWeapon/M/V"]
+margin_top = 77.0
+margin_right = 223.0
+margin_bottom = 81.0
+custom_styles/separator = SubResource( 17 )
+
+[node name="GC" type="GridContainer" parent="CharStats/EQWeapon/M/V"]
+margin_top = 85.0
+margin_right = 223.0
+margin_bottom = 95.0
+size_flags_horizontal = 15
+custom_constants/vseparation = 0
+custom_constants/hseparation = 0
+columns = 3
+
+[node name="DamageLabel" type="Label" parent="CharStats/EQWeapon/M/V/GC"]
+margin_right = 74.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_colors/font_color = Color( 0.560784, 0.788235, 0.756863, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Schaden:"
+align = 2
+
+[node name="OldDamage" type="Label" parent="CharStats/EQWeapon/M/V/GC"]
+margin_left = 74.0
+margin_right = 148.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "00"
+align = 1
+valign = 1
+
+[node name="NewDamage" type="Label" parent="CharStats/EQWeapon/M/V/GC"]
+margin_left = 148.0
+margin_right = 222.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "00"
+align = 1
+valign = 1
+
+[node name="Desc" type="Label" parent="CharStats/EQWeapon/M/V"]
+margin_top = 99.0
+margin_right = 223.0
+margin_bottom = 135.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0.0156863, 0.74902, 0.52549, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "H"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="H2" type="HBoxContainer" parent="CharStats/EQWeapon/M/V"]
+margin_top = 139.0
+margin_right = 223.0
+margin_bottom = 155.0
+alignment = 1
+
+[node name="WeaponEquipBtn" type="TextureButton" parent="CharStats/EQWeapon/M/V/H2"]
+margin_left = 61.0
+margin_right = 109.0
+margin_bottom = 16.0
+size_flags_horizontal = 10
+texture_normal = ExtResource( 42 )
+texture_pressed = ExtResource( 40 )
+texture_hover = ExtResource( 41 )
+texture_disabled = ExtResource( 28 )
+
+[node name="Label" type="Label" parent="CharStats/EQWeapon/M/V/H2/WeaponEquipBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.988235, 0.988235, 0.988235, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "OKAY"
+align = 1
+valign = 1
+
+[node name="WeaponBackBtn" type="TextureButton" parent="CharStats/EQWeapon/M/V/H2"]
+margin_left = 113.0
+margin_right = 161.0
+margin_bottom = 16.0
+size_flags_horizontal = 2
+texture_normal = ExtResource( 42 )
+texture_pressed = ExtResource( 40 )
+texture_hover = ExtResource( 41 )
+texture_disabled = ExtResource( 28 )
+
+[node name="Label" type="Label" parent="CharStats/EQWeapon/M/V/H2/WeaponBackBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 4 )
+text = "EXIT"
+align = 1
+valign = 1
+
+[node name="Help" type="Control" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -88.0
+margin_top = -116.0
+margin_right = 88.0
+margin_bottom = 116.0
+
+[node name="BG" type="NinePatchRect" parent="Help"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 13 )
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="M" type="MarginContainer" parent="Help/BG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="V" type="VBoxContainer" parent="Help/BG/M"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 166.0
+margin_bottom = 222.0
+custom_constants/separation = 4
+
+[node name="Head" type="Label" parent="Help/BG/M/V"]
+margin_right = 156.0
+margin_bottom = 10.0
+custom_colors/font_color = Color( 0.760784, 0.454902, 0.0627451, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "HILFE"
+align = 1
+valign = 1
+
+[node name="GridContainer" type="GridContainer" parent="Help/BG/M/V"]
+margin_top = 14.0
+margin_right = 156.0
+margin_bottom = 186.0
+size_flags_horizontal = 3
+custom_constants/vseparation = 4
+custom_constants/hseparation = -4
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="Help/BG/M/V/GridContainer"]
+margin_right = 80.0
+margin_bottom = 12.0
+size_flags_horizontal = 3
+texture = ExtResource( 36 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Help/BG/M/V/GridContainer"]
+margin_left = 76.0
+margin_top = 1.0
+margin_right = 156.0
+margin_bottom = 11.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.827451, 0.619608, 0.129412, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Bewegen"
+
+[node name="TextureRect10" type="TextureRect" parent="Help/BG/M/V/GridContainer"]
+margin_top = 16.0
+margin_right = 80.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+texture = ExtResource( 38 )
+stretch_mode = 4
+
+[node name="Label10" type="Label" parent="Help/BG/M/V/GridContainer"]
+margin_left = 76.0
+margin_top = 17.0
+margin_right = 156.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.827451, 0.619608, 0.129412, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Springen"
+
+[node name="TextureRect2" type="TextureRect" parent="Help/BG/M/V/GridContainer"]
+margin_top = 32.0
+margin_right = 80.0
+margin_bottom = 44.0
+rect_pivot_offset = Vector2( -195, 49 )
+size_flags_horizontal = 3
+texture = ExtResource( 30 )
+stretch_mode = 4
+
+[node name="Label2" type="Label" parent="Help/BG/M/V/GridContainer"]
+margin_left = 76.0
+margin_top = 33.0
+margin_right = 156.0
+margin_bottom = 43.0
+rect_pivot_offset = Vector2( -299, 44 )
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.827451, 0.619608, 0.129412, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Interaktion"
+
+[node name="TextureRect11" type="TextureRect" parent="Help/BG/M/V/GridContainer"]
+margin_top = 48.0
+margin_right = 80.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+texture = ExtResource( 12 )
+stretch_mode = 4
+
+[node name="Label11" type="Label" parent="Help/BG/M/V/GridContainer"]
+margin_left = 76.0
+margin_top = 49.0
+margin_right = 156.0
+margin_bottom = 59.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.827451, 0.619608, 0.129412, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Spezial Angriff"
+
+[node name="TextureRect3" type="TextureRect" parent="Help/BG/M/V/GridContainer"]
+margin_top = 64.0
+margin_right = 80.0
+margin_bottom = 76.0
+size_flags_horizontal = 3
+texture = ExtResource( 31 )
+stretch_mode = 4
+
+[node name="Label3" type="Label" parent="Help/BG/M/V/GridContainer"]
+margin_left = 76.0
+margin_top = 65.0
+margin_right = 156.0
+margin_bottom = 75.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.827451, 0.619608, 0.129412, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Rutschen"
+
+[node name="TextureRect4" type="TextureRect" parent="Help/BG/M/V/GridContainer"]
+margin_top = 80.0
+margin_right = 80.0
+margin_bottom = 92.0
+size_flags_horizontal = 3
+texture = ExtResource( 32 )
+stretch_mode = 4
+
+[node name="Label4" type="Label" parent="Help/BG/M/V/GridContainer"]
+margin_left = 76.0
+margin_top = 81.0
+margin_right = 156.0
+margin_bottom = 91.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.827451, 0.619608, 0.129412, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Angriff 1"
+
+[node name="TextureRect9" type="TextureRect" parent="Help/BG/M/V/GridContainer"]
+margin_top = 96.0
+margin_right = 80.0
+margin_bottom = 108.0
+size_flags_horizontal = 3
+texture = ExtResource( 39 )
+stretch_mode = 4
+
+[node name="Label9" type="Label" parent="Help/BG/M/V/GridContainer"]
+margin_left = 76.0
+margin_top = 97.0
+margin_right = 156.0
+margin_bottom = 107.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.827451, 0.619608, 0.129412, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Angriff 2"
+
+[node name="TextureRect5" type="TextureRect" parent="Help/BG/M/V/GridContainer"]
+margin_top = 112.0
+margin_right = 80.0
+margin_bottom = 124.0
+size_flags_horizontal = 3
+texture = ExtResource( 33 )
+stretch_mode = 4
+
+[node name="Label5" type="Label" parent="Help/BG/M/V/GridContainer"]
+margin_left = 76.0
+margin_top = 113.0
+margin_right = 156.0
+margin_bottom = 123.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.827451, 0.619608, 0.129412, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Hotkey Slot 1"
+
+[node name="TextureRect6" type="TextureRect" parent="Help/BG/M/V/GridContainer"]
+margin_top = 128.0
+margin_right = 80.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+texture = ExtResource( 34 )
+stretch_mode = 4
+
+[node name="Label6" type="Label" parent="Help/BG/M/V/GridContainer"]
+margin_left = 76.0
+margin_top = 129.0
+margin_right = 156.0
+margin_bottom = 139.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.827451, 0.619608, 0.129412, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Hotkey Slot 2"
+
+[node name="TextureRect7" type="TextureRect" parent="Help/BG/M/V/GridContainer"]
+margin_top = 144.0
+margin_right = 80.0
+margin_bottom = 156.0
+size_flags_horizontal = 3
+texture = ExtResource( 35 )
+stretch_mode = 4
+
+[node name="Label7" type="Label" parent="Help/BG/M/V/GridContainer"]
+margin_left = 76.0
+margin_top = 145.0
+margin_right = 156.0
+margin_bottom = 155.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.827451, 0.619608, 0.129412, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Hotkey Slot 3"
+
+[node name="TextureRect8" type="TextureRect" parent="Help/BG/M/V/GridContainer"]
+margin_top = 160.0
+margin_right = 80.0
+margin_bottom = 172.0
+size_flags_horizontal = 3
+texture = ExtResource( 29 )
+stretch_mode = 4
+
+[node name="Label8" type="Label" parent="Help/BG/M/V/GridContainer"]
+margin_left = 76.0
+margin_top = 161.0
+margin_right = 156.0
+margin_bottom = 171.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.827451, 0.619608, 0.129412, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Menu"
+
+[node name="CloseBtn" type="TextureButton" parent="Help/BG/M/V"]
+margin_top = 190.0
+margin_right = 156.0
+margin_bottom = 212.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 27 )
+texture_disabled = ExtResource( 28 )
+expand = true
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="Help/BG/M/V/CloseBtn"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -71.0
+margin_top = -9.5
+margin_right = 71.0
+margin_bottom = 9.5
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 4 )
+text = "OKAY"
+align = 1
+valign = 1
+
+[node name="Help-Android" parent="." instance=ExtResource( 7 )]
+visible = false
+
+[node name="MobileStick" type="Node" parent="."]
+
+[node name="DeathScreen" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="BG" type="ColorRect" parent="DeathScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+
+[node name="M" type="MarginContainer" parent="DeathScreen/BG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="H" type="HBoxContainer" parent="DeathScreen/BG/M"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 630.0
+margin_bottom = 350.0
+custom_constants/separation = 9
+
+[node name="Skull" type="TextureRect" parent="DeathScreen/BG/M/H"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 305.0
+margin_bottom = 340.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="V" type="VBoxContainer" parent="DeathScreen/BG/M/H"]
+margin_left = 314.0
+margin_top = 92.0
+margin_right = 620.0
+margin_bottom = 248.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_constants/separation = 12
+alignment = 1
+
+[node name="Header" type="Label" parent="DeathScreen/BG/M/H/V"]
+margin_right = 306.0
+margin_bottom = 65.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+custom_colors/font_color = Color( 0.686275, 0, 0, 1 )
+custom_fonts/font = ExtResource( 47 )
+text = "Du bist leider gestorben"
+align = 1
+valign = 2
+autowrap = true
+uppercase = true
+percent_visible = 0.0
+
+[node name="MainText" type="Label" parent="DeathScreen/BG/M/H/V"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 77.0
+margin_right = 306.0
+margin_bottom = 128.0
+size_flags_vertical = 2
+custom_colors/font_color = Color( 0.517647, 0.67451, 0.682353, 1 )
+custom_fonts/font = ExtResource( 43 )
+text = "Spiel beenden
+oder
+neu laden"
+align = 1
+valign = 2
+clip_text = true
+uppercase = true
+
+[node name="H" type="HBoxContainer" parent="DeathScreen/BG/M/H/V"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 140.0
+margin_right = 306.0
+margin_bottom = 156.0
+size_flags_horizontal = 7
+custom_constants/separation = 32
+alignment = 1
+
+[node name="LoadBtn" type="TextureButton" parent="DeathScreen/BG/M/H/V/H"]
+margin_left = 89.0
+margin_right = 137.0
+margin_bottom = 16.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 27 )
+texture_disabled = ExtResource( 28 )
+
+[node name="Label" type="Label" parent="DeathScreen/BG/M/H/V/H/LoadBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "LADEN"
+align = 1
+valign = 1
+
+[node name="ExitBtn" type="TextureButton" parent="DeathScreen/BG/M/H/V/H"]
+margin_left = 169.0
+margin_right = 217.0
+margin_bottom = 16.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 27 )
+texture_disabled = ExtResource( 28 )
+
+[node name="Label" type="Label" parent="DeathScreen/BG/M/H/V/H/ExitBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 4 )
+text = "ENDE"
+align = 1
+valign = 1
+
+[node name="Control" type="Control" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../DeathScreen")
+anims/RESET = SubResource( 10 )
+anims/fadeIn_deathscreen = SubResource( 11 )
+anims/fadeOut_deathscreen = SubResource( 12 )
+anims/level_fadeIn = SubResource( 13 )
+anims/start = SubResource( 14 )
+
+[node name="ButtonSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 44 )
+bus = "Menu"
+
+[connection signal="button_down" from="GameMenu/NinePatchRect/MarginContainer/VBoxContainer/BackBtn" to="GameMenu" method="_on_BackBtn_button_down"]
+[connection signal="pressed" from="GameMenu/NinePatchRect/MarginContainer/VBoxContainer/Save" to="GameMenu" method="_on_Save_pressed"]
+[connection signal="button_down" from="GameMenu/NinePatchRect/MarginContainer/VBoxContainer/ExitBtn" to="GameMenu" method="_on_ExitBtn_button_down"]
+[connection signal="pressed" from="GameMenu/NinePatchRect/MarginContainer/VBoxContainer/DevMap" to="GameMenu" method="_on_DevMap_pressed"]
+[connection signal="timeout" from="InfoBox/Timer" to="InfoBox" method="_on_Timer_timeout"]
+[connection signal="pressed" from="MarcroMenu/Bg/M/H/HomeBtn" to="GameMenu" method="_on_HomeBtn_pressed"]
+[connection signal="pressed" from="MarcroMenu/Bg/M/H/StatsBtn" to="GameMenu" method="_on_StatsBtn_pressed"]
+[connection signal="pressed" from="MarcroMenu/Bg/M/H/HelpBtn" to="GameMenu" method="_on_HelpBtn_pressed"]
+[connection signal="pressed" from="MarcroMenu/Bg/M/H/MenuBtn" to="GameMenu" method="_on_MenuBtn_pressed"]
+[connection signal="pressed" from="CharStats/Bg/M/V/Equip/WeaponIcon" to="CharStats" method="_on_WeaponIcon_pressed"]
+[connection signal="pressed" from="CharStats/Bg/M/V/OkStatsBtn" to="GameMenu" method="_on_OkStatsBtn_pressed"]
+[connection signal="pressed" from="CharStats/EQWeapon/M/V/H2/WeaponBackBtn" to="CharStats" method="_on_WeaponBackBtn_pressed"]
+[connection signal="pressed" from="Help/BG/M/V/CloseBtn" to="GameMenu" method="_on_CloseBtn_pressed"]
+[connection signal="pressed" from="Help-Android/BG/M/V/AndroidCloseBtn" to="GameMenu" method="_on_AndroidCloseBtn_pressed"]
+[connection signal="pressed" from="DeathScreen/BG/M/H/V/H/LoadBtn" to="." method="_on_LoadBtn_pressed"]
+[connection signal="pressed" from="DeathScreen/BG/M/H/V/H/ExitBtn" to="." method="_on_ExitBtn_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+
+[editable path="Help-Android"]
