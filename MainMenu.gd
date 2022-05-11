@@ -12,12 +12,14 @@ onready var popup = $CanvasLayer/Popup
 onready var btnclick_sfx =$BtnClickSFX
 onready var delpop = $CanvasLayer/DelPop
 onready var delte_text_label = $CanvasLayer/DelPop/BG/M/V/Main
+onready var footer_label = $CanvasLayer/Footer/MarginContainer/Label
 
 
 # Loadpanel
 onready var save_slot1 = $CanvasLayer/LoadPanel/BG/M/V/Save1
 onready var save_slot2 = $CanvasLayer/LoadPanel/BG/M/V/Save2
 onready var save_slot3 = $CanvasLayer/LoadPanel/BG/M/V/Save3
+
 
 var savegame1 = {}
 var savegame2 = {}
@@ -26,13 +28,14 @@ var savegame3 = {}
 var game_to_load = 0
 var game_to_delete = 0
 var delete_game_name = ""
-
+var footer_text = "version "+str(Configuration.game_version) + "dev\nPixelscroller 2022 | copyright by s3r43o3"
 
 var nosave_name = '-----'
 var nosave_time = '--:--'
 
 func _ready():
 	animPlayer.play("FadeIn")
+	footer_label.text = footer_text
 	check_loadbtn()
 	if get_tree().paused:
 		get_tree().paused = false
