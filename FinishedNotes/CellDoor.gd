@@ -23,4 +23,5 @@ func interact():
 func _on_AnimatedSprite_animation_finished():
 	if is_open:
 		get_node('Teleporter').activate_shape()
-		
+	else:
+		get_node("Teleporter").deactivate_shape()
