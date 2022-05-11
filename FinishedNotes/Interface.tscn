@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://img/Skull.png" type="Texture" id=1]
 [ext_resource path="res://img/pixel-art-gui-elements/playerplate.png" type="Texture" id=2]
@@ -15,16 +15,13 @@
 [ext_resource path="res://img/text-paper.png" type="Texture" id=13]
 [ext_resource path="res://FinishedNotes/InfoBox.gd" type="Script" id=14]
 [ext_resource path="res://img/singleUIelements/button_home.png" type="Texture" id=15]
-[ext_resource path="res://img/button-small-normal.png" type="Texture" id=16]
 [ext_resource path="res://img/singleUIelements/button_X.png" type="Texture" id=17]
 [ext_resource path="res://img/Icons/items/Light Body.png" type="Texture" id=18]
 [ext_resource path="res://img/Icons/items/Mana Potion.png" type="Texture" id=19]
 [ext_resource path="res://img/singleUIelements/button_stats.png" type="Texture" id=20]
 [ext_resource path="res://img/Icons/items/PracticeSword.png" type="Texture" id=21]
-[ext_resource path="res://img/button-small-pressed.png" type="Texture" id=22]
 [ext_resource path="res://img/singleUIelements/button_help.png" type="Texture" id=23]
 [ext_resource path="res://img/Icons/items/Health Potion.png" type="Texture" id=24]
-[ext_resource path="res://img/button-small-hover.png" type="Texture" id=25]
 [ext_resource path="res://img/button-small-disabled.png" type="Texture" id=26]
 [ext_resource path="res://img/button-hover.png" type="Texture" id=27]
 [ext_resource path="res://img/button-disabled.png" type="Texture" id=28]
@@ -432,27 +429,32 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -51.0
-margin_top = -16.0
-margin_right = 48.0
-margin_bottom = -7.0
+margin_left = -52.0
+margin_top = -25.0
+margin_right = 53.0
+margin_bottom = -13.0
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="WeaponEnergiePlate" type="TextureRect" parent="WeaponEnergie"]
+[node name="WeaponEnergiePlate" type="NinePatchRect" parent="WeaponEnergie"]
+show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 45 )
-expand = true
+patch_margin_left = 34
+patch_margin_top = 6
+patch_margin_right = 34
+patch_margin_bottom = 6
 
 [node name="WEnergieBar" type="ColorRect" parent="WeaponEnergie/WeaponEnergiePlate"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 3.0
-margin_top = 2.0
-margin_right = -3.0
-margin_bottom = -2.0
+anchor_left = 0.029
+anchor_top = 0.25
+anchor_right = 0.971
+anchor_bottom = 0.75
+margin_left = -0.0450001
+margin_right = 0.0449905
+margin_bottom = -9.53674e-07
 grow_horizontal = 2
 grow_vertical = 2
 color = Color( 0.8, 0.533333, 0.0235294, 1 )
@@ -473,6 +475,7 @@ exitBtn = NodePath("NinePatchRect/MarginContainer/VBoxContainer/ExitBtn")
 macro_menu_path = NodePath("../MarcroMenu")
 stat_panel_path = NodePath("../CharStats")
 help_path = NodePath("../Help")
+macro_buttons_path = NodePath("../MarcroMenu/Menu")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="GameMenu"]
 anchor_right = 1.0
@@ -913,108 +916,114 @@ one_shot = true
 pause_mode = 2
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -111.0
-margin_right = 47.0
-margin_bottom = -15.0
 
-[node name="Bg" type="NinePatchRect" parent="MarcroMenu"]
+[node name="Bg" type="Control" parent="MarcroMenu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-region_rect = Rect2( 0, 0, 48, 48 )
-patch_margin_left = 24
-patch_margin_top = 15
-patch_margin_right = 24
-patch_margin_bottom = 15
+margin_left = 11.0
+margin_top = -65.0
+margin_right = 48.0
+margin_bottom = -35.0
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="M" type="MarginContainer" parent="MarcroMenu/Bg"]
+[node name="HomeBtn" type="TextureButton" parent="MarcroMenu/Bg"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/margin_right = 8
-custom_constants/margin_top = 8
-custom_constants/margin_left = 8
-custom_constants/margin_bottom = 8
-
-[node name="H" type="VBoxContainer" parent="MarcroMenu/Bg/M"]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 40.0
-margin_bottom = 88.0
-custom_constants/separation = 0
-alignment = 1
-
-[node name="HomeBtn" type="TextureButton" parent="MarcroMenu/Bg/M/H"]
-margin_right = 32.0
-margin_bottom = 26.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource( 16 )
-texture_pressed = ExtResource( 22 )
-texture_hover = ExtResource( 25 )
+texture_normal = ExtResource( 54 )
+texture_pressed = ExtResource( 49 )
+texture_hover = ExtResource( 51 )
 texture_disabled = ExtResource( 26 )
 expand = true
 
-[node name="TextureRect" type="TextureRect" parent="MarcroMenu/Bg/M/H/HomeBtn"]
+[node name="TextureRect" type="TextureRect" parent="MarcroMenu/Bg/HomeBtn"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 15 )
 expand = true
 stretch_mode = 6
 
-[node name="StatsBtn" type="TextureButton" parent="MarcroMenu/Bg/M/H"]
-margin_top = 26.0
-margin_right = 32.0
-margin_bottom = 53.0
-size_flags_horizontal = 3
+[node name="Menu" type="Control" parent="MarcroMenu"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 79.0
+margin_top = -77.0
+margin_right = 120.0
+margin_bottom = 29.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="M" type="MarginContainer" parent="MarcroMenu/Menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="V" type="VBoxContainer" parent="MarcroMenu/Menu/M"]
+margin_right = 41.0
+margin_bottom = 106.0
+custom_constants/separation = 4
+alignment = 1
+
+[node name="StatsBtn" type="TextureButton" parent="MarcroMenu/Menu/M/V"]
+margin_right = 41.0
+margin_bottom = 32.0
+size_flags_horizontal = 11
 size_flags_vertical = 3
-texture_normal = ExtResource( 16 )
-texture_pressed = ExtResource( 22 )
-texture_hover = ExtResource( 25 )
+texture_normal = ExtResource( 54 )
+texture_pressed = ExtResource( 49 )
+texture_hover = ExtResource( 51 )
 texture_disabled = ExtResource( 26 )
 expand = true
 
-[node name="TextureRect2" type="TextureRect" parent="MarcroMenu/Bg/M/H/StatsBtn"]
+[node name="TextureRect2" type="TextureRect" parent="MarcroMenu/Menu/M/V/StatsBtn"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 20 )
 expand = true
 stretch_mode = 6
 
-[node name="HelpBtn" type="TextureButton" parent="MarcroMenu/Bg/M/H"]
-margin_top = 53.0
-margin_right = 32.0
-margin_bottom = 80.0
+[node name="HelpBtn" type="TextureButton" parent="MarcroMenu/Menu/M/V"]
+margin_top = 36.0
+margin_right = 41.0
+margin_bottom = 69.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource( 16 )
-texture_pressed = ExtResource( 22 )
-texture_hover = ExtResource( 25 )
+texture_normal = ExtResource( 54 )
+texture_pressed = ExtResource( 49 )
+texture_hover = ExtResource( 51 )
 texture_disabled = ExtResource( 26 )
 expand = true
 
-[node name="TextureRect4" type="TextureRect" parent="MarcroMenu/Bg/M/H/HelpBtn"]
+[node name="TextureRect4" type="TextureRect" parent="MarcroMenu/Menu/M/V/HelpBtn"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 23 )
 expand = true
 stretch_mode = 6
 
-[node name="MenuBtn" type="TextureButton" parent="MarcroMenu/Bg/M/H"]
-visible = false
-margin_left = 108.0
-margin_right = 136.0
-margin_bottom = 21.0
+[node name="MenuBtn" type="TextureButton" parent="MarcroMenu/Menu/M/V"]
+margin_top = 73.0
+margin_right = 41.0
+margin_bottom = 106.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource( 16 )
-texture_pressed = ExtResource( 22 )
+texture_normal = ExtResource( 54 )
+texture_pressed = ExtResource( 49 )
+texture_hover = ExtResource( 51 )
+texture_disabled = ExtResource( 26 )
 expand = true
 
-[node name="TextureRect5" type="TextureRect" parent="MarcroMenu/Bg/M/H/MenuBtn"]
+[node name="TextureRect5" type="TextureRect" parent="MarcroMenu/Menu/M/V/MenuBtn"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 17 )
 expand = true
 stretch_mode = 6
+
+[node name="Tween" type="Tween" parent="MarcroMenu/Menu"]
 
 [node name="CharStats" type="Control" parent="."]
 visible = false
@@ -2036,10 +2045,11 @@ bus = "Menu"
 [connection signal="button_down" from="GameMenu/NinePatchRect/MarginContainer/VBoxContainer/ExitBtn" to="GameMenu" method="_on_ExitBtn_button_down"]
 [connection signal="pressed" from="GameMenu/NinePatchRect/MarginContainer/VBoxContainer/DevMap" to="GameMenu" method="_on_DevMap_pressed"]
 [connection signal="timeout" from="InfoBox/Timer" to="InfoBox" method="_on_Timer_timeout"]
-[connection signal="pressed" from="MarcroMenu/Bg/M/H/HomeBtn" to="GameMenu" method="_on_HomeBtn_pressed"]
-[connection signal="pressed" from="MarcroMenu/Bg/M/H/StatsBtn" to="GameMenu" method="_on_StatsBtn_pressed"]
-[connection signal="pressed" from="MarcroMenu/Bg/M/H/HelpBtn" to="GameMenu" method="_on_HelpBtn_pressed"]
-[connection signal="pressed" from="MarcroMenu/Bg/M/H/MenuBtn" to="GameMenu" method="_on_MenuBtn_pressed"]
+[connection signal="pressed" from="MarcroMenu/Bg/HomeBtn" to="GameMenu" method="_on_HomeBtn_pressed"]
+[connection signal="pressed" from="MarcroMenu/Menu/M/V/StatsBtn" to="GameMenu" method="_on_StatsBtn_pressed"]
+[connection signal="pressed" from="MarcroMenu/Menu/M/V/HelpBtn" to="GameMenu" method="_on_HelpBtn_pressed"]
+[connection signal="pressed" from="MarcroMenu/Menu/M/V/MenuBtn" to="GameMenu" method="_on_MenuBtn_pressed"]
+[connection signal="tween_all_completed" from="MarcroMenu/Menu/Tween" to="GameMenu" method="_on_Tween_tween_all_completed"]
 [connection signal="pressed" from="CharStats/Bg/M/V/Equip/WeaponIcon" to="CharStats" method="_on_WeaponIcon_pressed"]
 [connection signal="pressed" from="CharStats/Bg/M/V/OkStatsBtn" to="GameMenu" method="_on_OkStatsBtn_pressed"]
 [connection signal="pressed" from="CharStats/EQWeapon/M/V/H/BeforeBtn" to="CharStats" method="_on_BeforeBtn_pressed"]
