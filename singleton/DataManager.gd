@@ -10,12 +10,12 @@ var default_player_data ={
 	'gold': 10,
 	'keys': 0,
 	'chest_key':0,
-	'weapon':'PracticeSword',
 	'bodyamor':'PracticeAmor',
 	'health_potions': 1,
 	'mana_potions':1,
 	'played_min':0,
-	'played_sec':0
+	'played_sec':0,
+	'arsenal': ['Holz-Schwert']
 }
 
 var player_data = {}
@@ -50,4 +50,5 @@ func load_data(savefile):
 	file.open(savefile, File.READ)
 	player_data = file.get_var()
 	file.close()
-	print(player_data)
+	for value in player_data.values():
+		print(value)
