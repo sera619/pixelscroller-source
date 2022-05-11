@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://joystick/virtual_joystick.tscn" type="PackedScene" id=1]
 [ext_resource path="res://FinishedNotes/UI/MobileControlls.gd" type="Script" id=2]
@@ -10,6 +10,18 @@
 [ext_resource path="res://img/pixel-art-gui-elements/A-Button.png" type="Texture" id=8]
 [ext_resource path="res://img/pixel-art-gui-elements/B-Button.png" type="Texture" id=9]
 [ext_resource path="res://img/pixel-art-gui-elements/B-Button-pressed.png" type="Texture" id=10]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 8.0
 
 [node name="MobileControlls" type="CanvasLayer"]
 layer = 2
@@ -40,6 +52,8 @@ position = Vector2( 47, 0 )
 scale = Vector2( 3, 3 )
 normal = ExtResource( 6 )
 pressed = ExtResource( 7 )
+shape = SubResource( 1 )
+shape_visible = false
 action = "dash_attack"
 
 [node name="XTouchButton" type="TouchScreenButton" parent="ActionPad"]
@@ -47,13 +61,16 @@ position = Vector2( 93, 45 )
 scale = Vector2( 3, 3 )
 normal = ExtResource( 5 )
 pressed = ExtResource( 3 )
-action = "interact"
+shape = SubResource( 2 )
+shape_visible = false
 
 [node name="BTouchButton" type="TouchScreenButton" parent="ActionPad"]
 position = Vector2( 0, 45 )
 scale = Vector2( 3, 3 )
 normal = ExtResource( 9 )
 pressed = ExtResource( 10 )
+shape = SubResource( 3 )
+shape_visible = false
 action = "attack"
 
 [node name="ATouchButton" type="TouchScreenButton" parent="ActionPad"]
@@ -61,4 +78,8 @@ position = Vector2( 47, 89 )
 scale = Vector2( 3, 3 )
 normal = ExtResource( 8 )
 pressed = ExtResource( 4 )
+shape = SubResource( 4 )
+shape_visible = false
 action = "jump"
+
+[connection signal="pressed" from="ActionPad/XTouchButton" to="." method="_on_XTouchButton_pressed"]
