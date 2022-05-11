@@ -8,7 +8,7 @@ load_path = "res://.import/firelBlade.png-4d7abc95b12085c530ccc40307def004.stex"
 [resource]
 script = ExtResource( 1 )
 name = "Feuer-Schwert"
-description = ""
+description = "Ein glühendes Schwert. Es strahlt Hitze aus aber der Griff ist kühl."
 item_type = "Weapon"
 icon = SubResource( 1 )
 value_to_add = 0
