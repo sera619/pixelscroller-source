@@ -15,6 +15,8 @@ onready var unpause_sound = preload("res://audio/UnpauseSFX.tscn")
 onready var btnSFX = get_parent().get_node('ButtonSFX')
 onready var time_label = $NinePatchRect/MarginContainer/VBoxContainer/Time
 
+var playerdata = DataManager.player_data
+
 func _process(_delta):
 	if Input.is_action_just_pressed('menu'):
 		game_pause()
@@ -22,7 +24,7 @@ func _process(_delta):
 
 
 func game_pause():
-		time_label.text = GameManager.played_time
+		time_label.text = String(GameManager.played_time)
 		if get_tree().paused:
 			get_tree().paused = false
 			var unpauseSFX = unpause_sound.instance()

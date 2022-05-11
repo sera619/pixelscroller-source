@@ -20,11 +20,12 @@ func _process(_delta):
 
 func get_game_time():
 	time_now = OS.get_unix_time()
+	var saved_time = saved_min * 60
+	saved_time += saved_sec 
 	var elapsed = time_now - time_start
+	elapsed += saved_time
 	var minutes = elapsed / 60
 	var seconds = elapsed % 60
-	seconds += saved_sec
-	minutes += saved_min
 	DataManager.player_data["played_min"] = minutes
 	DataManager.player_data["played_sec"] = seconds
 	var time_elasped = "%02d : %02d" % [DataManager.player_data['played_min'],DataManager.player_data['played_sec']]
