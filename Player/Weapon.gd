@@ -56,6 +56,9 @@ func equip_weapon(new_weapon):
 		GameManager.interface.weaponEnergiePlate.visible = false
 
 func loot_weapon(weapon_name:String):
+	if weapon_name in arsenal:
+		print('>>> PlayerWeapon: Weapon "'+weapon_name+'" is already in Arsenal. Ignore Loot.')
+		return
 	arsenal.append(String(weapon_name))
 	DataManager.player_data.arsenal = arsenal
 	print('>>> PlayerWeapon: New Weapon "'+weapon_name+'" added to arsenal')
@@ -66,4 +69,7 @@ func _on_Sword_area_entered(area):
 	if !area.is_in_group('enemy_hitbox'):
 		return
 	if max_weapon_energie != 0:
-		set_weapon_energie(weapon_energie + 1)
+		if weapon_energie > max_weapon_energie:
+			weapon_energie = max_weapon_energie
+		else:
+			set_weapon_energie(weapon_energie + 1)
