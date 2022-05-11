@@ -18,7 +18,10 @@ var arsenal = []
 
 func _ready():
 	arsenal = DataManager.player_data.arsenal
-	equip_weapon(arsenal[0])
+	if DataManager.player_data.current_weapon == "":
+		equip_weapon(arsenal[0])
+	else:
+		equip_weapon(DataManager.player_data.current_weapon)
 	max_weapon_energie = 0
 
 
@@ -47,6 +50,7 @@ func equip_weapon(new_weapon):
 	var sword = load("res://classes/items/"+new_weapon+".tres")
 	current_weapon = sword
 	reset_dmg = current_weapon.weapon_damage
+	DataManager.player_data.current_weapon = str(new_weapon)
 	set_damage(current_weapon.weapon_damage)
 	emit_signal("weapon_changed")
 	if current_weapon.weapon_energie !=0:
@@ -62,7 +66,7 @@ func loot_weapon(weapon_name:String):
 	arsenal.append(String(weapon_name))
 	DataManager.player_data.arsenal = arsenal
 	print('>>> PlayerWeapon: New Weapon "'+weapon_name+'" added to arsenal')
-	print('>>> PlayerWeapon: New Aresanl: ',arsenal)
+	print('>>> PlayerWeapon: New Arsenal: ',arsenal)
 	equip_weapon(weapon_name)
 
 func _on_Sword_area_entered(area):
