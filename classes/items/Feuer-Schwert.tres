@@ -1,14 +1,16 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://classes/items/item.gd" type="Script" id=1]
-[ext_resource path="res://img/Icons/items/firelBlade.png" type="Texture" id=2]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/firelBlade.png-4d7abc95b12085c530ccc40307def004.stex"
 
 [resource]
 script = ExtResource( 1 )
 name = "Feuer-Schwert"
 description = ""
 item_type = "Weapon"
-icon = ExtResource( 2 )
+icon = SubResource( 1 )
 value_to_add = 0
 weapon_damage = 10
 weapon_energie = 4
