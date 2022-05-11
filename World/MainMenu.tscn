@@ -885,13 +885,11 @@ custom_constants/margin_left = 160
 
 [node name="Label" type="Label" parent="CanvasLayer/Footer/MarginContainer"]
 margin_left = 160.0
-margin_top = 4.0
+margin_top = 11.0
 margin_right = 483.0
-margin_bottom = 27.0
+margin_bottom = 21.0
 custom_colors/font_color = Color( 0.184314, 0.176471, 0.176471, 0.411765 )
 custom_fonts/font = ExtResource( 6 )
-text = "version 0.5.3 dev
-Pixelscroller 2022 | copyright by s3r43o3"
 align = 1
 valign = 1
 uppercase = true
