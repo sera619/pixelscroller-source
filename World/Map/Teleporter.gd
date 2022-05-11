@@ -15,6 +15,8 @@ func _ready():
 func set_name(mapname):
 	map_name = String(mapname)
 	
+func deactivate_shape():
+	shape.disabled = true
 
 func activate_shape():
 	shape.disabled = false
