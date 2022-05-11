@@ -29,6 +29,7 @@ var next_weapon_name = ""
 
 
 func _ready():
+	player = GameManager.player
 	next_weapon_btn.disabled = true
 	last_weapon_btn.disabled = true
 	max_weapons = DataManager.player_data.arsenal.size()
@@ -37,7 +38,6 @@ func _ready():
 
 func show_weapon_preview():
 	curr_weapon = 0
-	player = GameManager.player
 	weaponeq_frame.visible = true
 	max_weapons = DataManager.player_data.arsenal.size()
 	print(max_weapons)
@@ -53,7 +53,7 @@ func show_weapon_preview():
 
 func get_char_stats():
 	player = GameManager.player
-	damage.text = String(player.weapon.get_damage())
+	damage.text = String(player.weapon.current_weapon.weapon_damage)
 	playername.text = DataManager.player_data.name
 	health.text = String(player.max_health)
 	stamina.text = String(player.max_stamina)
@@ -62,19 +62,20 @@ func get_char_stats():
 
 
 func _on_WeaponIcon_pressed():
-	player = GameManager.player
+	get_node('../ButtonSFX').play()
 	if stat_frame.visible:
 		stat_frame.visible = false
 		show_weapon_preview()
 
 func _on_WeaponBackBtn_pressed():
-	player = GameManager.player
+	get_node('../ButtonSFX').play()
 	weaponeq_frame.visible = false
 	get_char_stats()
 	stat_frame.visible = true
 
 
 func _on_BeforeBtn_pressed():
+	get_node('../ButtonSFX').play()
 	curr_weapon += 1
 	if curr_weapon == max_weapons:
 		curr_weapon = 0
@@ -86,12 +87,19 @@ func _on_BeforeBtn_pressed():
 func update_weapon_eq():
 	weapon_icon.texture = next_weapon.icon
 	w_name_label.text = next_weapon.name
+	if player.weapon.get_damage() < next_weapon.weapon_damage:
+		new_damage_label.set("custom_colors/font_color", Color(0.239216, 0.909804, 0.117647))
+	elif player.weapon.get_damage() > next_weapon.weapon_damage:
+		new_damage_label.set("custom_colors/font_color",Color(0.87207, 0.054504, 0.11678))
+	else:
+		new_damage_label.set("custom_colors/font_color",Color(0.871021, 0.89393, 0.895508))
 	old_damage_label.text = str(player.weapon.get_damage())
 	new_damage_label.text = str(next_weapon.weapon_damage)
 	weapon_desc.text = str(next_weapon.description)
 
 
 func _on_NextBtn_pressed():
+	get_node('../ButtonSFX').play()
 	if curr_weapon == 0:
 		curr_weapon = max_weapons
 	curr_weapon -= 1
@@ -101,6 +109,8 @@ func _on_NextBtn_pressed():
 	update_weapon_eq()
 
 func _on_WeaponEquipBtn_pressed():
+	get_node('../ButtonSFX').play()
 	player.weapon.equip_weapon(next_weapon_name)
 	update_weapon_eq()
 	get_char_stats()
+	
