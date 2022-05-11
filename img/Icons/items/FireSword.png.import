@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/firelBlade.png-4d7abc95b12085c530ccc40307def004.stex"
+path="res://.import/FireSword.png-142e5d584fc1390a9eb6824bdd43dae1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/Icons/items/firelBlade.png"
-dest_files=[ "res://.import/firelBlade.png-4d7abc95b12085c530ccc40307def004.stex" ]
+source_file="res://img/Icons/items/FireSword.png"
+dest_files=[ "res://.import/FireSword.png-142e5d584fc1390a9eb6824bdd43dae1.stex" ]
 
 [params]
 
