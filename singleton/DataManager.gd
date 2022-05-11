@@ -15,7 +15,8 @@ var default_player_data ={
 	'mana_potions':1,
 	'played_min':0,
 	'played_sec':0,
-	'arsenal': ['Holz-Schwert']
+	'arsenal': ['Holz-Schwert'],
+	'current_weapon':""
 }
 
 var player_data = {}
