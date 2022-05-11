@@ -1,4 +1,3 @@
-class_name PlayerDetectionZone
 extends Area2D
 
 var player = null

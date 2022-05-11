@@ -20,7 +20,7 @@
 [ext_resource path="res://img/Icons/items/Light Body.png" type="Texture" id=18]
 [ext_resource path="res://img/Icons/items/Mana Potion.png" type="Texture" id=19]
 [ext_resource path="res://img/singleUIelements/button_stats.png" type="Texture" id=20]
-[ext_resource path="res://img/Icons/items/normalBlade.png" type="Texture" id=21]
+[ext_resource path="res://img/Icons/items/PracticeSword.png" type="Texture" id=21]
 [ext_resource path="res://img/button-small-pressed.png" type="Texture" id=22]
 [ext_resource path="res://img/singleUIelements/button_help.png" type="Texture" id=23]
 [ext_resource path="res://img/Icons/items/Health Potion.png" type="Texture" id=24]
@@ -49,13 +49,13 @@
 [ext_resource path="res://materials/font2-bigger.tres" type="DynamicFont" id=47]
 [ext_resource path="res://img/chest-key.png" type="Texture" id=48]
 [ext_resource path="res://img/button-red-small-pressedt.png" type="Texture" id=49]
-[ext_resource path="res://img/Icons/items/frostlBlade.png" type="Texture" id=50]
+[ext_resource path="res://img/Icons/items/FrostSword.png" type="Texture" id=50]
 [ext_resource path="res://img/button-red-small-hovert.png" type="Texture" id=51]
 [ext_resource path="res://img/pixel-art-gui-elements/arrow-right.png" type="Texture" id=52]
 [ext_resource path="res://img/pixel-art-gui-elements/arrow-left.png" type="Texture" id=53]
 [ext_resource path="res://img/button-red-small-normalt.png" type="Texture" id=54]
-[ext_resource path="res://classes/items/PracticeSword.tres" type="Resource" id=55]
-[ext_resource path="res://classes/items/FireSword.tres" type="Resource" id=56]
+[ext_resource path="res://classes/items/Holz-Schwert.tres" type="Resource" id=55]
+[ext_resource path="res://classes/items/Feuer-Schwert.tres" type="Resource" id=56]
 
 [sub_resource type="StyleBoxLine" id=15]
 color = Color( 0.964706, 0.580392, 0.0823529, 1 )
@@ -837,10 +837,10 @@ valign = 1
 visible = false
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 9.0
-margin_top = 3.0
-margin_right = 38.0
-margin_bottom = 21.0
+margin_left = 15.0
+margin_top = 6.0
+margin_right = 35.0
+margin_bottom = 17.0
 texture = ExtResource( 48 )
 expand = true
 
