@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://tiles/32x32-grass.tres" type="TileSet" id=1]
 [ext_resource path="res://tiles/oneway.tres" type="TileSet" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://tiles/32x32-grass-noCollision.tres" type="TileSet" id=6]
 [ext_resource path="res://FinishedNotes/Chest.tscn" type="PackedScene" id=7]
 [ext_resource path="res://World/Map/DevWorld.gd" type="Script" id=8]
+[ext_resource path="res://FinishedNotes/Drops/WeaponDrop.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64.25, 4 )
@@ -161,6 +162,42 @@ format = 1
 [node name="FGTop" type="TileMap" parent="."]
 format = 1
 
+[node name="LadderContainer" type="Node2D" parent="."]
+
+[node name="Ladder" parent="LadderContainer" instance=ExtResource( 5 )]
+position = Vector2( 188, 1 )
+script = SubResource( 2 )
+platform_collider = NodePath("../../BG/OneWay/CollisionShape2D")
+
+[node name="CollisionShape2D" parent="LadderContainer/Ladder" index="0"]
+position = Vector2( -12, -145.75 )
+shape = SubResource( 4 )
+
+[node name="Ladder2" parent="LadderContainer" instance=ExtResource( 5 )]
+position = Vector2( 272, -386 )
+script = SubResource( 5 )
+platform_collider = NodePath("../../BG/OneWay/CollisionShape2D2")
+
+[node name="CollisionShape2D" parent="LadderContainer/Ladder2" index="0"]
+position = Vector2( 0, -95 )
+shape = SubResource( 6 )
+
+[node name="Ladder3" parent="LadderContainer" instance=ExtResource( 5 )]
+position = Vector2( -304, -770 )
+platform_collider = NodePath("../../BG/OneWay/CollisionShape2D3")
+
+[node name="CollisionShape2D" parent="LadderContainer/Ladder3" index="0"]
+position = Vector2( 0, 17.5 )
+shape = SubResource( 9 )
+
+[node name="Ladder4" parent="LadderContainer" instance=ExtResource( 5 )]
+position = Vector2( -208, -930 )
+platform_collider = NodePath("../../BG/OneWay/CollisionShape2D4")
+
+[node name="CollisionShape2D" parent="LadderContainer/Ladder4" index="0"]
+position = Vector2( 0, 17 )
+shape = SubResource( 10 )
+
 [node name="ChestKey" parent="." instance=ExtResource( 3 )]
 position = Vector2( 259, 1 )
 
@@ -170,45 +207,14 @@ position = Vector2( -240, 1 )
 [node name="Teleporter" parent="CellDoor" index="2"]
 teleportlocation = "Map"
 
-[node name="Ladder" parent="." instance=ExtResource( 5 )]
-position = Vector2( 188, 1 )
-script = SubResource( 2 )
-platform_collider = NodePath("../BG/OneWay/CollisionShape2D")
-
-[node name="CollisionShape2D" parent="Ladder" index="0"]
-position = Vector2( -12, -145.75 )
-shape = SubResource( 4 )
-
 [node name="Chest" parent="." instance=ExtResource( 7 )]
 position = Vector2( 71, -6 )
 
-[node name="Ladder2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 272, -386 )
-script = SubResource( 5 )
-platform_collider = NodePath("../BG/OneWay/CollisionShape2D2")
+[node name="WeaponDrop" parent="." instance=ExtResource( 9 )]
+position = Vector2( -125, 0 )
 
-[node name="CollisionShape2D" parent="Ladder2" index="0"]
-position = Vector2( 0, -95 )
-shape = SubResource( 6 )
-
-[node name="Ladder3" parent="." instance=ExtResource( 5 )]
-position = Vector2( -304, -770 )
-platform_collider = NodePath("../BG/OneWay/CollisionShape2D3")
-
-[node name="CollisionShape2D" parent="Ladder3" index="0"]
-position = Vector2( 0, 17.5 )
-shape = SubResource( 9 )
-
-[node name="Ladder4" parent="." instance=ExtResource( 5 )]
-position = Vector2( -208, -930 )
-platform_collider = NodePath("../BG/OneWay/CollisionShape2D4")
-
-[node name="CollisionShape2D" parent="Ladder4" index="0"]
-position = Vector2( 0, 17 )
-shape = SubResource( 10 )
-
+[editable path="LadderContainer/Ladder"]
+[editable path="LadderContainer/Ladder2"]
+[editable path="LadderContainer/Ladder3"]
+[editable path="LadderContainer/Ladder4"]
 [editable path="CellDoor"]
-[editable path="Ladder"]
-[editable path="Ladder2"]
-[editable path="Ladder3"]
-[editable path="Ladder4"]
