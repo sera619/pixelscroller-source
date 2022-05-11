@@ -58,6 +58,8 @@ func equip_weapon(new_weapon):
 func loot_weapon(weapon_name:String):
 	arsenal.append(String(weapon_name))
 	DataManager.player_data.arsenal = arsenal
+	print('>>> PlayerWeapon: New Weapon "'+weapon_name+'" added to arsenal')
+	print('>>> PlayerWeapon: New Aresanl: ',arsenal)
 	equip_weapon(weapon_name)
 
 func _on_Sword_area_entered(area):
