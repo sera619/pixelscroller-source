@@ -9,7 +9,6 @@ onready var attack_timer = $MeleeWeapon/AttackTimer
 onready var damage_collider = $MeleeWeapon/SkelettSword/CollisionShape2D
 onready var health_bar = $Healthbar/Bar
 onready var health_plate = $Healthbar
-onready var side_controller = $SideController
 
 var gravity := 15
 var velocity = Vector2(0,0)
