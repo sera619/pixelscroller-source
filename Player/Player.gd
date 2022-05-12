@@ -74,6 +74,7 @@ func _ready():
 	set_health(max_health)
 	set_amor(max_amor)
 	set_stamina(max_stamina)
+	last_x = 0.1
 
 
 func set_stamina(new_stamina):
