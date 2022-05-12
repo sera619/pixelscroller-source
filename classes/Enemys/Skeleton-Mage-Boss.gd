@@ -4,6 +4,8 @@ export(PackedScene) var spell_scene
 export(PackedScene) var loot_scene
 
 onready var hitsound_scene: PackedScene = preload("res://audio/HitSFX.tscn")
+onready var hit_effect_scene: PackedScene = preload("res://Effects/HitEffect.tscn")
+onready var death_sfx_scene: PackedScene = preload("res://audio/SkeletDeathSFX.tscn")
 onready var stats = $EnemyStats
 onready var attack_timer = $Weapon/Timer
 
@@ -69,8 +71,12 @@ func show_bar():
 		plate.visible = false
 
 func take_damage(value):
+	var hit_effect = hit_effect_scene.instance()
+	self.add_child(hit_effect)
 	stats.set_health(stats.health - value)
 	if stats.health <= 0:
+		var death_sfx =death_sfx_scene.instance()
+		self.add_child(death_sfx)
 		is_alive = false
 		can_move = false
 		can_attack = false

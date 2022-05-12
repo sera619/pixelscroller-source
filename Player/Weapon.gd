@@ -24,8 +24,8 @@ func _ready():
 #		equip_weapon(arsenal[0])
 #	else:
 	equip_weapon(DataManager.player_data.current_weapon)
-	
-	self.connect('full_energie', GameManager.mobile_controller,'show_z_btn')
+	if GameManager.mobile_controller != null:
+		self.connect('full_energie', GameManager.mobile_controller,'show_z_btn')
 
 
 

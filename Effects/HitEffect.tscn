@@ -20,6 +20,7 @@ animations = [ {
 } ]
 
 [node name="HitEffect" type="AnimatedSprite"]
+scale = Vector2( 1.16667, 1.16667 )
 z_index = 2
 frames = SubResource( 3 )
 animation = "effect"
