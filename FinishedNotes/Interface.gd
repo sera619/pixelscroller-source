@@ -28,7 +28,7 @@ onready var game_menu = $GameMenu
 onready var amorIcon = $CharStats/Bg/M/V/Equip/AmorIcon
 onready var amorLabel = $CharStats/Bg/M/V/Equip/AmorStats/V/AmorName
 onready var amorElementLabel = $CharStats/Bg/M/V/Equip/AmorStats/V/AmorElement
-
+onready var mobile_stick = $MobileStick
 
 
 var mobile_controller = null
@@ -40,10 +40,10 @@ const BGS ={
 
 
 func _ready():
+	#if OS.get_name() == 'Android':
+	mobile_controller = mobile_controlls.instance()
+	mobile_stick.add_child(mobile_controller)
 	death_screen.mouse_filter = Control.MOUSE_FILTER_PASS 
-	if OS.get_name() == 'Android':
-		mobile_controller = mobile_controlls.instance()
-		$MobileStick.add_child(mobile_controller)
 	animPlayer.play("start")
 	GameManager.register_mapholder(get_parent().get_node('MapHolder'))
 	GameManager.register_interface(self)
@@ -113,7 +113,7 @@ func update_bodyamor():
 	
 
 func update_weapon_bar():
-	weapon_energie_bar.rect_size.x = 95 * player_weapon.weapon_energie / player_weapon.max_weapon_energie
+	weapon_energie_bar.rect_size.x = 99 * player_weapon.weapon_energie / player_weapon.max_weapon_energie
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
