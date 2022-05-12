@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://tiles/32x32-grass.tres" type="TileSet" id=1]
 [ext_resource path="res://tiles/oneway.tres" type="TileSet" id=2]
@@ -21,83 +21,6 @@ extents = Vector2( 63.5, 4.5 )
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 64, 3.5 )
-
-[sub_resource type="GDScript" id=2]
-script/source = "extends Area2D
-class_name Ladder
-
-export (NodePath) var platform_collider: NodePath
-onready var collider = get_node(platform_collider)
-var player: Player
-
-
-func _on_Ladder_body_exited(body):
-	if body.name == 'Player':
-		print('>>> Ladder: Player exited.')
-		if player.can_climbing:
-			player.climbing = false
-			player.can_climbing = false
-			print('>>> Ladder: Player can not climb')
-		collider.set_deferred('disabled',false)
-
-
-
-func _on_Ladder_body_entered(body):
-	if body.name == 'Player':
-		player = body
-		print('>>> Ladder: Player entered.')
-		if !player.can_climbing:
-			player.can_climbing = true
-			print('>>> Ladder: Player can climb')
-		collider.set_deferred('disabled', true)
-"
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 3, 147 )
-
-[sub_resource type="GDScript" id=5]
-script/source = "extends Area2D
-
-export (NodePath) var platform_collider: NodePath
-onready var collider = get_node(platform_collider)
-var player: Player = null
-
-
-func _on_Ladder_body_exited(body):
-	if body.name == 'Player':
-		print('>>> Ladder: Player exited.')
-		if player.can_climbing:
-			player.climbing = false
-			player.can_climbing = false
-			print('>>> Ladder: Player can not climb')
-		player = null
-
-func _process(delta):
-	if player != null:
-		if player.climbing:
-			collider.set_deferred('disabled',false)
-		else:
-			collider.set_deferred('disabled', true)
-	else:
-		return
-
-func _on_Ladder_body_entered(body):
-	if body.name == 'Player':
-		player = body
-		print('>>> Ladder: Player entered.')
-		if !player.can_climbing:
-			player.can_climbing = true
-			print('>>> Ladder: Player can climb')
-"
-
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 3, 193 )
-
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 3, 80.5 )
-
-[sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 3, 81 )
 
 [node name="DevWorld" type="Node2D"]
 script = ExtResource( 8 )
@@ -165,38 +88,8 @@ format = 1
 [node name="LadderContainer" type="Node2D" parent="."]
 
 [node name="Ladder" parent="LadderContainer" instance=ExtResource( 5 )]
-position = Vector2( 188, 1 )
-script = SubResource( 2 )
+position = Vector2( 176, 0 )
 platform_collider = NodePath("../../BG/OneWay/CollisionShape2D")
-
-[node name="CollisionShape2D" parent="LadderContainer/Ladder" index="0"]
-position = Vector2( -12, -145.75 )
-shape = SubResource( 4 )
-
-[node name="Ladder2" parent="LadderContainer" instance=ExtResource( 5 )]
-position = Vector2( 272, -386 )
-script = SubResource( 5 )
-platform_collider = NodePath("../../BG/OneWay/CollisionShape2D2")
-
-[node name="CollisionShape2D" parent="LadderContainer/Ladder2" index="0"]
-position = Vector2( 0, -95 )
-shape = SubResource( 6 )
-
-[node name="Ladder3" parent="LadderContainer" instance=ExtResource( 5 )]
-position = Vector2( -304, -770 )
-platform_collider = NodePath("../../BG/OneWay/CollisionShape2D3")
-
-[node name="CollisionShape2D" parent="LadderContainer/Ladder3" index="0"]
-position = Vector2( 0, 17.5 )
-shape = SubResource( 9 )
-
-[node name="Ladder4" parent="LadderContainer" instance=ExtResource( 5 )]
-position = Vector2( -208, -930 )
-platform_collider = NodePath("../../BG/OneWay/CollisionShape2D4")
-
-[node name="CollisionShape2D" parent="LadderContainer/Ladder4" index="0"]
-position = Vector2( 0, 17 )
-shape = SubResource( 10 )
 
 [node name="ChestKey" parent="." instance=ExtResource( 3 )]
 position = Vector2( 259, 1 )
@@ -213,8 +106,4 @@ position = Vector2( 71, -6 )
 [node name="WeaponDrop" parent="." instance=ExtResource( 9 )]
 position = Vector2( -125, 0 )
 
-[editable path="LadderContainer/Ladder"]
-[editable path="LadderContainer/Ladder2"]
-[editable path="LadderContainer/Ladder3"]
-[editable path="LadderContainer/Ladder4"]
 [editable path="CellDoor"]
