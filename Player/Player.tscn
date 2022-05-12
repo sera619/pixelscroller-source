@@ -863,7 +863,7 @@ position = Vector2( 0, -33 )
 shape = SubResource( 120 )
 
 [node name="Weapon" type="Node2D" parent="."]
-position = Vector2( 32, -26 )
+position = Vector2( -32, -26 )
 scale = Vector2( 1.25, 1 )
 
 [node name="Sword" type="Area2D" parent="Weapon" groups=["player_weapon"]]
@@ -968,6 +968,10 @@ bus = "Player"
 stream = ExtResource( 10 )
 volume_db = -20.0
 bus = "Player"
+
+[node name="StatusHandler" type="Node" parent="."]
+
+[node name="StatusTimer" type="Timer" parent="StatusHandler"]
 
 [connection signal="area_entered" from="Weapon/Sword" to="Weapon/Sword" method="_on_Sword_area_entered"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]

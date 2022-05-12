@@ -27,6 +27,8 @@ onready var inventory = $Inventory
 onready var body_collison = $CollisionShape2D
 onready var sfx: AudioStreamPlayer = $SFX
 onready var food_sfx = $FoodSFX
+onready var status_timer = $Timer
+
 
 onready var max_health : int = DataManager.player_data.max_health
 onready var max_amor : int = DataManager.player_data.max_amor
@@ -59,7 +61,8 @@ enum {
 	DEAD,
 	CLIMB,
 	DASH_ATK,
-	SWORD_ATK
+	SWORD_ATK,
+	FEAR
 }
 var state
 var last_state
@@ -74,6 +77,7 @@ func _ready():
 	set_health(max_health)
 	set_amor(max_amor)
 	set_stamina(max_stamina)
+	last_x = 0.1
 
 
 func set_stamina(new_stamina):
@@ -162,14 +166,17 @@ func dash_attack():
 	else:
 		animationPlayer.play("slide_atk_left")
 
+
+
+
+func fear():
+	pass
+
+
 func sword_attack():
 	can_attack = false
 	velocity.x = 0
 	attack_timer.start()
-	weapon.set_weapon_energie(0)
-	var spell = spell_scene.instance()
-	spell.position = $Weapon.position
-	get_tree().root.add_child(spell)
 	if look_right:
 		animationPlayer.play("sword_atk_right")
 	else:
@@ -275,16 +282,16 @@ func move(_delta):
 	velocity = move_and_slide(velocity,UP)
 
 func sword_spell():
-	var spell = spell_scene.instance()
-	$Weapon.add_child(spell)
-	if look_right:
-		spell.right()
-	else:
-		spell.left()
+	if weapon.weapon_energie == weapon.max_weapon_energie:
+		weapon.set_weapon_energie(0)
+		var spell = spell_scene.instance()
+		$Weapon.add_child(spell)
+		if look_right:
+			spell.right()
+		else:
+			spell.left()
 
 
-func _on_Timer_timeout():
-	can_attack = true
 
 func swordFX():
 	var swordSFX = AUDIO_EFFECTS.SwordSlash.instance()
@@ -417,3 +424,11 @@ func _on_AnimationPlayer_animation_changed(old_name, new_name):
 	if old_name == 'fall_down':
 		print('fall down end')
 		food_sfx.play()
+
+
+func _on_StatusTimer_timeout():
+	state = RUN
+
+
+func _on_Timer_timeout():
+	can_attack = true

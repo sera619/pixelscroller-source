@@ -33,14 +33,14 @@ func _ready():
 	next_weapon_btn.disabled = true
 	last_weapon_btn.disabled = true
 	max_weapons = DataManager.player_data.arsenal.size()
-	for weapon in max_weapons:
-		print(DataManager.player_data.arsenal[weapon-1])
+	#for weapon in max_weapons:
+	#	print(DataManager.player_data.arsenal[weapon-1])
 
 func show_weapon_preview():
 	curr_weapon = 0
 	weaponeq_frame.visible = true
 	max_weapons = DataManager.player_data.arsenal.size()
-	print(max_weapons)
+	#print(max_weapons)
 	if max_weapons > 1:
 		next_weapon_btn.disabled = false
 		last_weapon_btn.disabled = false
@@ -80,7 +80,7 @@ func _on_BeforeBtn_pressed():
 	if curr_weapon == max_weapons:
 		curr_weapon = 0
 	next_weapon_name = String(DataManager.player_data.arsenal[curr_weapon])
-	print(next_weapon_name)
+	#print(next_weapon_name)
 	next_weapon = load("res://classes/items/"+next_weapon_name+".tres")
 	update_weapon_eq()
 
@@ -104,7 +104,7 @@ func _on_NextBtn_pressed():
 		curr_weapon = max_weapons
 	curr_weapon -= 1
 	next_weapon_name = String(DataManager.player_data.arsenal[int(curr_weapon)])
-	print(next_weapon_name)
+	#print(next_weapon_name)
 	next_weapon = load("res://classes/items/"+next_weapon_name+".tres")
 	update_weapon_eq()
 

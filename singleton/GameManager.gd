@@ -6,7 +6,7 @@ var map_holder: Node = null
 var current_player_id = null
 var weather = null
 var played_time = null
-
+var mobile_controller: MobileController = null
 var current_map: Node2D
 var current_map_name: String
 var spawn_positions: Dictionary = {
@@ -26,11 +26,17 @@ const LOOT: Dictionary ={
 func register_player(node: Player):
 	player = node 
 
+func register_mobilecontroller(node:MobileController):
+	mobile_controller = node
+	print('>>> GAMEMANAGER: Mobile-Controller successfully loaded')
+
 func set_mapname(value:String):
 	current_map_name = value
+	print('>>> GAMEMANAGER: New active mapname: "'+ value +'".')
 
 func register_interface(node: Interface):
 	interface = node
+	print('>>> GAMEMANAGER: Game-UI successfully loaded.')
 
 func register_inventory(node: Inventory):
 	inventory = node

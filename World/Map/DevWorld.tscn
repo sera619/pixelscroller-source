@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://tiles/32x32-grass.tres" type="TileSet" id=1]
 [ext_resource path="res://tiles/oneway.tres" type="TileSet" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://FinishedNotes/Chest.tscn" type="PackedScene" id=7]
 [ext_resource path="res://World/Map/DevWorld.gd" type="Script" id=8]
 [ext_resource path="res://FinishedNotes/Drops/WeaponDrop.tscn" type="PackedScene" id=9]
+[ext_resource path="res://img/pixel-dark-forest/main_background.png" type="Texture" id=10]
+[ext_resource path="res://icon.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64.25, 4 )
@@ -22,45 +24,14 @@ extents = Vector2( 63.5, 4.5 )
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 64, 3.5 )
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="GDScript" id=9]
 script/source = "extends Area2D
 class_name Ladder
 
 export (NodePath) var platform_collider: NodePath
 onready var collider = get_node(platform_collider)
-var player: Player
-
-
-func _on_Ladder_body_exited(body):
-	if body.name == 'Player':
-		print('>>> Ladder: Player exited.')
-		if player.can_climbing:
-			player.climbing = false
-			player.can_climbing = false
-			print('>>> Ladder: Player can not climb')
-		collider.set_deferred('disabled',false)
-
-
-
-func _on_Ladder_body_entered(body):
-	if body.name == 'Player':
-		player = body
-		print('>>> Ladder: Player entered.')
-		if !player.can_climbing:
-			player.can_climbing = true
-			print('>>> Ladder: Player can climb')
-		collider.set_deferred('disabled', true)
-"
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 3, 147 )
-
-[sub_resource type="GDScript" id=5]
-script/source = "extends Area2D
-
-export (NodePath) var platform_collider: NodePath
-onready var collider = get_node(platform_collider)
 var player: Player = null
+
 
 
 func _on_Ladder_body_exited(body):
@@ -73,13 +44,21 @@ func _on_Ladder_body_exited(body):
 		player = null
 
 func _process(delta):
-	if player != null:
-		if player.climbing:
-			collider.set_deferred('disabled',false)
-		else:
+	if player!=null:
+		if player.climbing and Input.is_action_just_pressed(\"ui_up\"):
+			collider.set_deferred('disabled',true)
+		elif player.can_climbing and Input.is_action_just_pressed('ui_down'):
 			collider.set_deferred('disabled', true)
+		elif player.can_climbing and player.climbing and Input.is_action_pressed('ui_down'):
+			collider.set_deferred('disabled', true)
+		else:
+			collider.set_deferred('disabled', false)
+	elif player != null and player.climbing and player.position.y < self.position.y:
+		player.climbing = false
+		
 	else:
 		return
+
 
 func _on_Ladder_body_entered(body):
 	if body.name == 'Player':
@@ -90,18 +69,71 @@ func _on_Ladder_body_entered(body):
 			print('>>> Ladder: Player can climb')
 "
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 3, 193 )
-
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 3, 80.5 )
-
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 3, 81 )
+extents = Vector2( 6, 118 )
+
+[sub_resource type="GDScript" id=11]
+script/source = "extends Area2D
+class_name Ladder
+
+export (NodePath) var platform_collider: NodePath
+onready var collider = get_node(platform_collider)
+var player: Player = null
+
+
+
+func _on_Ladder_body_exited(body):
+	if body.name == 'Player':
+		print('>>> Ladder: Player exited.')
+		if player.can_climbing:
+			player.climbing = false
+			player.can_climbing = false
+			print('>>> Ladder: Player can not climb')
+		player = null
+
+func _process(delta):
+	if player!=null:
+		if player.climbing and Input.is_action_just_pressed(\"ui_up\"):
+			collider.set_deferred('disabled',true)
+		elif player.can_climbing and Input.is_action_just_pressed('ui_down'):
+			collider.set_deferred('disabled', true)
+		elif player.can_climbing and player.climbing and Input.is_action_pressed('ui_down'):
+			collider.set_deferred('disabled', true)
+		else:
+			collider.set_deferred('disabled', false)
+	elif player != null and player.climbing and player.position.y < self.position.y:
+		player.climbing = false
+		
+	else:
+		return
+
+
+func _on_Ladder_body_entered(body):
+	if body.name == 'Player':
+		player = body
+		print('>>> Ladder: Player entered.')
+		if !player.can_climbing:
+			player.can_climbing = true
+			print('>>> Ladder: Player can climb')
+"
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 6, 165.5 )
+
+[sub_resource type="CircleShape2D" id=13]
+radius = 41.7806
 
 [node name="DevWorld" type="Node2D"]
 script = ExtResource( 8 )
 map_name = "DevWorld"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( -13, -258 )
+texture = ExtResource( 10 )
 
 [node name="BG" type="TileMap" parent="."]
 tile_set = ExtResource( 6 )
@@ -165,41 +197,40 @@ format = 1
 [node name="LadderContainer" type="Node2D" parent="."]
 
 [node name="Ladder" parent="LadderContainer" instance=ExtResource( 5 )]
-position = Vector2( 188, 1 )
-script = SubResource( 2 )
+position = Vector2( 176, 0 )
+script = SubResource( 9 )
 platform_collider = NodePath("../../BG/OneWay/CollisionShape2D")
 
 [node name="CollisionShape2D" parent="LadderContainer/Ladder" index="0"]
-position = Vector2( -12, -145.75 )
-shape = SubResource( 4 )
+position = Vector2( 0, -171 )
+shape = SubResource( 10 )
 
 [node name="Ladder2" parent="LadderContainer" instance=ExtResource( 5 )]
-position = Vector2( 272, -386 )
-script = SubResource( 5 )
+position = Vector2( 272, -288 )
+script = SubResource( 11 )
 platform_collider = NodePath("../../BG/OneWay/CollisionShape2D2")
 
 [node name="CollisionShape2D" parent="LadderContainer/Ladder2" index="0"]
-position = Vector2( 0, -95 )
-shape = SubResource( 6 )
+position = Vector2( 0, -219.5 )
+shape = SubResource( 12 )
 
-[node name="Ladder3" parent="LadderContainer" instance=ExtResource( 5 )]
-position = Vector2( -304, -770 )
-platform_collider = NodePath("../../BG/OneWay/CollisionShape2D3")
+[node name="HitDummy" type="Sprite" parent="."]
+position = Vector2( 84, -35 )
+scale = Vector2( 0.671875, 0.671875 )
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="CollisionShape2D" parent="LadderContainer/Ladder3" index="0"]
-position = Vector2( 0, 17.5 )
-shape = SubResource( 9 )
+[node name="Area2D" type="Area2D" parent="HitDummy" groups=["enemy_hitbox"]]
+collision_layer = 4
+collision_mask = 4
 
-[node name="Ladder4" parent="LadderContainer" instance=ExtResource( 5 )]
-position = Vector2( -208, -930 )
-platform_collider = NodePath("../../BG/OneWay/CollisionShape2D4")
-
-[node name="CollisionShape2D" parent="LadderContainer/Ladder4" index="0"]
-position = Vector2( 0, 17 )
-shape = SubResource( 10 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitDummy/Area2D"]
+shape = SubResource( 13 )
 
 [node name="ChestKey" parent="." instance=ExtResource( 3 )]
-position = Vector2( 259, 1 )
+position = Vector2( 310, -1 )
 
 [node name="CellDoor" parent="." instance=ExtResource( 4 )]
 position = Vector2( -240, 1 )
@@ -208,13 +239,11 @@ position = Vector2( -240, 1 )
 teleportlocation = "Map"
 
 [node name="Chest" parent="." instance=ExtResource( 7 )]
-position = Vector2( 71, -6 )
+position = Vector2( 385, -4 )
 
 [node name="WeaponDrop" parent="." instance=ExtResource( 9 )]
 position = Vector2( -125, 0 )
 
 [editable path="LadderContainer/Ladder"]
 [editable path="LadderContainer/Ladder2"]
-[editable path="LadderContainer/Ladder3"]
-[editable path="LadderContainer/Ladder4"]
 [editable path="CellDoor"]
