@@ -4,6 +4,7 @@ export(PackedScene) var spell_scene
 
 onready var hitsound_scene: PackedScene = preload("res://audio/HitSFX.tscn")
 onready var deathsound_scene: PackedScene = preload("res://audio/SkeletDeathSFX.tscn")
+onready var hit_effect_scene: PackedScene = preload("res://Effects/HitEffect.tscn")
 onready var stats = $EnemyStats
 onready var attack_timer = $Weapon/Timer
 
@@ -60,6 +61,8 @@ func show_bar():
 		health_plate.visible = false
 
 func take_damage(value):
+	var hit_effect = hit_effect_scene.instance()
+	self.add_child(hit_effect)
 	stats.set_health(stats.health - value)
 	if stats.health <= 0:
 		is_alive = false
@@ -69,8 +72,6 @@ func take_damage(value):
 		get_tree().root.add_child(deathSFX)
 		sprite.play('Die')
 	else:
-		var hitSFX = hitsound_scene.instance()
-		get_tree().root.add_child(hitSFX)
 		can_move = false
 		sprite.play('Hurt')
 		
@@ -157,6 +158,8 @@ func _on_HitBox_area_entered(area):
 	if !area.is_in_group('player_weapon'):
 		return
 	else:
+		var hitSFX = hitsound_scene.instance()
+		self.add_child(hitSFX)
 		take_damage(area.damage)
 
 func _on_AnimatedSprite_animation_finished():

@@ -3,6 +3,7 @@ extends KinematicBody2D
 onready var hitsound_scene = preload("res://audio/HitSFX.tscn")
 onready var swordsound_scene = preload("res://audio/EnemySwordSFX.tscn")
 onready var deathsound_scene = preload("res://audio/SkeletDeathSFX.tscn")
+onready var hiteffect_scene = preload("res://Effects/HitEffect.tscn")
 
 onready var stats = $EnemyStats
 onready var attack_timer = $MeleeWeapon/AttackTimer
@@ -99,6 +100,8 @@ func attack():
 
 
 func take_damage(value):
+	var hit_effect = hiteffect_scene.instance()
+	self.add_child(hit_effect)
 	stats.set_health(stats.health - value)
 	can_move =false
 	if stats.health <= 0:
