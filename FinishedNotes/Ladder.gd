@@ -6,6 +6,7 @@ onready var collider = get_node(platform_collider)
 var player: Player = null
 
 
+
 func _on_Ladder_body_exited(body):
 	if body.name == 'Player':
 		print('>>> Ladder: Player exited.')
@@ -25,6 +26,9 @@ func _process(delta):
 			collider.set_deferred('disabled', true)
 		else:
 			collider.set_deferred('disabled', false)
+	elif player != null and player.climbing and player.position.y < self.position.y:
+		player.climbing = false
+		
 	else:
 		return
 
