@@ -64,7 +64,7 @@ for fileToCheck in filesToCheck:
               "\t" + str(fileLineCount - fileBlankLineCount - fileCommentLineCount))
 
 print('_____________________________________________')
-print('\nScan for all files with fileextension: < ' + str(acceptableFileExtensions[0])+ ' > finished!')
+print('\nScan for all files with fileextension: ' + str(acceptableFileExtensions[0]) + ' finished!')
 print('Your Scanresults')
 print('---------------------------------------------')
 print('Fileextension: ' + str(acceptableFileExtensions[0]))
