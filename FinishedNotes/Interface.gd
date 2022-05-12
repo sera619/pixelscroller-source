@@ -40,9 +40,9 @@ const BGS ={
 
 
 func _ready():
-	#if OS.get_name() == 'Android':
-	mobile_controller = mobile_controlls.instance()
-	mobile_stick.add_child(mobile_controller)
+	if OS.get_name() == 'Android':
+		mobile_controller = mobile_controlls.instance()
+		mobile_stick.add_child(mobile_controller)
 	death_screen.mouse_filter = Control.MOUSE_FILTER_PASS 
 	animPlayer.play("start")
 	GameManager.register_mapholder(get_parent().get_node('MapHolder'))
