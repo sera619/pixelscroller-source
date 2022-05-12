@@ -62,7 +62,7 @@ tile_data = PoolIntArray( -1048470, 37, 0, -982911, 37, 0, -917356, 21, 0, -8517
 
 [node name="Light-Skull" parent="TopBackground/LightContainer" instance=ExtResource( 4 )]
 position = Vector2( 216, -102 )
-frame = 4
+frame = 3
 
 [node name="Main" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
