@@ -20,13 +20,13 @@ var arsenal = []
 
 func _ready():
 	arsenal = DataManager.player_data.arsenal
-	if DataManager.player_data.current_weapon == "":
-		equip_weapon(arsenal[0])
-	else:
-		equip_weapon(DataManager.player_data.current_weapon)
-	max_weapon_energie = 0
-	if GameManager.mobile_controller != null:
-		self.connect('full_energie', GameManager.mobile_controller,'show_z_btn')
+#	if DataManager.player_data.current_weapon == "":
+#		equip_weapon(arsenal[0])
+#	else:
+	equip_weapon(DataManager.player_data.current_weapon)
+	
+	self.connect('full_energie', GameManager.mobile_controller,'show_z_btn')
+
 
 
 func set_weapon_energie(value):
@@ -79,6 +79,8 @@ func _on_Sword_area_entered(area):
 	if max_weapon_energie != 0:
 		if weapon_energie > max_weapon_energie:
 			weapon_energie = max_weapon_energie
-			emit_signal('full_energie')
 		else:
 			set_weapon_energie(weapon_energie + 1)
+			if weapon_energie == max_weapon_energie:
+				emit_signal('full_energie')
+			
