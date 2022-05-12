@@ -6,11 +6,11 @@ onready var action_controller = $ActionPad
 onready var z_button = $ActionPad/ZTouchButton
 
 
-func _read():
+func _ready():
 	GameManager.register_mobilecontroller(self)
 
 func show_z_btn():
-	z_button.show()
+	z_button.visible = true
 
 
 func _on_XTouchButton_pressed():
@@ -21,4 +21,4 @@ func _on_XTouchButton_pressed():
 
 func _on_ZTouchButton_pressed():
 	Input.action_press("sword_attack")
-	z_button.hide()
+	z_button.visible = false
