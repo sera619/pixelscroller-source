@@ -72,19 +72,20 @@ func _on_StatsBtn_pressed():
 
 func _on_HelpBtn_pressed():
 	btnSFX.play()
-	if OS.get_name() == 'Android':
-		help_panel = mobile_help_panel
-	if help_panel.visible:
-		help_panel.visible = false
-	else:
+	if !get_tree().paused:
+		get_tree().paused = true
 		help_panel.visible = true
-
+	else:
+		get_tree().paused = false
+		help_panel.visible = false
 
 func _on_MenuBtn_pressed():
 	game_pause()
 
 
 func _on_CloseBtn_pressed():
+	if get_tree().paused:
+		get_tree().paused = false
 	btnSFX.play()
 	help_panel.visible = false
 
@@ -114,6 +115,8 @@ func _on_Save_pressed():
 
 
 func _on_AndroidCloseBtn_pressed():
+	if get_tree().paused:
+		get_tree().paused = false
 	btnSFX.play()
 	mobile_help_panel.visible = false
 
