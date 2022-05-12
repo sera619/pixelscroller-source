@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://tiles/32x32-grass.tres" type="TileSet" id=1]
 [ext_resource path="res://tiles/oneway.tres" type="TileSet" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://World/Map/DevWorld.gd" type="Script" id=8]
 [ext_resource path="res://FinishedNotes/Drops/WeaponDrop.tscn" type="PackedScene" id=9]
 [ext_resource path="res://img/pixel-dark-forest/main_background.png" type="Texture" id=10]
+[ext_resource path="res://icon.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64.25, 4 )
@@ -119,6 +120,9 @@ func _on_Ladder_body_entered(body):
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 6, 165.5 )
 
+[sub_resource type="CircleShape2D" id=13]
+radius = 41.7806
+
 [node name="DevWorld" type="Node2D"]
 script = ExtResource( 8 )
 map_name = "DevWorld"
@@ -210,8 +214,23 @@ platform_collider = NodePath("../../BG/OneWay/CollisionShape2D2")
 position = Vector2( 0, -219.5 )
 shape = SubResource( 12 )
 
+[node name="HitDummy" type="Sprite" parent="."]
+position = Vector2( 84, -35 )
+scale = Vector2( 0.671875, 0.671875 )
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D" type="Area2D" parent="HitDummy" groups=["enemy_hitbox"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitDummy/Area2D"]
+shape = SubResource( 13 )
+
 [node name="ChestKey" parent="." instance=ExtResource( 3 )]
-position = Vector2( 259, 1 )
+position = Vector2( 310, -1 )
 
 [node name="CellDoor" parent="." instance=ExtResource( 4 )]
 position = Vector2( -240, 1 )
@@ -220,7 +239,7 @@ position = Vector2( -240, 1 )
 teleportlocation = "Map"
 
 [node name="Chest" parent="." instance=ExtResource( 7 )]
-position = Vector2( 71, -6 )
+position = Vector2( 385, -4 )
 
 [node name="WeaponDrop" parent="." instance=ExtResource( 9 )]
 position = Vector2( -125, 0 )
