@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://img/Skull.png" type="Texture" id=1]
 [ext_resource path="res://img/pixel-art-gui-elements/playerplate.png" type="Texture" id=2]
@@ -12,16 +12,19 @@
 [ext_resource path="res://img/pixel-art-gui-elements/HotkeyPlate.png" type="Texture" id=10]
 [ext_resource path="res://FinishedNotes/GameMenu.gd" type="Script" id=11]
 [ext_resource path="res://img/pixel-art-gui-elements/q-Key.png" type="Texture" id=12]
-[ext_resource path="res://img/text-paper.png" type="Texture" id=13]
+[ext_resource path="res://img/Icons/items/shadowBlade.png" type="Texture" id=13]
 [ext_resource path="res://FinishedNotes/InfoBox.gd" type="Script" id=14]
 [ext_resource path="res://img/singleUIelements/button_home.png" type="Texture" id=15]
+[ext_resource path="res://img/singleUIelements/left-arrow.png" type="Texture" id=16]
 [ext_resource path="res://img/singleUIelements/button_X.png" type="Texture" id=17]
 [ext_resource path="res://img/Icons/items/Light Body.png" type="Texture" id=18]
 [ext_resource path="res://img/Icons/items/Mana Potion.png" type="Texture" id=19]
 [ext_resource path="res://img/singleUIelements/button_stats.png" type="Texture" id=20]
 [ext_resource path="res://img/Icons/items/PracticeSword.png" type="Texture" id=21]
+[ext_resource path="res://img/pixel-art-gui-elements/wood-frame.png" type="Texture" id=22]
 [ext_resource path="res://img/singleUIelements/button_help.png" type="Texture" id=23]
 [ext_resource path="res://img/Icons/items/Health Potion.png" type="Texture" id=24]
+[ext_resource path="res://materials/UIelements/HorizontalLine.tres" type="StyleBox" id=25]
 [ext_resource path="res://img/button-small-disabled.png" type="Texture" id=26]
 [ext_resource path="res://img/button-hover.png" type="Texture" id=27]
 [ext_resource path="res://img/button-disabled.png" type="Texture" id=28]
@@ -51,6 +54,7 @@
 [ext_resource path="res://img/pixel-art-gui-elements/arrow-right.png" type="Texture" id=52]
 [ext_resource path="res://img/pixel-art-gui-elements/arrow-left.png" type="Texture" id=53]
 [ext_resource path="res://img/button-red-small-normalt.png" type="Texture" id=54]
+[ext_resource path="res://FinishedNotes/HelpMenu.gd" type="Script" id=55]
 
 [sub_resource type="Gradient" id=18]
 offsets = PoolRealArray( 0.0354331, 0.980315 )
@@ -72,6 +76,13 @@ colors = PoolColorArray( 0.515625, 0.920532, 1, 1, 0.228668, 0.526918, 0.992188,
 
 [sub_resource type="GradientTexture" id=23]
 gradient = SubResource( 22 )
+
+[sub_resource type="Gradient" id=24]
+offsets = PoolRealArray( 0.0261628, 0.362438, 0.968699 )
+colors = PoolColorArray( 0.273438, 0, 0, 1, 0.652344, 0, 0, 1, 1, 0.46875, 0, 1 )
+
+[sub_resource type="GradientTexture" id=25]
+gradient = SubResource( 24 )
 
 [sub_resource type="StyleBoxLine" id=15]
 color = Color( 0.964706, 0.580392, 0.0823529, 1 )
@@ -361,6 +372,34 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
+[sub_resource type="Animation" id=26]
+resource_name = "level_fadeOut"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Control:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Control:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8, 2.2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
 [sub_resource type="Animation" id=14]
 resource_name = "start"
 length = 2.5
@@ -449,13 +488,14 @@ patch_margin_right = 52
 patch_margin_bottom = 14
 
 [node name="WeaponEnergie" type="Control" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -52.0
-margin_top = -25.0
-margin_right = 53.0
+margin_left = -63.0
+margin_top = -39.0
+margin_right = 63.0
 margin_bottom = -13.0
 __meta__ = {
 "_edit_group_": true
@@ -466,22 +506,32 @@ show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 45 )
-patch_margin_left = 34
-patch_margin_top = 6
-patch_margin_right = 34
-patch_margin_bottom = 6
+patch_margin_left = 46
+patch_margin_top = 13
+patch_margin_right = 46
+patch_margin_bottom = 13
 
-[node name="WEnergieBar" type="ColorRect" parent="WeaponEnergie/WeaponEnergiePlate"]
-anchor_left = 0.029
-anchor_top = 0.25
-anchor_right = 0.971
-anchor_bottom = 0.75
-margin_left = -0.0450001
-margin_right = 0.0449905
-margin_bottom = -9.53674e-07
+[node name="WEnergieBar" type="TextureRect" parent="WeaponEnergie/WeaponEnergiePlate"]
+anchor_left = 0.208
+anchor_top = 0.346
+anchor_right = 0.984
+anchor_bottom = 0.654
+margin_left = -0.208
+margin_top = 0.00399971
+margin_right = 0.0159988
+margin_bottom = -0.00400162
 grow_horizontal = 2
 grow_vertical = 2
-color = Color( 0.8, 0.533333, 0.0235294, 1 )
+texture = SubResource( 25 )
+expand = true
+
+[node name="WEngerieIcon" type="TextureRect" parent="WeaponEnergie/WeaponEnergiePlate"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 21.0
+margin_bottom = 21.0
+texture = ExtResource( 13 )
+expand = true
 
 [node name="GameMenu" type="Control" parent="."]
 pause_mode = 2
@@ -490,15 +540,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -65.0
-margin_top = -83.0
-margin_right = 50.0
-margin_bottom = 80.0
+margin_left = -57.5
+margin_top = -81.5
+margin_right = 57.5
+margin_bottom = 81.5
 script = ExtResource( 11 )
 exitBtn = NodePath("NinePatchRect/MarginContainer/VBoxContainer/ExitBtn")
 macro_menu_path = NodePath("../MarcroMenu")
 stat_panel_path = NodePath("../CharStats")
-help_path = NodePath("../Help")
+help_path = NodePath("../HelpMenu")
 macro_buttons_path = NodePath("../MarcroMenu/Menu")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="GameMenu"]
@@ -884,24 +934,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource( 13 )
-region_rect = Rect2( 0, 0, 32, 32 )
-patch_margin_left = 16
-patch_margin_top = 16
-patch_margin_right = 16
+texture = ExtResource( 46 )
+region_rect = Rect2( 0, 0, 48, 31 )
+patch_margin_left = 24
+patch_margin_top = 15
+patch_margin_right = 24
 patch_margin_bottom = 16
 
 [node name="M" type="MarginContainer" parent="InfoBox/BG"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 10
-custom_constants/margin_top = 5
+custom_constants/margin_top = 10
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 5
 
 [node name="V" type="VBoxContainer" parent="InfoBox/BG/M"]
 margin_left = 10.0
-margin_top = 5.0
+margin_top = 10.0
 margin_right = 250.0
 margin_bottom = 94.0
 custom_constants/separation = 0
@@ -923,10 +973,10 @@ uppercase = true
 [node name="TextLabel" type="Label" parent="InfoBox/BG/M/V"]
 margin_top = 11.0
 margin_right = 240.0
-margin_bottom = 89.0
+margin_bottom = 84.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_colors/font_color = Color( 0.0431373, 0.0431373, 0.0431373, 1 )
+custom_colors/font_color = Color( 0.87451, 0.87451, 0.87451, 1 )
 custom_fonts/font = ExtResource( 4 )
 text = "test text"
 align = 1
@@ -944,10 +994,10 @@ anchor_bottom = 0.5
 [node name="Bg" type="Control" parent="MarcroMenu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 11.0
-margin_top = -65.0
-margin_right = 48.0
-margin_bottom = -35.0
+margin_left = 5.0
+margin_top = -31.0
+margin_right = 33.0
+margin_bottom = -7.0
 __meta__ = {
 "_edit_group_": true
 }
@@ -1624,20 +1674,22 @@ align = 1
 valign = 1
 
 [node name="Help" type="Control" parent="."]
+pause_mode = 2
 visible = false
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -88.0
-margin_top = -116.0
-margin_right = 88.0
-margin_bottom = 116.0
+margin_left = -141.0
+margin_top = 41.0
+margin_right = 142.0
+margin_bottom = 198.0
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="BG" type="NinePatchRect" parent="Help"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 13 )
+texture = ExtResource( 22 )
 patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 16
@@ -1654,40 +1706,46 @@ custom_constants/margin_bottom = 10
 [node name="V" type="VBoxContainer" parent="Help/BG/M"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 166.0
-margin_bottom = 222.0
+margin_right = 273.0
+margin_bottom = 149.0
 custom_constants/separation = 4
 
 [node name="Head" type="Label" parent="Help/BG/M/V"]
-margin_right = 156.0
-margin_bottom = 10.0
-custom_colors/font_color = Color( 0.760784, 0.454902, 0.0627451, 1 )
+margin_right = 263.0
+margin_bottom = 15.0
+custom_colors/font_color = Color( 0.94902, 0.686275, 0.0666667, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 43 )
 text = "HILFE"
 align = 1
 valign = 1
 
+[node name="HSeparator" type="HSeparator" parent="Help/BG/M/V"]
+margin_top = 19.0
+margin_right = 263.0
+margin_bottom = 23.0
+custom_styles/separator = ExtResource( 25 )
+
 [node name="GridContainer" type="GridContainer" parent="Help/BG/M/V"]
-margin_top = 14.0
-margin_right = 156.0
-margin_bottom = 186.0
+margin_top = 27.0
+margin_right = 263.0
+margin_bottom = 119.0
 size_flags_horizontal = 3
 custom_constants/vseparation = 4
 custom_constants/hseparation = -4
-columns = 2
+columns = 4
 
 [node name="TextureRect" type="TextureRect" parent="Help/BG/M/V/GridContainer"]
-margin_right = 80.0
+margin_right = 63.0
 margin_bottom = 12.0
 size_flags_horizontal = 3
 texture = ExtResource( 36 )
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="Help/BG/M/V/GridContainer"]
-margin_left = 76.0
+margin_left = 59.0
 margin_top = 1.0
-margin_right = 156.0
+margin_right = 130.0
 margin_bottom = 11.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0.827451, 0.619608, 0.129412, 1 )
@@ -1696,18 +1754,18 @@ custom_fonts/font = ExtResource( 4 )
 text = "Bewegen"
 
 [node name="TextureRect10" type="TextureRect" parent="Help/BG/M/V/GridContainer"]
-margin_top = 16.0
-margin_right = 80.0
-margin_bottom = 28.0
+margin_left = 126.0
+margin_right = 189.0
+margin_bottom = 12.0
 size_flags_horizontal = 3
 texture = ExtResource( 38 )
 stretch_mode = 4
 
 [node name="Label10" type="Label" parent="Help/BG/M/V/GridContainer"]
-margin_left = 76.0
-margin_top = 17.0
-margin_right = 156.0
-margin_bottom = 27.0
+margin_left = 185.0
+margin_top = 1.0
+margin_right = 262.0
+margin_bottom = 11.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0.827451, 0.619608, 0.129412, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -1715,19 +1773,19 @@ custom_fonts/font = ExtResource( 4 )
 text = "Springen"
 
 [node name="TextureRect2" type="TextureRect" parent="Help/BG/M/V/GridContainer"]
-margin_top = 32.0
-margin_right = 80.0
-margin_bottom = 44.0
+margin_top = 16.0
+margin_right = 63.0
+margin_bottom = 28.0
 rect_pivot_offset = Vector2( -195, 49 )
 size_flags_horizontal = 3
 texture = ExtResource( 30 )
 stretch_mode = 4
 
 [node name="Label2" type="Label" parent="Help/BG/M/V/GridContainer"]
-margin_left = 76.0
-margin_top = 33.0
-margin_right = 156.0
-margin_bottom = 43.0
+margin_left = 59.0
+margin_top = 17.0
+margin_right = 130.0
+margin_bottom = 27.0
 rect_pivot_offset = Vector2( -299, 44 )
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0.827451, 0.619608, 0.129412, 1 )
@@ -1736,18 +1794,19 @@ custom_fonts/font = ExtResource( 4 )
 text = "Interaktion"
 
 [node name="TextureRect11" type="TextureRect" parent="Help/BG/M/V/GridContainer"]
-margin_top = 48.0
-margin_right = 80.0
-margin_bottom = 60.0
+margin_left = 126.0
+margin_top = 16.0
+margin_right = 189.0
+margin_bottom = 28.0
 size_flags_horizontal = 3
 texture = ExtResource( 12 )
 stretch_mode = 4
 
 [node name="Label11" type="Label" parent="Help/BG/M/V/GridContainer"]
-margin_left = 76.0
-margin_top = 49.0
-margin_right = 156.0
-margin_bottom = 59.0
+margin_left = 185.0
+margin_top = 17.0
+margin_right = 262.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0.827451, 0.619608, 0.129412, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -1755,18 +1814,18 @@ custom_fonts/font = ExtResource( 4 )
 text = "Spezial Angriff"
 
 [node name="TextureRect3" type="TextureRect" parent="Help/BG/M/V/GridContainer"]
-margin_top = 64.0
-margin_right = 80.0
-margin_bottom = 76.0
+margin_top = 32.0
+margin_right = 63.0
+margin_bottom = 44.0
 size_flags_horizontal = 3
 texture = ExtResource( 31 )
 stretch_mode = 4
 
 [node name="Label3" type="Label" parent="Help/BG/M/V/GridContainer"]
-margin_left = 76.0
-margin_top = 65.0
-margin_right = 156.0
-margin_bottom = 75.0
+margin_left = 59.0
+margin_top = 33.0
+margin_right = 130.0
+margin_bottom = 43.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0.827451, 0.619608, 0.129412, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -1774,18 +1833,19 @@ custom_fonts/font = ExtResource( 4 )
 text = "Rutschen"
 
 [node name="TextureRect4" type="TextureRect" parent="Help/BG/M/V/GridContainer"]
-margin_top = 80.0
-margin_right = 80.0
-margin_bottom = 92.0
+margin_left = 126.0
+margin_top = 32.0
+margin_right = 189.0
+margin_bottom = 44.0
 size_flags_horizontal = 3
 texture = ExtResource( 32 )
 stretch_mode = 4
 
 [node name="Label4" type="Label" parent="Help/BG/M/V/GridContainer"]
-margin_left = 76.0
-margin_top = 81.0
-margin_right = 156.0
-margin_bottom = 91.0
+margin_left = 185.0
+margin_top = 33.0
+margin_right = 262.0
+margin_bottom = 43.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0.827451, 0.619608, 0.129412, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -1793,18 +1853,18 @@ custom_fonts/font = ExtResource( 4 )
 text = "Angriff 1"
 
 [node name="TextureRect9" type="TextureRect" parent="Help/BG/M/V/GridContainer"]
-margin_top = 96.0
-margin_right = 80.0
-margin_bottom = 108.0
+margin_top = 48.0
+margin_right = 63.0
+margin_bottom = 60.0
 size_flags_horizontal = 3
 texture = ExtResource( 39 )
 stretch_mode = 4
 
 [node name="Label9" type="Label" parent="Help/BG/M/V/GridContainer"]
-margin_left = 76.0
-margin_top = 97.0
-margin_right = 156.0
-margin_bottom = 107.0
+margin_left = 59.0
+margin_top = 49.0
+margin_right = 130.0
+margin_bottom = 59.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0.827451, 0.619608, 0.129412, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -1812,18 +1872,19 @@ custom_fonts/font = ExtResource( 4 )
 text = "Angriff 2"
 
 [node name="TextureRect5" type="TextureRect" parent="Help/BG/M/V/GridContainer"]
-margin_top = 112.0
-margin_right = 80.0
-margin_bottom = 124.0
+margin_left = 126.0
+margin_top = 48.0
+margin_right = 189.0
+margin_bottom = 60.0
 size_flags_horizontal = 3
 texture = ExtResource( 33 )
 stretch_mode = 4
 
 [node name="Label5" type="Label" parent="Help/BG/M/V/GridContainer"]
-margin_left = 76.0
-margin_top = 113.0
-margin_right = 156.0
-margin_bottom = 123.0
+margin_left = 185.0
+margin_top = 49.0
+margin_right = 262.0
+margin_bottom = 59.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0.827451, 0.619608, 0.129412, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -1831,18 +1892,18 @@ custom_fonts/font = ExtResource( 4 )
 text = "Hotkey Slot 1"
 
 [node name="TextureRect6" type="TextureRect" parent="Help/BG/M/V/GridContainer"]
-margin_top = 128.0
-margin_right = 80.0
-margin_bottom = 140.0
+margin_top = 64.0
+margin_right = 63.0
+margin_bottom = 76.0
 size_flags_horizontal = 3
 texture = ExtResource( 34 )
 stretch_mode = 4
 
 [node name="Label6" type="Label" parent="Help/BG/M/V/GridContainer"]
-margin_left = 76.0
-margin_top = 129.0
-margin_right = 156.0
-margin_bottom = 139.0
+margin_left = 59.0
+margin_top = 65.0
+margin_right = 130.0
+margin_bottom = 75.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0.827451, 0.619608, 0.129412, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -1850,18 +1911,19 @@ custom_fonts/font = ExtResource( 4 )
 text = "Hotkey Slot 2"
 
 [node name="TextureRect7" type="TextureRect" parent="Help/BG/M/V/GridContainer"]
-margin_top = 144.0
-margin_right = 80.0
-margin_bottom = 156.0
+margin_left = 126.0
+margin_top = 64.0
+margin_right = 189.0
+margin_bottom = 76.0
 size_flags_horizontal = 3
 texture = ExtResource( 35 )
 stretch_mode = 4
 
 [node name="Label7" type="Label" parent="Help/BG/M/V/GridContainer"]
-margin_left = 76.0
-margin_top = 145.0
-margin_right = 156.0
-margin_bottom = 155.0
+margin_left = 185.0
+margin_top = 65.0
+margin_right = 262.0
+margin_bottom = 75.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0.827451, 0.619608, 0.129412, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -1869,18 +1931,18 @@ custom_fonts/font = ExtResource( 4 )
 text = "Hotkey Slot 3"
 
 [node name="TextureRect8" type="TextureRect" parent="Help/BG/M/V/GridContainer"]
-margin_top = 160.0
-margin_right = 80.0
-margin_bottom = 172.0
+margin_top = 80.0
+margin_right = 63.0
+margin_bottom = 92.0
 size_flags_horizontal = 3
 texture = ExtResource( 29 )
 stretch_mode = 4
 
 [node name="Label8" type="Label" parent="Help/BG/M/V/GridContainer"]
-margin_left = 76.0
-margin_top = 161.0
-margin_right = 156.0
-margin_bottom = 171.0
+margin_left = 59.0
+margin_top = 81.0
+margin_right = 130.0
+margin_bottom = 91.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0.827451, 0.619608, 0.129412, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -1888,27 +1950,21 @@ custom_fonts/font = ExtResource( 4 )
 text = "Menu"
 
 [node name="CloseBtn" type="TextureButton" parent="Help/BG/M/V"]
-margin_top = 190.0
-margin_right = 156.0
-margin_bottom = 212.0
-size_flags_horizontal = 3
-size_flags_vertical = 7
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 6 )
-texture_hover = ExtResource( 27 )
+margin_left = 107.0
+margin_top = 123.0
+margin_right = 155.0
+margin_bottom = 139.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource( 42 )
+texture_pressed = ExtResource( 40 )
+texture_hover = ExtResource( 41 )
 texture_disabled = ExtResource( 28 )
-expand = true
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="Help/BG/M/V/CloseBtn"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -71.0
-margin_top = -9.5
-margin_right = 71.0
-margin_bottom = 9.5
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 4 )
 text = "OKAY"
@@ -1916,7 +1972,128 @@ align = 1
 valign = 1
 
 [node name="Help-Android" parent="." instance=ExtResource( 7 )]
+pause_mode = 2
+
+[node name="HelpMenu" type="Control" parent="."]
+pause_mode = 2
 visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -55.0
+margin_top = -57.5
+margin_right = 55.0
+margin_bottom = 57.5
+script = ExtResource( 55 )
+key_android_path = NodePath("../Help-Android")
+key_win_path = NodePath("../Help")
+btn_sfx_path = NodePath("../ButtonSFX")
+
+[node name="Bg" type="NinePatchRect" parent="HelpMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 46 )
+patch_margin_left = 24
+patch_margin_top = 16
+patch_margin_right = 24
+patch_margin_bottom = 16
+
+[node name="M" type="MarginContainer" parent="HelpMenu/Bg"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="V" type="VBoxContainer" parent="HelpMenu/Bg/M"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 100.0
+margin_bottom = 105.0
+custom_constants/separation = 2
+
+[node name="Header" type="Label" parent="HelpMenu/Bg/M/V"]
+margin_right = 90.0
+margin_bottom = 15.0
+custom_colors/font_color = Color( 0.964706, 0.580392, 0.0823529, 1 )
+custom_fonts/font = ExtResource( 43 )
+text = "Hilfe"
+align = 1
+valign = 1
+
+[node name="HSeparator" type="HSeparator" parent="HelpMenu/Bg/M/V"]
+margin_top = 17.0
+margin_right = 90.0
+margin_bottom = 21.0
+custom_styles/separator = ExtResource( 25 )
+
+[node name="KeyMapBtn" type="TextureButton" parent="HelpMenu/Bg/M/V"]
+margin_top = 23.0
+margin_right = 90.0
+margin_bottom = 45.0
+size_flags_horizontal = 7
+size_flags_vertical = 3
+texture_normal = ExtResource( 42 )
+texture_pressed = ExtResource( 40 )
+texture_hover = ExtResource( 41 )
+texture_disabled = ExtResource( 28 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HelpMenu/Bg/M/V/KeyMapBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.952941, 0.94902, 0.94902, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Tasten"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="BugBtn" type="TextureButton" parent="HelpMenu/Bg/M/V"]
+margin_top = 47.0
+margin_right = 90.0
+margin_bottom = 70.0
+size_flags_horizontal = 7
+size_flags_vertical = 3
+texture_normal = ExtResource( 42 )
+texture_pressed = ExtResource( 40 )
+texture_hover = ExtResource( 41 )
+texture_disabled = ExtResource( 28 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HelpMenu/Bg/M/V/BugBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.952941, 0.94902, 0.94902, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "bug?"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="BackBtn" type="TextureButton" parent="HelpMenu/Bg/M/V"]
+margin_top = 72.0
+margin_right = 90.0
+margin_bottom = 95.0
+size_flags_horizontal = 7
+size_flags_vertical = 3
+texture_normal = ExtResource( 42 )
+texture_pressed = ExtResource( 40 )
+texture_hover = ExtResource( 41 )
+texture_disabled = ExtResource( 28 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="TextureRect" parent="HelpMenu/Bg/M/V/BackBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 4
 
 [node name="MobileStick" type="Node" parent="."]
 
@@ -2058,6 +2235,7 @@ anims/RESET = SubResource( 10 )
 anims/fadeIn_deathscreen = SubResource( 11 )
 anims/fadeOut_deathscreen = SubResource( 12 )
 anims/level_fadeIn = SubResource( 13 )
+anims/level_fadeOut = SubResource( 26 )
 anims/start = SubResource( 14 )
 
 [node name="ButtonSFX" type="AudioStreamPlayer" parent="."]
@@ -2080,8 +2258,11 @@ bus = "Menu"
 [connection signal="pressed" from="CharStats/EQWeapon/M/V/H/NextBtn" to="CharStats" method="_on_NextBtn_pressed"]
 [connection signal="pressed" from="CharStats/EQWeapon/M/V/H2/WeaponEquipBtn" to="CharStats" method="_on_WeaponEquipBtn_pressed"]
 [connection signal="pressed" from="CharStats/EQWeapon/M/V/H2/WeaponBackBtn" to="CharStats" method="_on_WeaponBackBtn_pressed"]
-[connection signal="pressed" from="Help/BG/M/V/CloseBtn" to="GameMenu" method="_on_CloseBtn_pressed"]
+[connection signal="pressed" from="Help/BG/M/V/CloseBtn" to="HelpMenu" method="_on_CloseBtn_pressed"]
 [connection signal="pressed" from="Help-Android/BG/M/V/AndroidCloseBtn" to="GameMenu" method="_on_AndroidCloseBtn_pressed"]
+[connection signal="pressed" from="HelpMenu/Bg/M/V/KeyMapBtn" to="HelpMenu" method="_on_KeyMapBtn_pressed"]
+[connection signal="pressed" from="HelpMenu/Bg/M/V/BugBtn" to="HelpMenu" method="_on_BugBtn_pressed"]
+[connection signal="pressed" from="HelpMenu/Bg/M/V/BackBtn" to="HelpMenu" method="_on_BackBtn_pressed"]
 [connection signal="pressed" from="DeathScreen/BG/M/H/V/H/LoadBtn" to="." method="_on_LoadBtn_pressed"]
 [connection signal="pressed" from="DeathScreen/BG/M/H/V/H/ExitBtn" to="." method="_on_ExitBtn_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

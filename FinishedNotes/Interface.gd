@@ -22,6 +22,7 @@ onready var weaponLabel = $CharStats/Bg/M/V/Equip/WeaponStats/V/WeaponName
 onready var weaponElementLabel = $CharStats/Bg/M/V/Equip/WeaponStats/V/WeaponElement
 onready var weaponEnergiePlate = $WeaponEnergie
 onready var weapon_energie_bar = $WeaponEnergie/WeaponEnergiePlate/WEnergieBar
+onready var weapon_energie_icon = $WeaponEnergie/WeaponEnergiePlate/WEngerieIcon
 
 onready var game_menu = $GameMenu
 
@@ -67,6 +68,7 @@ func show_weapon_bar():
 	if player_weapon.max_weapon_energie == 0:
 		weaponEnergiePlate.visible = false
 	else:
+		weapon_energie_icon.texture = player_weapon.current_weapon.icon
 		weaponEnergiePlate.visible = true
 
 func update_gold():
@@ -113,7 +115,7 @@ func update_bodyamor():
 	
 
 func update_weapon_bar():
-	weapon_energie_bar.rect_size.x = 99 * player_weapon.weapon_energie / player_weapon.max_weapon_energie
+	weapon_energie_bar.rect_size.x = 98 * player_weapon.weapon_energie / player_weapon.max_weapon_energie
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
