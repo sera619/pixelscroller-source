@@ -16,7 +16,7 @@ var default_player_data ={
 	'played_min':0,
 	'played_sec':0,
 	'arsenal': ['Holz-Schwert'],
-	'current_weapon':""
+	'current_weapon':"Holz-Schwert"
 }
 
 var player_data = {}
