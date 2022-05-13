@@ -520,8 +520,9 @@ custom_constants/separation = 7
 alignment = 1
 
 [node name="Label" type="Label" parent="CanvasLayer/Menu/NewGame/M/V"]
+margin_top = 17.0
 margin_right = 207.0
-margin_bottom = 33.0
+margin_bottom = 50.0
 custom_fonts/font = ExtResource( 9 )
 text = "Bitte gebe einen Spielernamen ein"
 align = 1
@@ -529,9 +530,9 @@ valign = 1
 autowrap = true
 
 [node name="LineEdit" type="LineEdit" parent="CanvasLayer/Menu/NewGame/M/V"]
-margin_top = 40.0
+margin_top = 57.0
 margin_right = 207.0
-margin_bottom = 57.0
+margin_bottom = 74.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 9 )
@@ -544,9 +545,9 @@ placeholder_text = "Spielername"
 caret_blink = true
 
 [node name="Label2" type="Label" parent="CanvasLayer/Menu/NewGame/M/V"]
-margin_top = 64.0
+margin_top = 81.0
 margin_right = 207.0
-margin_bottom = 74.0
+margin_bottom = 91.0
 custom_colors/font_color = Color( 0.890196, 0, 0, 1 )
 custom_fonts/font = ExtResource( 6 )
 align = 1
@@ -554,20 +555,17 @@ valign = 1
 autowrap = true
 
 [node name="H" type="HBoxContainer" parent="CanvasLayer/Menu/NewGame/M/V"]
-margin_left = 19.0
-margin_top = 81.0
-margin_right = 214.0
-margin_bottom = 131.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/separation = 2
+margin_left = 46.0
+margin_top = 98.0
+margin_right = 160.0
+margin_bottom = 114.0
+size_flags_horizontal = 4
+custom_constants/separation = 18
 alignment = 1
 
 [node name="NewGameBtn" type="TextureButton" parent="CanvasLayer/Menu/NewGame/M/V/H"]
-margin_left = 24.0
-margin_top = 17.0
-margin_right = 72.0
-margin_bottom = 33.0
+margin_right = 48.0
+margin_bottom = 16.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 texture_normal = ExtResource( 2 )
@@ -590,10 +588,9 @@ align = 1
 valign = 1
 
 [node name="LoadExitBtn" type="TextureButton" parent="CanvasLayer/Menu/NewGame/M/V/H"]
-margin_left = 98.0
-margin_top = 17.0
-margin_right = 146.0
-margin_bottom = 33.0
+margin_left = 66.0
+margin_right = 114.0
+margin_bottom = 16.0
 size_flags_horizontal = 2
 size_flags_vertical = 6
 texture_normal = ExtResource( 2 )
