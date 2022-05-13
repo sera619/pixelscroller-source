@@ -636,10 +636,26 @@ margin_bottom = 146.0
 custom_constants/separation = 7
 alignment = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/Menu/NewGame/M/V"]
-margin_top = 17.0
+[node name="Header" type="Label" parent="CanvasLayer/Menu/NewGame/M/V"]
 margin_right = 207.0
-margin_bottom = 50.0
+margin_bottom = 15.0
+custom_colors/font_color = Color( 0.858824, 0.494118, 0.0705882, 1 )
+custom_fonts/font = ExtResource( 9 )
+text = "neues spiel"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/Menu/NewGame/M/V"]
+margin_top = 22.0
+margin_right = 207.0
+margin_bottom = 26.0
+custom_styles/separator = ExtResource( 11 )
+
+[node name="Label" type="Label" parent="CanvasLayer/Menu/NewGame/M/V"]
+margin_top = 33.0
+margin_right = 207.0
+margin_bottom = 66.0
 custom_fonts/font = ExtResource( 9 )
 text = "Bitte gebe einen Spielernamen ein"
 align = 1
@@ -647,9 +663,9 @@ valign = 1
 autowrap = true
 
 [node name="LineEdit" type="LineEdit" parent="CanvasLayer/Menu/NewGame/M/V"]
-margin_top = 57.0
+margin_top = 73.0
 margin_right = 207.0
-margin_bottom = 74.0
+margin_bottom = 90.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 9 )
@@ -662,9 +678,9 @@ placeholder_text = "Spielername"
 caret_blink = true
 
 [node name="Label2" type="Label" parent="CanvasLayer/Menu/NewGame/M/V"]
-margin_top = 81.0
+margin_top = 97.0
 margin_right = 207.0
-margin_bottom = 91.0
+margin_bottom = 107.0
 custom_colors/font_color = Color( 0.890196, 0, 0, 1 )
 custom_fonts/font = ExtResource( 6 )
 align = 1
@@ -673,9 +689,9 @@ autowrap = true
 
 [node name="H" type="HBoxContainer" parent="CanvasLayer/Menu/NewGame/M/V"]
 margin_left = 46.0
-margin_top = 98.0
+margin_top = 114.0
 margin_right = 160.0
-margin_bottom = 114.0
+margin_bottom = 130.0
 size_flags_horizontal = 4
 custom_constants/separation = 18
 alignment = 1
@@ -1261,7 +1277,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0.898039, 0.886275, 0.886275, 1 )
 custom_fonts/font = ExtResource( 6 )
-text = "okay"
+text = "ja"
 align = 1
 valign = 1
 uppercase = true
