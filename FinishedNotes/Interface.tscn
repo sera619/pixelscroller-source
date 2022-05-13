@@ -12,7 +12,7 @@
 [ext_resource path="res://img/pixel-art-gui-elements/HotkeyPlate.png" type="Texture" id=10]
 [ext_resource path="res://FinishedNotes/GameMenu.gd" type="Script" id=11]
 [ext_resource path="res://img/pixel-art-gui-elements/q-Key.png" type="Texture" id=12]
-[ext_resource path="res://img/Icons/items/shadowBlade.png" type="Texture" id=13]
+[ext_resource path="res://img/super-epic-fantasy-weapons-pack/Plate Amor.png" type="Texture" id=13]
 [ext_resource path="res://FinishedNotes/InfoBox.gd" type="Script" id=14]
 [ext_resource path="res://img/singleUIelements/button_home.png" type="Texture" id=15]
 [ext_resource path="res://img/singleUIelements/left-arrow.png" type="Texture" id=16]
@@ -493,44 +493,32 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -63.0
-margin_top = -39.0
-margin_right = 63.0
-margin_bottom = -13.0
+margin_left = -47.0
+margin_top = -48.0
+margin_right = 47.0
+margin_bottom = -22.0
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="WeaponEnergiePlate" type="NinePatchRect" parent="WeaponEnergie"]
+[node name="WeaponEnergiePlate" type="TextureRect" parent="WeaponEnergie"]
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 45 )
-patch_margin_left = 46
-patch_margin_top = 13
-patch_margin_right = 46
-patch_margin_bottom = 13
 
 [node name="WEnergieBar" type="TextureRect" parent="WeaponEnergie/WeaponEnergiePlate"]
-anchor_left = 0.208
+anchor_left = 0.292
 anchor_top = 0.346
-anchor_right = 0.984
-anchor_bottom = 0.654
-margin_left = -0.208
+anchor_right = 0.978
+anchor_bottom = 0.731
+margin_left = -0.448002
 margin_top = 0.00399971
-margin_right = 0.0159988
-margin_bottom = -0.00400162
+margin_right = 0.0679932
+margin_bottom = -0.00600052
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource( 25 )
-expand = true
-
-[node name="WEngerieIcon" type="TextureRect" parent="WeaponEnergie/WeaponEnergiePlate"]
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 21.0
-margin_bottom = 21.0
-texture = ExtResource( 13 )
 expand = true
 
 [node name="GameMenu" type="Control" parent="."]
@@ -601,22 +589,16 @@ margin_right = 95.0
 margin_bottom = 52.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 6 )
-texture_hover = ExtResource( 27 )
+texture_normal = ExtResource( 42 )
+texture_pressed = ExtResource( 40 )
+texture_hover = ExtResource( 41 )
+texture_disabled = ExtResource( 28 )
 expand = true
 
 [node name="Label" type="Label" parent="GameMenu/NinePatchRect/MarginContainer/VBoxContainer/BackBtn"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -27.5
-margin_top = -8.5
-margin_right = 27.5
-margin_bottom = 8.5
-custom_colors/font_color = Color( 0.631373, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.87451, 0.87451, 0.87451, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 4 )
 text = "BACK"
@@ -630,21 +612,16 @@ margin_right = 95.0
 margin_bottom = 76.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 6 )
-texture_hover = ExtResource( 27 )
+texture_normal = ExtResource( 42 )
+texture_pressed = ExtResource( 40 )
+texture_hover = ExtResource( 41 )
+texture_disabled = ExtResource( 28 )
 expand = true
 
 [node name="Label2" type="Label" parent="GameMenu/NinePatchRect/MarginContainer/VBoxContainer/Save"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -27.5
-margin_top = -8.5
-margin_right = 27.5
-margin_bottom = 8.5
-custom_colors/font_color = Color( 0.631373, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.87451, 0.87451, 0.87451, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 4 )
@@ -659,21 +636,16 @@ margin_right = 95.0
 margin_bottom = 100.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 6 )
-texture_hover = ExtResource( 27 )
+texture_normal = ExtResource( 42 )
+texture_pressed = ExtResource( 40 )
+texture_hover = ExtResource( 41 )
+texture_disabled = ExtResource( 28 )
 expand = true
 
 [node name="Label2" type="Label" parent="GameMenu/NinePatchRect/MarginContainer/VBoxContainer/ExitBtn"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -27.5
-margin_top = -8.5
-margin_right = 27.5
-margin_bottom = 8.5
-custom_colors/font_color = Color( 0.631373, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.87451, 0.87451, 0.87451, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 4 )
@@ -696,7 +668,8 @@ expand = true
 [node name="Label" type="Label" parent="GameMenu/NinePatchRect/MarginContainer/VBoxContainer/DevMap"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.87451, 0.87451, 0.87451, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 4 )
 text = "Dev"
 align = 1
@@ -1452,9 +1425,9 @@ margin_right = 135.0
 margin_bottom = 161.0
 size_flags_horizontal = 6
 size_flags_vertical = 0
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 6 )
-texture_hover = ExtResource( 27 )
+texture_normal = ExtResource( 42 )
+texture_pressed = ExtResource( 40 )
+texture_hover = ExtResource( 41 )
 texture_disabled = ExtResource( 28 )
 
 [node name="Label" type="Label" parent="CharStats/Bg/M/V/OkStatsBtn"]
@@ -1668,6 +1641,209 @@ texture_disabled = ExtResource( 28 )
 [node name="Label" type="Label" parent="CharStats/EQWeapon/M/V/H2/WeaponBackBtn"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 4 )
+text = "EXIT"
+align = 1
+valign = 1
+
+[node name="EQAmor" type="NinePatchRect" parent="CharStats"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 46 )
+patch_margin_left = 24
+patch_margin_top = 16
+patch_margin_right = 24
+patch_margin_bottom = 16
+
+[node name="M" type="MarginContainer" parent="CharStats/EQAmor"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="V" type="VBoxContainer" parent="CharStats/EQAmor/M"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 233.0
+margin_bottom = 165.0
+
+[node name="Head" type="Label" parent="CharStats/EQAmor/M/V"]
+margin_right = 223.0
+margin_bottom = 15.0
+custom_colors/font_color = Color( 0.964706, 0.580392, 0.0823529, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 43 )
+text = "Ruestung"
+align = 1
+valign = 1
+
+[node name="HS2" type="HSeparator" parent="CharStats/EQAmor/M/V"]
+margin_top = 19.0
+margin_right = 223.0
+margin_bottom = 23.0
+custom_styles/separator = ExtResource( 25 )
+
+[node name="AmorName" type="Label" parent="CharStats/EQAmor/M/V"]
+margin_top = 27.0
+margin_right = 223.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0.129412, 0.717647, 0.898039, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Amor Name"
+align = 1
+valign = 1
+
+[node name="H" type="HBoxContainer" parent="CharStats/EQAmor/M/V"]
+margin_left = 57.0
+margin_top = 41.0
+margin_right = 165.0
+margin_bottom = 73.0
+size_flags_horizontal = 6
+custom_constants/separation = 22
+alignment = 1
+
+[node name="LastAmorBtn" type="TextureButton" parent="CharStats/EQAmor/M/V/H"]
+margin_top = 8.0
+margin_right = 16.0
+margin_bottom = 24.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource( 54 )
+texture_pressed = ExtResource( 49 )
+texture_hover = ExtResource( 51 )
+texture_disabled = ExtResource( 26 )
+
+[node name="Icon" type="TextureRect" parent="CharStats/EQAmor/M/V/H/LastAmorBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 16 )
+
+[node name="AmorIcon" type="TextureRect" parent="CharStats/EQAmor/M/V/H"]
+margin_left = 38.0
+margin_right = 70.0
+margin_bottom = 32.0
+texture = ExtResource( 13 )
+
+[node name="NextAmorBtn" type="TextureButton" parent="CharStats/EQAmor/M/V/H"]
+margin_left = 92.0
+margin_top = 8.0
+margin_right = 108.0
+margin_bottom = 24.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource( 54 )
+texture_pressed = ExtResource( 49 )
+texture_hover = ExtResource( 51 )
+texture_disabled = ExtResource( 26 )
+
+[node name="Icon" type="TextureRect" parent="CharStats/EQAmor/M/V/H/NextAmorBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 16 )
+flip_h = true
+
+[node name="HS" type="HSeparator" parent="CharStats/EQAmor/M/V"]
+margin_top = 77.0
+margin_right = 223.0
+margin_bottom = 81.0
+custom_styles/separator = ExtResource( 25 )
+
+[node name="GC" type="GridContainer" parent="CharStats/EQAmor/M/V"]
+margin_top = 85.0
+margin_right = 223.0
+margin_bottom = 95.0
+custom_constants/vseparation = 1
+custom_constants/hseparation = 1
+columns = 3
+
+[node name="Defense" type="Label" parent="CharStats/EQAmor/M/V/GC"]
+margin_right = 73.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.560784, 0.788235, 0.756863, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Verteidigung"
+align = 1
+valign = 1
+
+[node name="OldDefense" type="Label" parent="CharStats/EQAmor/M/V/GC"]
+margin_left = 74.0
+margin_right = 147.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 4 )
+text = "10"
+align = 1
+valign = 1
+
+[node name="NewDefense" type="Label" parent="CharStats/EQAmor/M/V/GC"]
+margin_left = 148.0
+margin_right = 221.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 4 )
+text = "20"
+align = 1
+valign = 1
+
+[node name="Desc" type="Label" parent="CharStats/EQAmor/M/V"]
+margin_top = 99.0
+margin_right = 223.0
+margin_bottom = 135.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_colors/font_color = Color( 0.0156863, 0.74902, 0.52549, 1 )
+custom_fonts/font = ExtResource( 4 )
+align = 1
+valign = 1
+autowrap = true
+
+[node name="H2" type="HBoxContainer" parent="CharStats/EQAmor/M/V"]
+margin_left = 61.0
+margin_top = 139.0
+margin_right = 161.0
+margin_bottom = 155.0
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="ChangeAmorBtn" type="TextureButton" parent="CharStats/EQAmor/M/V/H2"]
+margin_right = 48.0
+margin_bottom = 16.0
+texture_normal = ExtResource( 42 )
+texture_pressed = ExtResource( 40 )
+texture_hover = ExtResource( 41 )
+texture_disabled = ExtResource( 28 )
+
+[node name="Label" type="Label" parent="CharStats/EQAmor/M/V/H2/ChangeAmorBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -2.0
+custom_colors/font_color = Color( 0.87451, 0.87451, 0.87451, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Anlegen"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Backbutton" type="TextureButton" parent="CharStats/EQAmor/M/V/H2"]
+margin_left = 52.0
+margin_right = 100.0
+margin_bottom = 16.0
+texture_normal = ExtResource( 42 )
+texture_pressed = ExtResource( 40 )
+texture_hover = ExtResource( 41 )
+texture_disabled = ExtResource( 28 )
+
+[node name="Label" type="Label" parent="CharStats/EQAmor/M/V/H2/Backbutton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -2.0
+custom_colors/font_color = Color( 0.87451, 0.87451, 0.87451, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 4 )
 text = "EXIT"
 align = 1
@@ -2253,11 +2429,16 @@ bus = "Menu"
 [connection signal="pressed" from="MarcroMenu/Menu/M/V/MenuBtn" to="GameMenu" method="_on_MenuBtn_pressed"]
 [connection signal="tween_all_completed" from="MarcroMenu/Menu/Tween" to="GameMenu" method="_on_Tween_tween_all_completed"]
 [connection signal="pressed" from="CharStats/Bg/M/V/Equip/WeaponIcon" to="CharStats" method="_on_WeaponIcon_pressed"]
+[connection signal="pressed" from="CharStats/Bg/M/V/Equip/AmorIcon" to="CharStats" method="_on_AmorIcon_pressed"]
 [connection signal="pressed" from="CharStats/Bg/M/V/OkStatsBtn" to="GameMenu" method="_on_OkStatsBtn_pressed"]
 [connection signal="pressed" from="CharStats/EQWeapon/M/V/H/BeforeBtn" to="CharStats" method="_on_BeforeBtn_pressed"]
 [connection signal="pressed" from="CharStats/EQWeapon/M/V/H/NextBtn" to="CharStats" method="_on_NextBtn_pressed"]
 [connection signal="pressed" from="CharStats/EQWeapon/M/V/H2/WeaponEquipBtn" to="CharStats" method="_on_WeaponEquipBtn_pressed"]
 [connection signal="pressed" from="CharStats/EQWeapon/M/V/H2/WeaponBackBtn" to="CharStats" method="_on_WeaponBackBtn_pressed"]
+[connection signal="pressed" from="CharStats/EQAmor/M/V/H/LastAmorBtn" to="CharStats" method="_on_LastAmorBtn_pressed"]
+[connection signal="pressed" from="CharStats/EQAmor/M/V/H/NextAmorBtn" to="CharStats" method="_on_NextAmorBtn_pressed"]
+[connection signal="pressed" from="CharStats/EQAmor/M/V/H2/ChangeAmorBtn" to="CharStats" method="_on_ChangeAmorBtn_pressed"]
+[connection signal="pressed" from="CharStats/EQAmor/M/V/H2/Backbutton" to="CharStats" method="_on_Backbutton_pressed"]
 [connection signal="pressed" from="Help/BG/M/V/CloseBtn" to="HelpMenu" method="_on_CloseBtn_pressed"]
 [connection signal="pressed" from="Help-Android/BG/M/V/AndroidCloseBtn" to="GameMenu" method="_on_AndroidCloseBtn_pressed"]
 [connection signal="pressed" from="HelpMenu/Bg/M/V/KeyMapBtn" to="HelpMenu" method="_on_KeyMapBtn_pressed"]
