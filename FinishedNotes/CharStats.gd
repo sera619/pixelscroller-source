@@ -26,7 +26,7 @@ onready var amor_icon = $EQAmor/M/V/H/AmorIcon
 onready var next_amor_btn = $EQAmor/M/V/H/NextAmorBtn
 onready var last_amor_btn = $EQAmor/M/V/H/LastAmorBtn
 onready var amor_desc = $EQAmor/M/V/Desc
-onready var amor_name = $Bg/M/V/Equip/AmorStats/V/AmorName
+onready var amor_name = $EQAmor/M/V/AmorName
 
 onready var default_weapon = preload("res://classes/items/Holz-Schwert.tres")
 onready var default_amor = preload('res://classes/items/Amor/Alte Weste.tres')
@@ -76,7 +76,7 @@ func show_amor_preview():
 	if max_amors > 1:
 		next_amor_btn.disabled = false
 		last_amor_btn.disabled = false
-	amor_name.text = default_amor.name
+	amor_name.text = str(default_amor.name)
 	old_defense_label.text = str(player.bodyamor.current_bodyamor.amor_defense)
 	new_defense_label.text = str(default_amor.amor_defense)
 	amor_icon.texture = default_amor.icon
