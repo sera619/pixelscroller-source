@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://tiles/oneway.tres" type="TileSet" id=1]
 [ext_resource path="res://tiles/oak_TileSet.tres" type="TileSet" id=2]
@@ -10,6 +10,9 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 80, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 1.5, 63.5 )
 
 [node name="Dungeonmap" type="Node2D"]
 script = ExtResource( 5 )
@@ -62,7 +65,6 @@ tile_data = PoolIntArray( -1048470, 37, 0, -982911, 37, 0, -917356, 21, 0, -8517
 
 [node name="Light-Skull" parent="TopBackground/LightContainer" instance=ExtResource( 4 )]
 position = Vector2( 216, -102 )
-frame = 3
 
 [node name="Main" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
@@ -123,6 +125,44 @@ one_shot = true
 position = Vector2( -72, -168 )
 scale = Vector2( 1.5, 1.5 )
 
+[node name="Trigger" type="Node2D" parent="."]
+
+[node name="LightTrigger1" type="Area2D" parent="Trigger"]
+position = Vector2( 3980, -139 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger/LightTrigger1"]
+position = Vector2( -26, -5 )
+shape = SubResource( 2 )
+
+[node name="LightTrigger2" type="Area2D" parent="Trigger"]
+visible = false
+position = Vector2( 3980, -139 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger/LightTrigger2"]
+
+[node name="LightTrigger3" type="Area2D" parent="Trigger"]
+visible = false
+position = Vector2( 3980, -139 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger/LightTrigger3"]
+
+[node name="LightTrigger4" type="Area2D" parent="Trigger"]
+visible = false
+position = Vector2( 3980, -139 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger/LightTrigger4"]
+
+[node name="LightTrigger5" type="Area2D" parent="Trigger"]
+visible = false
+position = Vector2( 3980, -139 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger/LightTrigger5"]
+
+[node name="LightTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="TrapManager/Timer" to="TrapManager" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Trigger/LightTrigger1" to="." method="_on_LightTrigger1_body_entered"]
+[connection signal="timeout" from="LightTimer" to="." method="_on_LightTimer_timeout"]
 
 [editable path="Object/CellDoor"]
