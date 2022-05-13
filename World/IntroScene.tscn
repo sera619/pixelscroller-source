@@ -174,11 +174,11 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -38.0
-margin_top = -29.0
-margin_right = -10.0
+margin_left = -29.0
+margin_top = -19.0
+margin_right = -7.0
+margin_bottom = -7.0
 texture = ExtResource( 5 )
-expand = true
 stretch_mode = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]

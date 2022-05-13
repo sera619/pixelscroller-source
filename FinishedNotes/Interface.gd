@@ -65,8 +65,9 @@ func show_deathscreen():
 	animPlayer.play("fadeIn_deathscreen")
 
 func show_weapon_bar():
-	if player_weapon.max_weapon_energie == 0:
+	if player_weapon.current_weapon.weapon_energie == 0:
 		weaponEnergiePlate.visible = false
+		return
 	else:
 		weapon_energie_icon.texture = player_weapon.current_weapon.icon
 		weaponEnergiePlate.visible = true
