@@ -1,15 +1,19 @@
 extends MapBase
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+export(String, "20.0","30.0","40.0","10.0") var light_time
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+
+
+
+
+
+
+func _on_LightTimer_timeout():
+	get_tree().call_group('dungeon_light', 'lights_off')
+
+func _on_LightTrigger1_body_entered(body):
+	pass # TODO: trigger dark viewport
