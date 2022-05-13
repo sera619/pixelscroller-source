@@ -18,8 +18,7 @@ func reg_stamina():
 		return
 	elif player.stamina < player.max_stamina && regTimer.is_stopped():
 		regTimer.start(1)
-		print('regtimer started')
-
+		
 
 
 
@@ -28,19 +27,18 @@ func reg_amor():
 		return
 	if player.amor < player.max_amor && regTimer.is_stopped():
 		regTimer.start(1)
-		print('regtimer started')
-
+		
 
 
 
 func _on_RegTimer_timeout():
 	if player.stamina != player.max_stamina:
 		player.set_stamina(player.stamina + 1)
-		print('new stamina: '+ str(player.stamina))
+		print('>> PLAYER STATS: New Stamina: '+ str(player.stamina))
 		return
 	elif player.amor != player.max_amor:
 		player.set_amor(player.amor +1)
-		print('new amor: ' + str(player.amor))
+		print('>>> PLAYER STATS: New Shield: ' + str(player.amor))
 		return
 	elif player.alive:
 		regTimer.stop()
