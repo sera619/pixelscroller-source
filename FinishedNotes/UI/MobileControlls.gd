@@ -14,7 +14,6 @@ func show_z_btn():
 
 
 func _on_XTouchButton_pressed():
-	Input.action_press("interact")
 	if GameManager.player.velocity.x > 0 or GameManager.player.velocity.x < 0:
 		Input.action_press("slide")
 
