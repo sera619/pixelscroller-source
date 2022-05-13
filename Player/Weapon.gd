@@ -76,7 +76,7 @@ func loot_weapon(weapon_name:String):
 func _on_Sword_area_entered(area):
 	if !area.is_in_group('enemy_hitbox'):
 		return
-	if max_weapon_energie != 0:
+	if max_weapon_energie != null:
 		if weapon_energie > max_weapon_energie:
 			weapon_energie = max_weapon_energie
 		else:
