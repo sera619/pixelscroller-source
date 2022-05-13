@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://img/red-button-normal.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://img/pixel-art-gui-elements/wood-frame.png" type="Texture" id=8]
 [ext_resource path="res://materials/font2.tres" type="DynamicFont" id=9]
 [ext_resource path="res://img/button-disabled.png" type="Texture" id=10]
+[ext_resource path="res://materials/UIelements/HorizontalLine.tres" type="StyleBox" id=11]
 [ext_resource path="res://audio/audioassets/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/General Sounds/Buttons/sfx_sounds_button11.wav" type="AudioStream" id=12]
 [ext_resource path="res://img/wood-box.png" type="Texture" id=13]
 [ext_resource path="res://img/button-red-small-hovert.png" type="Texture" id=14]
@@ -101,6 +102,34 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "HideCredits"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Credits:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Credits:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -333,6 +362,58 @@ tracks/9/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath("Credits:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Credits:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "ShowCredits"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Credits:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Credits:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true ]
+}
 
 [node name="MainMenu" type="Node"]
 script = ExtResource( 1 )
@@ -356,8 +437,14 @@ margin_right = -69.68
 margin_bottom = -19.56
 
 [node name="BG" type="NinePatchRect" parent="CanvasLayer/Menu"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -80.0
+margin_right = 50.0
+margin_bottom = 80.0
 texture = ExtResource( 13 )
 patch_margin_left = 24
 patch_margin_top = 16
@@ -377,11 +464,12 @@ custom_constants/margin_bottom = 15
 [node name="V" type="VBoxContainer" parent="CanvasLayer/Menu/BG/M"]
 margin_left = 10.0
 margin_top = 15.0
-margin_right = 92.0
-margin_bottom = 122.0
+margin_right = 90.0
+margin_bottom = 145.0
+custom_constants/separation = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/Menu/BG/M/V"]
-margin_right = 82.0
+margin_right = 80.0
 margin_bottom = 15.0
 custom_colors/font_color = Color( 0.964706, 0.580392, 0.0823529, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -391,15 +479,15 @@ align = 1
 valign = 1
 
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/Menu/BG/M/V"]
-margin_top = 19.0
-margin_right = 82.0
-margin_bottom = 23.0
+margin_top = 18.0
+margin_right = 80.0
+margin_bottom = 22.0
 custom_styles/separator = SubResource( 8 )
 
 [node name="StartBtn" type="TextureButton" parent="CanvasLayer/Menu/BG/M/V"]
-margin_top = 27.0
-margin_right = 82.0
-margin_bottom = 44.0
+margin_top = 25.0
+margin_right = 80.0
+margin_bottom = 43.0
 focus_mode = 1
 size_flags_vertical = 3
 enabled_focus_mode = 1
@@ -419,8 +507,8 @@ valign = 1
 uppercase = true
 
 [node name="LoadBtn" type="TextureButton" parent="CanvasLayer/Menu/BG/M/V"]
-margin_top = 48.0
-margin_right = 82.0
+margin_top = 46.0
+margin_right = 80.0
 margin_bottom = 65.0
 focus_mode = 1
 size_flags_vertical = 3
@@ -442,8 +530,8 @@ valign = 1
 uppercase = true
 
 [node name="OptionBtn" type="TextureButton" parent="CanvasLayer/Menu/BG/M/V"]
-margin_top = 69.0
-margin_right = 82.0
+margin_top = 68.0
+margin_right = 80.0
 margin_bottom = 86.0
 size_flags_vertical = 3
 texture_normal = ExtResource( 2 )
@@ -461,10 +549,31 @@ align = 1
 valign = 1
 uppercase = true
 
+[node name="CreditsBtn" type="TextureButton" parent="CanvasLayer/Menu/BG/M/V"]
+margin_top = 89.0
+margin_right = 80.0
+margin_bottom = 108.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 10 )
+expand = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Menu/BG/M/V/CreditsBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "credits"
+align = 1
+valign = 1
+uppercase = true
+
 [node name="ExitBtn" type="TextureButton" parent="CanvasLayer/Menu/BG/M/V"]
-margin_top = 90.0
-margin_right = 82.0
-margin_bottom = 107.0
+margin_top = 111.0
+margin_right = 80.0
+margin_bottom = 130.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 2 )
@@ -872,6 +981,83 @@ anchor_bottom = 1.0
 texture = ExtResource( 17 )
 expand = true
 
+[node name="Credits" type="Control" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -269.0
+margin_top = -119.0
+margin_right = -32.0
+margin_bottom = 117.0
+
+[node name="N" type="NinePatchRect" parent="CanvasLayer/Credits"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 13 )
+patch_margin_left = 24
+patch_margin_top = 16
+patch_margin_right = 24
+patch_margin_bottom = 16
+
+[node name="M" type="MarginContainer" parent="CanvasLayer/Credits/N"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="V" type="VBoxContainer" parent="CanvasLayer/Credits/N/M"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 227.0
+margin_bottom = 226.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Credits/N/M/V"]
+margin_right = 217.0
+margin_bottom = 15.0
+custom_colors/font_color = Color( 0.964706, 0.580392, 0.0823529, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 9 )
+text = "Credits"
+align = 1
+valign = 1
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/Credits/N/M/V"]
+margin_top = 19.0
+margin_right = 217.0
+margin_bottom = 23.0
+custom_styles/separator = ExtResource( 11 )
+
+[node name="Tree" type="RichTextLabel" parent="CanvasLayer/Credits/N/M/V"]
+margin_top = 27.0
+margin_right = 217.0
+margin_bottom = 216.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[center][u][color=#6fc124]Das Team[/color][/u]
+
+[table=1]
+[cell]Berti[/cell]
+[cell][color=#2ea5ec]Play-ID: bertilein89lr[/color][/cell]
+[cell][color=red]Mobile-App Tests[/color][/cell]
+[cell][/cell]
+[cell]Patrick[/cell]
+[cell][color=red]Mobile-App Tests[/color][/cell]
+[cell][/cell]
+[cell]S3R43o3[/cell]
+[cell][color=#2ea5ec][url]www.hackzor.de[/url][/color][/cell]
+[cell][color=red]Idee | Sound | Grafik | Developing[/color][/cell]
+
+[/table][/center]"
+text = "Das Team
+
+BertiPlay-ID: bertilein89lrMobile-App TestsPatrickMobile-App TestsS3R43o3www.hackzor.deIdee | Sound | Grafik | Developing"
+
 [node name="Footer" type="Control" parent="CanvasLayer"]
 anchor_top = 1.0
 anchor_right = 1.0
@@ -1031,14 +1217,15 @@ align = 1
 valign = 1
 
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/DelPop/BG/M/V"]
-margin_right = 40.0
-margin_bottom = 4.0
+margin_top = 19.0
+margin_right = 186.0
+margin_bottom = 23.0
 custom_styles/separator = SubResource( 14 )
 
 [node name="Main" type="Label" parent="CanvasLayer/DelPop/BG/M/V"]
-margin_top = 19.0
+margin_top = 27.0
 margin_right = 186.0
-margin_bottom = 79.0
+margin_bottom = 69.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 6 )
@@ -1048,9 +1235,9 @@ valign = 1
 autowrap = true
 
 [node name="BtnB" type="HBoxContainer" parent="CanvasLayer/DelPop/BG/M/V"]
-margin_top = 83.0
+margin_top = 73.0
 margin_right = 186.0
-margin_bottom = 99.0
+margin_bottom = 89.0
 alignment = 1
 
 [node name="OkDelBtn" type="TextureButton" parent="CanvasLayer/DelPop/BG/M/V/BtnB"]
@@ -1104,10 +1291,12 @@ color = Color( 0, 0, 0, 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 anims/FadeIn = SubResource( 1 )
 anims/FadeOut = SubResource( 2 )
+anims/HideCredits = SubResource( 15 )
 anims/LoadHide = SubResource( 6 )
 anims/LoadShow = SubResource( 7 )
 anims/MenuToNew = SubResource( 4 )
 anims/RESET = SubResource( 3 )
+anims/ShowCredits = SubResource( 16 )
 
 [node name="BtnClickSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
@@ -1117,6 +1306,7 @@ bus = "Menu"
 [connection signal="pressed" from="CanvasLayer/Menu/BG/M/V/StartBtn" to="." method="_on_StartBtn_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu/BG/M/V/LoadBtn" to="." method="_on_LoadBtn_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu/BG/M/V/OptionBtn" to="." method="_on_OptionBtn_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/BG/M/V/CreditsBtn" to="." method="_on_CreditsBtn_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu/BG/M/V/ExitBtn" to="." method="_on_ExitBtn_pressed"]
 [connection signal="text_changed" from="CanvasLayer/Menu/NewGame/M/V/LineEdit" to="." method="_on_LineEdit_text_changed"]
 [connection signal="pressed" from="CanvasLayer/Menu/NewGame/M/V/H/NewGameBtn" to="." method="_on_NewGameBtn_pressed"]
