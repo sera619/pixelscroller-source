@@ -34,6 +34,7 @@ var nosave_name = '-----'
 var nosave_time = '--:--'
 
 func _ready():
+	$CanvasLayer/Credits.visible = false
 	animPlayer.play("FadeIn")
 	footer_label.text = footer_text
 	check_loadbtn()
@@ -255,3 +256,12 @@ func _on_Del3Btn_pressed():
 	game_to_delete = 3
 	delte_text_label.text = "Möchtest du\nSpielstand " + str(game_to_delete)+"\nwirklich löschen?"
 	delpop.visible = true
+
+
+func _on_CreditsBtn_pressed():
+	btnclick_sfx.play()
+	if !$CanvasLayer/Credits.visible:
+		animPlayer.play("ShowCredits")
+	elif $CanvasLayer/Credits.visible:
+		animPlayer.play("HideCredits")
+		
