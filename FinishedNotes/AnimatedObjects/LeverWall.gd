@@ -17,7 +17,7 @@ func lever_on():
 	is_on = true
 	audio.play()
 	animSprite.play('On')
-	get_tree().call_group('map','set_timer',25.0)
+	get_tree().call_group('map','set_timer',40.0)
 
 func lever_off():
 	is_on = false
