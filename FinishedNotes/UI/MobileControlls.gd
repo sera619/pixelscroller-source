@@ -12,12 +12,11 @@ func _ready():
 func show_z_btn():
 	z_button.visible = true
 
+func hide_z_btn():
+	z_button.visible = false
+
 
 func _on_XTouchButton_pressed():
 	if GameManager.player.velocity.x > 0 or GameManager.player.velocity.x < 0:
 		Input.action_press("slide")
 
-
-func _on_ZTouchButton_pressed():
-	Input.action_press("sword_attack")
-	z_button.visible = false

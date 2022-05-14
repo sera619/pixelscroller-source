@@ -32,6 +32,9 @@ func _ready():
 func set_weapon_energie(value):
 	weapon_energie = clamp(value, 0, max_weapon_energie)
 	emit_signal('weapon_energie_changed')
+	if weapon_energie == 0:
+		if GameManager.mobile_controller != null:
+			GameManager.mobile_controller.hide_z_btn()
 
 func set_max_weapon_energie(value):
 	max_weapon_energie = int(value)

@@ -686,7 +686,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0.5 ),
+"times": PoolRealArray( 0.6 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -863,7 +863,7 @@ position = Vector2( 0, -33 )
 shape = SubResource( 120 )
 
 [node name="Weapon" type="Node2D" parent="."]
-position = Vector2( -32, -26 )
+position = Vector2( 32, -26 )
 scale = Vector2( 1.25, 1 )
 
 [node name="Sword" type="Area2D" parent="Weapon" groups=["player_weapon"]]
