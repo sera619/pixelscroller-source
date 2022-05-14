@@ -47,8 +47,7 @@ canon_ball = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
-animation = "Shoot"
-frame = 3
+animation = "Idle"
 playing = true
 offset = Vector2( 0, -11 )
 

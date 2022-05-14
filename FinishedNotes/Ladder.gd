@@ -16,7 +16,7 @@ func _on_Ladder_body_exited(body):
 			print('>>> Ladder: Player can not climb')
 		player = null
 
-func _process(delta):
+func _process(_delta):
 	if player!=null:
 		if player.climbing and Input.is_action_just_pressed("ui_up"):
 			collider.set_deferred('disabled',true)

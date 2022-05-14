@@ -8,7 +8,7 @@
 [ext_resource path="res://Player/Inventory.gd" type="Script" id=6]
 [ext_resource path="res://Player/Regeneration.gd" type="Script" id=7]
 [ext_resource path="res://audio/audioassets/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Movement/food-B.ogg" type="AudioStream" id=10]
-[ext_resource path="res://classes/items/Amor/PracticeAmor.tres" type="Resource" id=12]
+[ext_resource path="res://classes/items/Amor/Alte Weste.tres" type="Resource" id=12]
 [ext_resource path="res://Player/BodyAmor.gd" type="Script" id=13]
 
 [sub_resource type="RectangleShape2D" id=87]
@@ -969,9 +969,11 @@ stream = ExtResource( 10 )
 volume_db = -20.0
 bus = "Player"
 
-[node name="StatusHandler" type="Node" parent="."]
+[node name="StatusHandler" type="Node2D" parent="."]
 
 [node name="StatusTimer" type="Timer" parent="StatusHandler"]
+wait_time = 2.5
+one_shot = true
 
 [connection signal="area_entered" from="Weapon/Sword" to="Weapon/Sword" method="_on_Sword_area_entered"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
@@ -985,3 +987,4 @@ bus = "Player"
 [connection signal="body_exited" from="InteractionZone" to="." method="_on_InteractionZone_body_exited"]
 [connection signal="timeout" from="Regeneration/RegTimer" to="Regeneration" method="_on_RegTimer_timeout"]
 [connection signal="finished" from="SFX" to="." method="_on_SFX_finished"]
+[connection signal="timeout" from="StatusHandler/StatusTimer" to="." method="_on_StatusTimer_timeout"]

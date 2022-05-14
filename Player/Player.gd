@@ -27,13 +27,14 @@ onready var inventory = $Inventory
 onready var body_collison = $CollisionShape2D
 onready var sfx: AudioStreamPlayer = $SFX
 onready var food_sfx = $FoodSFX
-onready var status_timer = $Timer
+onready var status_timer = $StatusHandler/StatusTimer
 
 
 onready var max_health : int = DataManager.player_data.max_health
 onready var max_amor : int = DataManager.player_data.max_amor
 onready var max_stamina: int = DataManager.player_data.max_stamina
 
+var normal_speed := max_speed
 var health := max_health setget set_health
 var amor := max_amor setget set_amor
 var stamina := max_stamina setget set_stamina
@@ -43,7 +44,13 @@ var slide_vector := Vector2.ZERO
 const AUDIO_EFFECTS: Dictionary = {
 	'Hurt': preload("res://audio/audioassets/damage_1_karen.wav"),
 	'SwordSlash': preload("res://audio/SwordSlashSFX.tscn")
+	}
+
+const EFFECTS: Dictionary = {
+	'Healup': preload("res://Effects/HealupEffect.tscn"),
+	'Manaup': preload("res://Effects/ShieldupEffect.tscn")
 }
+	
 var look_right = true
 var can_move = true
 var can_attack = true
@@ -108,18 +115,46 @@ func _input(_event):
 		else:
 			interact_obj.interact()
 	if Input.is_action_just_pressed('hotkey1') && inventory.health_potion != 0:
-		if health == max_health:
-			print('Health is full no need for health potion')
-			return
-		else:
-			set_health(health + 10)
-			inventory.set_potion_h(inventory.health_potion - 1)
+		use_healthpotion()
+	if Input.is_action_just_pressed("hotkey2") && inventory.mana_potion != 0:
+		use_manapotion()
 	if Input.is_action_just_pressed("weapon1") && can_attack:
 		weapon.equip_weapon(weapon.weapon)
 	if Input.is_action_just_pressed("weapon2") && can_attack:
 		weapon.equip_weapon(weapon.fire_sword)
 
+
+func use_healthpotion():
+	if health == max_health:
+		print('>>> PLAYER: Health full, no need for health potion')
+		return
+	elif inventory.health_potion < 1:
+		print('>>> PLAYER: Not enough Health-Potions.')
+		return
+	else:
+		var healtheffect = EFFECTS.Healup.instance()
+		self.add_child(healtheffect)
+		healtheffect.position.y -= 32
+		set_health(health + 10)
+		inventory.set_potion_h(inventory.health_potion - 1)
+
+
+func use_manapotion():
+	if stamina == max_stamina:
+		print('>>> PLAYER: Mana is full, no need for Manapotion!')
+		return
+	elif inventory.mana_potion < 1:
+		print('>>> PLAYER: Not enough Mana-Potions!')
+		return
+	else:
+		var manaupeffect = EFFECTS.Manaup.instance()
+		self.add_child(manaupeffect)
+		manaupeffect.position.y -= 32
+		set_stamina(stamina + 5)
+		inventory.set_potion_m(inventory.mana_potion - 1)
+
 func _process(_delta):
+	DataManager.player_data.last_position = position
 	check_right_sight()
 
 func check_right_sight():
@@ -364,8 +399,16 @@ func dead_state():
 		can_slide = false
 		can_jump = false
 		velocity = Vector2.ZERO
-	
-	
+
+
+func slow_debuff():
+	var debuff_time = 2.5
+	normal_speed = max_speed
+	max_speed = max_speed / 2
+	status_timer.start(debuff_time)
+	GameManager.interface.debuff_bar.start_slow(debuff_time)
+	print('>>> PLAYER: Slow Debuff active for 2.5 sec')
+
 func hurt_animation_finished():
 	can_attack = true
 	can_move = true
@@ -375,6 +418,8 @@ func hurt_animation_finished():
 func _on_Hitbox_area_entered(area):
 	if area.is_in_group('enemy_weapon'):
 		take_damage(area.damage)
+		if area.name == 'ArrowProjectile':
+			slow_debuff()
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
@@ -427,7 +472,8 @@ func _on_AnimationPlayer_animation_changed(old_name, new_name):
 
 
 func _on_StatusTimer_timeout():
-	state = RUN
+	max_speed = normal_speed
+	print('>>> PLAYER: Slow Debuff ends!')
 
 
 func _on_Timer_timeout():

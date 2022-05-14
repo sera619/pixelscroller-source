@@ -136,3 +136,5 @@ func _on_Tween_tween_all_completed():
 		macro_buttons.mouse_filter = Control.MOUSE_FILTER_PASS
 	else:
 		macro_buttons.set('modulate', Color(1,1,1,1))
+
+

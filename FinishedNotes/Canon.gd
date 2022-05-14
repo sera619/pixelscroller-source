@@ -16,7 +16,7 @@ var can_shoot: bool = true
 func _ready():
 	animSprite.play('Idle')
 
-func _process(delta):
+func _process(_delta):
 	if !can_shoot:
 		return
 	else:
