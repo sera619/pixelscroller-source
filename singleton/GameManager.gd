@@ -12,7 +12,8 @@ var current_map_name: String
 var spawn_positions: Dictionary = {
 	'Map': [120,224],
 	#'Map':[7146,-707],
-	'Dungeonmap': [-108,-168],
+	#'Dungeonmap': [-108,-168],
+	'Dungeonmap': [3770, -112],
 	'DevWorld': [-49,-33]
 }
 
