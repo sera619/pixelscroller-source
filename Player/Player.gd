@@ -291,7 +291,7 @@ func move_state(delta):
 		state = ATK
 	if Input.is_action_just_pressed("dash_attack") && is_on_floor() && can_attack:
 		state = DASH_ATK
-	if Input.is_action_just_pressed('sword_attack') && is_on_floor() && can_attack && weapon.weapon_energie == weapon.max_weapon_energie:
+	if Input.is_action_just_pressed('sword_attack') && is_on_floor() && can_attack && weapon.current_weapon.weapon_energie !=0 && weapon.weapon_energie == weapon.max_weapon_energie:
 		state = SWORD_ATK
 	if Input.is_action_just_pressed("slide") && is_on_floor() && can_slide && is_moving:
 		if stamina >= slide_cost:
