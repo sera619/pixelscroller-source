@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=76 format=2]
 
 [ext_resource path="res://img/Skull.png" type="Texture" id=1]
 [ext_resource path="res://img/pixel-art-gui-elements/playerplate.png" type="Texture" id=2]
@@ -12,15 +12,15 @@
 [ext_resource path="res://img/pixel-art-gui-elements/HotkeyPlate.png" type="Texture" id=10]
 [ext_resource path="res://FinishedNotes/GameMenu.gd" type="Script" id=11]
 [ext_resource path="res://img/pixel-art-gui-elements/q-Key.png" type="Texture" id=12]
-[ext_resource path="res://img/super-epic-fantasy-weapons-pack/Plate Amor.png" type="Texture" id=13]
+[ext_resource path="res://img/Icons/items/Rostiger Panzer.png" type="Texture" id=13]
 [ext_resource path="res://FinishedNotes/InfoBox.gd" type="Script" id=14]
 [ext_resource path="res://img/singleUIelements/button_home.png" type="Texture" id=15]
 [ext_resource path="res://img/singleUIelements/left-arrow.png" type="Texture" id=16]
 [ext_resource path="res://img/singleUIelements/button_X.png" type="Texture" id=17]
-[ext_resource path="res://img/Icons/items/Light Body.png" type="Texture" id=18]
+[ext_resource path="res://img/Icons/items/Alte Weste.png" type="Texture" id=18]
 [ext_resource path="res://img/Icons/items/Mana Potion.png" type="Texture" id=19]
 [ext_resource path="res://img/singleUIelements/button_stats.png" type="Texture" id=20]
-[ext_resource path="res://img/Icons/items/PracticeSword.png" type="Texture" id=21]
+[ext_resource path="res://img/Icons/items/Holz-Schwert.png" type="Texture" id=21]
 [ext_resource path="res://img/pixel-art-gui-elements/wood-frame.png" type="Texture" id=22]
 [ext_resource path="res://img/singleUIelements/button_help.png" type="Texture" id=23]
 [ext_resource path="res://img/Icons/items/Health Potion.png" type="Texture" id=24]
@@ -49,12 +49,13 @@
 [ext_resource path="res://materials/font2-bigger.tres" type="DynamicFont" id=47]
 [ext_resource path="res://img/chest-key.png" type="Texture" id=48]
 [ext_resource path="res://img/button-red-small-pressedt.png" type="Texture" id=49]
-[ext_resource path="res://img/Icons/items/FrostSword.png" type="Texture" id=50]
+[ext_resource path="res://img/Icons/items/Eis-Schwert.png" type="Texture" id=50]
 [ext_resource path="res://img/button-red-small-hovert.png" type="Texture" id=51]
 [ext_resource path="res://img/pixel-art-gui-elements/arrow-right.png" type="Texture" id=52]
 [ext_resource path="res://img/pixel-art-gui-elements/arrow-left.png" type="Texture" id=53]
 [ext_resource path="res://img/button-red-small-normalt.png" type="Texture" id=54]
 [ext_resource path="res://FinishedNotes/HelpMenu.gd" type="Script" id=55]
+[ext_resource path="res://FinishedNotes/UI/DebuffBar.tscn" type="PackedScene" id=56]
 
 [sub_resource type="Gradient" id=18]
 offsets = PoolRealArray( 0.0354331, 0.980315 )
@@ -520,6 +521,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource( 25 )
 expand = true
+
+[node name="DebuffBar" parent="." instance=ExtResource( 56 )]
 
 [node name="GameMenu" type="Control" parent="."]
 pause_mode = 2
@@ -1692,7 +1695,7 @@ margin_right = 223.0
 margin_bottom = 37.0
 custom_colors/font_color = Color( 0.129412, 0.717647, 0.898039, 1 )
 custom_fonts/font = ExtResource( 4 )
-text = "Amor Name"
+text = "Alte Weste"
 align = 1
 valign = 1
 

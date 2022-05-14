@@ -22,7 +22,7 @@ onready var weaponLabel = $CharStats/Bg/M/V/Equip/WeaponStats/V/WeaponName
 onready var weaponElementLabel = $CharStats/Bg/M/V/Equip/WeaponStats/V/WeaponElement
 onready var weaponEnergiePlate = $WeaponEnergie
 onready var weapon_energie_bar = $WeaponEnergie/WeaponEnergiePlate/WEnergieBar
-
+onready var debuff_bar = $DebuffBar
 
 onready var game_menu = $GameMenu
 
