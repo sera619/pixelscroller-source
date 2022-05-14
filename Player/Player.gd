@@ -43,9 +43,14 @@ var slide_vector := Vector2.ZERO
 
 const AUDIO_EFFECTS: Dictionary = {
 	'Hurt': preload("res://audio/audioassets/damage_1_karen.wav"),
-	'SwordSlash': preload("res://audio/SwordSlashSFX.tscn"),
-	'Potion': preload('res://audio/PotionSFX.tscn')
+	'SwordSlash': preload("res://audio/SwordSlashSFX.tscn")
+	}
+
+const EFFECTS: Dictionary = {
+	'Healup': preload("res://Effects/HealupEffect.tscn"),
+	'Shieldup': preload("res://Effects/ShieldupEffect.tscn")
 }
+	
 var look_right = true
 var can_move = true
 var can_attack = true
@@ -111,6 +116,8 @@ func _input(_event):
 			interact_obj.interact()
 	if Input.is_action_just_pressed('hotkey1') && inventory.health_potion != 0:
 		use_healthpotion()
+	if Input.is_action_just_pressed("hotkey2") && inventory.mana_potion != 0:
+		use_manapotion()
 	if Input.is_action_just_pressed("weapon1") && can_attack:
 		weapon.equip_weapon(weapon.weapon)
 	if Input.is_action_just_pressed("weapon2") && can_attack:
@@ -125,10 +132,26 @@ func use_healthpotion():
 		print('>>> PLAYER: Not enough Health-Potions.')
 		return
 	else:
-		var potion_sfx = AUDIO_EFFECTS.Potion.instance()
-		get_tree().root.add_child(potion_sfx)
+		var healtheffect = EFFECTS.Healup.instance()
+		self.add_child(healtheffect)
+		healtheffect.position.y -= 32
 		set_health(health + 10)
 		inventory.set_potion_h(inventory.health_potion - 1)
+
+
+func use_manapotion():
+	if amor == max_amor:
+		print('>>> PLAYER: Shield is full, no need for Shieldpotion!')
+		return
+	elif inventory.mana_potion < 1:
+		print('>>> PLAYER: Not enough Shield-Potions!')
+		return
+	else:
+		var shieldeffect = EFFECTS.Shieldup.instance()
+		self.add_child(shieldeffect)
+		shieldeffect.position.y -= 32
+		set_amor(amor + 5)
+		inventory.set_potion_m(inventory.mana_potion - 1)
 
 func _process(_delta):
 	DataManager.player_data.last_position = position
