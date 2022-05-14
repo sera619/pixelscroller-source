@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://materials/font1.tres" type="DynamicFont" id=1]
+[ext_resource path="res://img/Icons/UI-Icons/Slow-statusicon.png" type="Texture" id=2]
+[ext_resource path="res://FinishedNotes/UI/DebuffBar.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("M/H/SlowDebuff/Icon:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "slow_debuff"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("M/H/SlowDebuff/Icon:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+
+[node name="DebuffBar" type="Control"]
+margin_left = 8.0
+margin_top = 48.0
+margin_right = 169.0
+margin_bottom = 88.0
+script = ExtResource( 3 )
+
+[node name="M" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 1
+custom_constants/margin_top = 1
+custom_constants/margin_left = 1
+custom_constants/margin_bottom = 1
+
+[node name="H" type="HBoxContainer" parent="M"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 160.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 0
+
+[node name="SlowDebuff" type="VBoxContainer" parent="M/H"]
+margin_right = 27.0
+margin_bottom = 38.0
+size_flags_horizontal = 2
+custom_constants/separation = 0
+
+[node name="Icon" type="TextureRect" parent="M/H/SlowDebuff"]
+margin_right = 27.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="Time" type="Label" parent="M/H/SlowDebuff"]
+margin_top = 28.0
+margin_right = 27.0
+margin_bottom = 38.0
+size_flags_vertical = 10
+custom_colors/font_color = Color( 0.94902, 0.686275, 0.0666667, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "00:00"
+
+[node name="SlowTimer" type="Timer" parent="M/H/SlowDebuff"]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/slow_debuff = SubResource( 2 )
+
+[connection signal="timeout" from="M/H/SlowDebuff/SlowTimer" to="." method="_on_SlowTimer_timeout"]
