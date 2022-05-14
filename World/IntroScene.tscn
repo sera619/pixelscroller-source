@@ -161,12 +161,10 @@ custom_colors/font_color_shadow = Color( 0.321569, 0.294118, 0.294118, 1 )
 custom_fonts/normal_font = ExtResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[center]-Berti-
-Google Play-ID: bertilein89lr
 Mobile-App Tests
 -Patrick-
 Mobile-App Tests[/center]"
 text = "-Berti-
-Google Play-ID: bertilein89lr
 Mobile-App Tests
 -Patrick-
 Mobile-App Tests"
