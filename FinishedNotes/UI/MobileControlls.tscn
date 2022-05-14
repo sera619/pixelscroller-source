@@ -1,6 +1,6 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://joystick/virtual_joystick.tscn" type="PackedScene" id=1]
+[ext_resource path="res://img/pixel-art-gui-elements/up-button.png" type="Texture" id=1]
 [ext_resource path="res://FinishedNotes/UI/MobileControlls.gd" type="Script" id=2]
 [ext_resource path="res://img/pixel-art-gui-elements/X-Button-pressed.png" type="Texture" id=3]
 [ext_resource path="res://img/pixel-art-gui-elements/A-Button-pressed.png" type="Texture" id=4]
@@ -12,6 +12,9 @@
 [ext_resource path="res://img/pixel-art-gui-elements/B-Button-pressed.png" type="Texture" id=10]
 [ext_resource path="res://img/pixel-art-gui-elements/z-button.png" type="Texture" id=11]
 [ext_resource path="res://img/pixel-art-gui-elements/z-button-pressed.png" type="Texture" id=12]
+[ext_resource path="res://img/pixel-art-gui-elements/down-button.png" type="Texture" id=13]
+[ext_resource path="res://img/pixel-art-gui-elements/left-button.png" type="Texture" id=14]
+[ext_resource path="res://img/pixel-art-gui-elements/right-button.png" type="Texture" id=15]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 8.0
@@ -28,19 +31,21 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id=5]
 radius = 6.0
 
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 4, 6 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 4, 6 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 6, 4 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 6, 4 )
+
 [node name="MobileControlls" type="CanvasLayer"]
 layer = 2
 script = ExtResource( 2 )
-
-[node name="Virtual joystick" parent="." instance=ExtResource( 1 )]
-margin_left = 28.0
-margin_top = -127.0
-margin_right = 228.0
-margin_bottom = 73.0
-rect_scale = Vector2( 0.5, 0.5 )
-pressed_color = Color( 0.964706, 0.580392, 0.0823529, 1 )
-action_left = "move_l"
-action_right = "move_r"
 
 [node name="ActionPad" type="Control" parent="."]
 anchor_left = 1.0
@@ -49,8 +54,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -153.0
 margin_top = -144.0
-margin_right = -21.0
-margin_bottom = -24.0
+margin_right = -24.0
+margin_bottom = -19.0
 
 [node name="YTouchButton" type="TouchScreenButton" parent="ActionPad"]
 position = Vector2( 47, 0 )
@@ -95,5 +100,41 @@ normal = ExtResource( 11 )
 pressed = ExtResource( 12 )
 shape = SubResource( 5 )
 action = "sword_attack"
+
+[node name="ControllPad" type="Control" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 34.0
+margin_top = -172.0
+margin_right = 169.0
+margin_bottom = -41.0
+
+[node name="ControlUp" type="TouchScreenButton" parent="ControllPad"]
+position = Vector2( 44, 19 )
+scale = Vector2( 4, 4 )
+normal = ExtResource( 1 )
+shape = SubResource( 6 )
+action = "ui_up"
+
+[node name="ControlDown" type="TouchScreenButton" parent="ControllPad"]
+position = Vector2( 44, 99 )
+scale = Vector2( 4, 4 )
+normal = ExtResource( 13 )
+shape = SubResource( 7 )
+action = "ui_down"
+
+[node name="ControlLeft" type="TouchScreenButton" parent="ControllPad"]
+position = Vector2( -9, 71 )
+scale = Vector2( 4, 4 )
+normal = ExtResource( 14 )
+shape = SubResource( 8 )
+action = "move_l"
+
+[node name="ControlRight" type="TouchScreenButton" parent="ControllPad"]
+position = Vector2( 73, 70 )
+scale = Vector2( 4, 4 )
+normal = ExtResource( 15 )
+shape = SubResource( 9 )
+action = "move_r"
 
 [connection signal="pressed" from="ActionPad/XTouchButton" to="." method="_on_XTouchButton_pressed"]
