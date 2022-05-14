@@ -111,28 +111,28 @@ margin_right = 169.0
 margin_bottom = -41.0
 
 [node name="ControlUp" type="TouchScreenButton" parent="ControllPad"]
-position = Vector2( 44, 19 )
+position = Vector2( 44, 24 )
 scale = Vector2( 4, 4 )
 normal = ExtResource( 1 )
 shape = SubResource( 6 )
 action = "ui_up"
 
 [node name="ControlDown" type="TouchScreenButton" parent="ControllPad"]
-position = Vector2( 44, 99 )
+position = Vector2( 44, 104 )
 scale = Vector2( 4, 4 )
 normal = ExtResource( 13 )
 shape = SubResource( 7 )
 action = "ui_down"
 
 [node name="ControlLeft" type="TouchScreenButton" parent="ControllPad"]
-position = Vector2( -9, 71 )
+position = Vector2( -9, 76 )
 scale = Vector2( 4, 4 )
 normal = ExtResource( 14 )
 shape = SubResource( 8 )
 action = "move_l"
 
 [node name="ControlRight" type="TouchScreenButton" parent="ControllPad"]
-position = Vector2( 73, 70 )
+position = Vector2( 73, 75 )
 scale = Vector2( 4, 4 )
 normal = ExtResource( 15 )
 shape = SubResource( 9 )

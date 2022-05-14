@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://img/warrior-free-animation-set/Warrior/SpriteSheet/Warrior_SheetnoEffect.png" type="Texture" id=1]
 [ext_resource path="res://Hitbox.gd" type="Script" id=2]
@@ -843,6 +843,51 @@ tracks/0/keys = {
 "values": [ 60, 61, 62 ]
 }
 
+[sub_resource type="Animation" id=121]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Darkscreen:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=122]
+resource_name = "dark2light"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Darkscreen:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.2, 0.2, 0.215686, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=123]
+resource_name = "light2dark"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Darkscreen:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.2, 0.2, 0.215686, 1 ) ]
+}
+
 [sub_resource type="RectangleShape2D" id=112]
 extents = Vector2( 30, 27.5 )
 
@@ -920,7 +965,7 @@ anims/wallgrap = SubResource( 105 )
 anims/wallidle = SubResource( 106 )
 anims/wallslide = SubResource( 107 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." groups=["camera"]]
 position = Vector2( 0, -65 )
 current = true
 limit_smoothed = true
@@ -932,6 +977,13 @@ drag_margin_bottom = 0.01
 editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource( 4 )
+
+[node name="Darkscreen" type="CanvasModulate" parent="Camera2D"]
+
+[node name="CamAnimantion" type="AnimationPlayer" parent="Camera2D"]
+anims/RESET = SubResource( 121 )
+anims/dark2light = SubResource( 122 )
+anims/light2dark = SubResource( 123 )
 
 [node name="InteractionZone" type="Area2D" parent="."]
 collision_layer = 0

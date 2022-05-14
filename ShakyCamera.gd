@@ -3,11 +3,12 @@ extends Camera2D
 
 # The maximum offset applied to the camera in pixels.
 export var max_amplitude := 16.0
+export (bool) var develop_mode = false
 
 var shake_intensity := 0.0 setget set_shake_intensity
-
 var _noise := preload("res://materials/camera_noise.tres")
-export (bool) var develop_mode = false
+
+onready var cam_anim = $CamAnimantion
 
 func _init() -> void:
 	_noise.seed = randi()
@@ -40,3 +41,10 @@ func set_shake_intensity(intensity: float) -> void:
 	shake_intensity = clamp(intensity, 0.0, 1.0)
 	var is_shaking := not is_equal_approx(shake_intensity, 0.0)
 	set_physics_process(is_shaking)
+
+
+func lights_off():
+	cam_anim.play("light2dark")
+
+func lights_on():
+	cam_anim.play("dark2light")

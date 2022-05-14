@@ -56,6 +56,7 @@ script = ExtResource( 4 )
 [node name="LeftLigt" type="Light2D" parent="."]
 position = Vector2( -5, -60 )
 scale = Vector2( 0.869141, 0.740234 )
+enabled = false
 texture = ExtResource( 3 )
 color = Color( 0.858824, 0.494118, 0.0705882, 1 )
 energy = 0.6
@@ -63,6 +64,7 @@ shadow_enabled = true
 
 [node name="MidLight" type="Light2D" parent="."]
 position = Vector2( 0, -64 )
+enabled = false
 texture = ExtResource( 3 )
 color = Color( 0.858824, 0.494118, 0.0705882, 1 )
 energy = 0.6
@@ -70,6 +72,7 @@ shadow_enabled = true
 
 [node name="RightLight" type="Light2D" parent="."]
 position = Vector2( 6, -61 )
+enabled = false
 texture = ExtResource( 3 )
 texture_scale = 0.6
 color = Color( 0.858824, 0.494118, 0.0705882, 1 )

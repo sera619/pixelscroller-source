@@ -16,4 +16,5 @@ func _on_LightTimer_timeout():
 	get_tree().call_group('dungeon_light', 'lights_off')
 
 func _on_LightTrigger1_body_entered(body):
-	pass # TODO: trigger dark viewport
+	get_tree().call_group('camera', 'lights_off')
+	get_tree().call_group('dungeon_light', 'lights_on')
