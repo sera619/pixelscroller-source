@@ -7,6 +7,7 @@
 script = ExtResource( 1 )
 name = "Holz-Schwert"
 description = "Ein altes Spielzeugschwert. Hast du geglaubt es kann etwas Besonderes?!"
+drop_text = "Dieses Schwert kann nichts besonderes."
 item_type = "Waffe"
 icon = ExtResource( 2 )
 value_to_add = 0

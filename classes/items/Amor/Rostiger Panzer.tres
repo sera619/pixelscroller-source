@@ -1,14 +1,17 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://classes/items/item.gd" type="Script" id=1]
-[ext_resource path="res://img/Icons/items/Rostiger Panzer.png" type="Texture" id=2]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/Plate Amor.png-61f6bf7767e02cadecdf6cdae10e1674.stex"
 
 [resource]
 script = ExtResource( 1 )
 name = "Rostiger Panzer"
-description = "Der Panzer macht dich sehr schwer. Du kannst nicht mehr zurück geworfen werden."
+description = "Ein parr Dellen und Macken aber sonst gut in Schuss!"
+drop_text = "Dieser Panzer macht dich so schwer das du nicht mehr zurück geworfen werden kannst."
 item_type = "Ruestung"
-icon = ExtResource( 2 )
+icon = SubResource( 1 )
 value_to_add = 0
 weapon_damage = 0
 weapon_energie = 0

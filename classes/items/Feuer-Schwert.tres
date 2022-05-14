@@ -7,6 +7,7 @@
 script = ExtResource( 1 )
 name = "Feuer-Schwert"
 description = "Ein glühendes Schwert. Es strahlt Hitze aus aber der Griff ist kühl."
+drop_text = "Diese Waffe sammelt Energie wenn du einen Gegner triffst. Mit voller Waffen-Energie kann dieses Schwert einen mächtigen Feuerball schleudern."
 item_type = "Waffe"
 icon = ExtResource( 2 )
 value_to_add = 0
