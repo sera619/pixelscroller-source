@@ -68,6 +68,10 @@ func show_weapon_preview():
 	new_damage_label.text = str(default_weapon.weapon_damage)
 	weapon_icon.texture = default_weapon.icon
 	weapon_desc.text = str(default_weapon.description)
+	next_weapon_name = default_weapon.name
+	next_weapon = default_weapon
+	update_weapon_eq()
+
 
 func show_amor_preview():
 	curr_amor = 0
@@ -81,8 +85,9 @@ func show_amor_preview():
 	new_defense_label.text = str(default_amor.amor_defense)
 	amor_icon.texture = default_amor.icon
 	amor_desc.text = str(default_amor.description)
-
-
+	next_amor_name = default_amor.name
+	next_amor = default_amor
+	update_amor_eq()
 
 func get_char_stats():
 	player = GameManager.player
