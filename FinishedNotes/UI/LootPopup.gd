@@ -5,15 +5,16 @@ onready var sfx = $ButtonSFX
 onready var header_label = $BG/M/V/Header
 onready var item_icon = $BG/M/V/TextureRect
 var header_base = "Neue %s erhalten!"
-var main_base = "[center]Du hast [color=red]'%s'[/color] gefunden."
+var main_base = "[center]Du hast [color=red]'%s'[/color] gefunden.\n"
 
-var main_text = "[center]Test Text"
+var main_text = "Test Text"
 
 
-func set_loot_text(item_type, itemname:String, new_icon):
+func set_loot_text(item_type, itemname:String,drop_text:String, new_icon):
 	var full_text = main_base % itemname
 	var full_header = header_base % item_type
-	text_label.bbcode_text = full_text + "\n" + main_text
+	main_text = drop_text
+	text_label.bbcode_text = full_text + "\n[center][color=green]" + main_text
 	header_label.text = full_header
 	item_icon.texture = new_icon
 	self.popup_centered()
