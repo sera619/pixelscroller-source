@@ -132,7 +132,7 @@ func update_weapon_eq():
 
 func update_amor_eq():
 	amor_icon.texture = next_amor.icon
-	amor_name.text = next_amor.text
+	amor_name.text = next_amor.name
 	if player.bodyamor.get_defense() < next_amor.amor_defense:
 		new_defense_label.set("custom_colors/font_color", Color(0.239216, 0.909804, 0.117647))
 	if player.bodyamor.get_defense() > next_amor.amor_defense:
@@ -181,7 +181,7 @@ func _on_NextAmorBtn_pressed():
 	curr_amor -= 1
 	next_amor_name = String(DataManager.player_data.defense_arsenal[int(curr_amor)])
 	#print(next_weapon_name)
-	next_amor = load("res://classes/items/"+next_amor_name+".tres")
+	next_amor = load("res://classes/items/Amor/"+next_amor_name+".tres")
 	update_amor_eq()
 
 func _on_LastAmorBtn_pressed():
@@ -191,7 +191,7 @@ func _on_LastAmorBtn_pressed():
 		curr_amor = 0
 	next_amor_name = String(DataManager.player_data.defense_arsenal[curr_amor])
 	#print(next_weapon_name)
-	next_amor = load("res://classes/items/"+next_amor_name+".tres")
+	next_amor = load("res://classes/items/Amor/"+next_amor_name+".tres")
 	update_amor_eq()
 
 
