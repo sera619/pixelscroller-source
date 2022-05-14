@@ -20,7 +20,7 @@ func _ready():
 		shoot()
 
 
-func _process(delta):
+func _process(_delta):
 	shoot()
 
 
