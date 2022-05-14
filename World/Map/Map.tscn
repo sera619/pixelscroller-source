@@ -69,7 +69,7 @@ extents = Vector2( 166, 4 )
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 10, 66 )
 
-[node name="Map" type="Node2D"]
+[node name="Map" type="Node2D" groups=["map"]]
 script = ExtResource( 13 )
 enemy_scene = ExtResource( 14 )
 enemy2_scene = ExtResource( 11 )
@@ -248,6 +248,7 @@ visible = false
 position = Vector2( 2103, 96 )
 scale = Vector2( 1.5, 1.5 )
 z_index = -1
+frame = 5
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 4 )
@@ -287,57 +288,58 @@ rotation = -3.14159
 
 [node name="Light-Skull" parent="Object/LightContainer" instance=ExtResource( 12 )]
 position = Vector2( 5682, -772 )
-frame = 0
+frame = 1
 
 [node name="Light-Skull2" parent="Object/LightContainer" instance=ExtResource( 12 )]
 position = Vector2( 6114, -661 )
-frame = 0
+frame = 1
 
 [node name="Light-Skull3" parent="Object/LightContainer" instance=ExtResource( 12 )]
 position = Vector2( 6994, -490 )
-frame = 0
+frame = 1
 
 [node name="Light-Skull4" parent="Object/LightContainer" instance=ExtResource( 12 )]
 position = Vector2( 6739, -762 )
+frame = 0
 
 [node name="Light-Skull5" parent="Object/LightContainer" instance=ExtResource( 12 )]
 position = Vector2( 7262, -819 )
-frame = 0
+frame = 1
 
 [node name="Light-Skull6" parent="Object/LightContainer" instance=ExtResource( 12 )]
 position = Vector2( 4954, -821 )
-frame = 0
+frame = 1
 
 [node name="Light-Skull7" parent="Object/LightContainer" instance=ExtResource( 12 )]
 position = Vector2( 5619, -966 )
-frame = 0
+frame = 1
 
 [node name="Light-Skull8" parent="Object/LightContainer" instance=ExtResource( 12 )]
 position = Vector2( 6229, -950 )
+frame = 0
 
 [node name="Light-Skull9" parent="Object/LightContainer" instance=ExtResource( 12 )]
 position = Vector2( 7877, -813 )
-frame = 4
 
 [node name="Light-Skull10" parent="Object/LightContainer" instance=ExtResource( 12 )]
 position = Vector2( 5733, -383 )
-frame = 3
+frame = 4
 
 [node name="Light-Skull11" parent="Object/LightContainer" instance=ExtResource( 12 )]
 position = Vector2( 6363, -190 )
-frame = 3
+frame = 4
 
 [node name="Light-Skull12" parent="Object/LightContainer" instance=ExtResource( 12 )]
 position = Vector2( 5985, -419 )
-frame = 3
+frame = 4
 
 [node name="Light-Skull13" parent="Object/LightContainer" instance=ExtResource( 12 )]
 position = Vector2( 5693, -556 )
-frame = 2
+frame = 3
 
 [node name="Light-Skull14" parent="Object/LightContainer" instance=ExtResource( 12 )]
 position = Vector2( 5250, -914 )
-frame = 2
+frame = 3
 
 [node name="LeverPlattform" parent="Object" instance=ExtResource( 17 )]
 position = Vector2( 6672, 32 )
