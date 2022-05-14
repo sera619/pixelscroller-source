@@ -34,7 +34,7 @@ func reg_amor():
 func _on_RegTimer_timeout():
 	if player.stamina != player.max_stamina:
 		player.set_stamina(player.stamina + 1)
-		print('>> PLAYER STATS: New Stamina: '+ str(player.stamina))
+		print('>>> PLAYER STATS: New Stamina: '+ str(player.stamina))
 		return
 	elif player.amor != player.max_amor:
 		player.set_amor(player.amor +1)
