@@ -2,10 +2,17 @@ extends Area2D
 
 onready var animSprite = $AnimatedSprite
 onready var sfx = $CellSound
+onready var teleporter = $Teleporter
+export (String, 'Map', 'Dungeonmap') var teleporter_destination
+
 
 signal open
 signal close
 export var is_open: bool = false
+
+func _ready():
+	teleporter.teleportlocation = teleporter_destination
+
 
 func interact():
 	if !is_open:
