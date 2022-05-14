@@ -16,7 +16,7 @@
 [ext_resource path="res://FinishedNotes/InfoBox.gd" type="Script" id=14]
 [ext_resource path="res://img/singleUIelements/button_home.png" type="Texture" id=15]
 [ext_resource path="res://img/singleUIelements/left-arrow.png" type="Texture" id=16]
-[ext_resource path="res://img/singleUIelements/button_X.png" type="Texture" id=17]
+[ext_resource path="res://img/pixel-art-gui-elements/menu-btn.png" type="Texture" id=17]
 [ext_resource path="res://img/Icons/items/Alte Weste.png" type="Texture" id=18]
 [ext_resource path="res://img/Icons/IconsSkill/healthpotion-skill-icon.png" type="Texture" id=19]
 [ext_resource path="res://img/singleUIelements/button_stats.png" type="Texture" id=20]
@@ -524,7 +524,6 @@ texture = SubResource( 25 )
 expand = true
 
 [node name="DungeonTimer" parent="." instance=ExtResource( 57 )]
-visible = true
 
 [node name="DebuffBar" parent="." instance=ExtResource( 56 )]
 
@@ -974,9 +973,9 @@ anchor_bottom = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
-margin_top = -31.0
+margin_top = -87.0
 margin_right = 33.0
-margin_bottom = -7.0
+margin_bottom = -63.0
 __meta__ = {
 "_edit_group_": true
 }
@@ -991,21 +990,22 @@ texture_pressed = ExtResource( 49 )
 texture_hover = ExtResource( 51 )
 texture_disabled = ExtResource( 26 )
 expand = true
+stretch_mode = 5
 
 [node name="TextureRect" type="TextureRect" parent="MarcroMenu/Bg/HomeBtn"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 15 )
+texture = ExtResource( 17 )
 expand = true
 stretch_mode = 6
 
 [node name="Menu" type="Control" parent="MarcroMenu"]
 visible = false
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 79.0
-margin_top = -77.0
-margin_right = 120.0
-margin_bottom = 29.0
+margin_left = 56.0
+margin_top = -88.0
+margin_right = 97.0
+margin_bottom = 18.0
 __meta__ = {
 "_edit_group_": true
 }
@@ -1030,6 +1030,7 @@ texture_pressed = ExtResource( 49 )
 texture_hover = ExtResource( 51 )
 texture_disabled = ExtResource( 26 )
 expand = true
+stretch_mode = 5
 
 [node name="TextureRect2" type="TextureRect" parent="MarcroMenu/Menu/M/V/StatsBtn"]
 anchor_right = 1.0
@@ -1049,6 +1050,7 @@ texture_pressed = ExtResource( 49 )
 texture_hover = ExtResource( 51 )
 texture_disabled = ExtResource( 26 )
 expand = true
+stretch_mode = 5
 
 [node name="TextureRect4" type="TextureRect" parent="MarcroMenu/Menu/M/V/HelpBtn"]
 anchor_right = 1.0
@@ -1068,11 +1070,12 @@ texture_pressed = ExtResource( 49 )
 texture_hover = ExtResource( 51 )
 texture_disabled = ExtResource( 26 )
 expand = true
+stretch_mode = 5
 
 [node name="TextureRect5" type="TextureRect" parent="MarcroMenu/Menu/M/V/MenuBtn"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 17 )
+texture = ExtResource( 15 )
 expand = true
 stretch_mode = 6
 

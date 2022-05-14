@@ -440,19 +440,13 @@ anchor_top = 0.311
 anchor_right = 0.687
 anchor_bottom = 0.746
 margin_left = 56.8
-margin_top = 0.0399933
-margin_right = -69.68
-margin_bottom = -19.56
+margin_top = -14.96
+margin_right = -68.68
+margin_bottom = 2.44
 
 [node name="BG" type="NinePatchRect" parent="CanvasLayer/Menu"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -50.0
-margin_top = -80.0
-margin_right = 50.0
-margin_bottom = 80.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource( 13 )
 patch_margin_left = 24
 patch_margin_top = 16
@@ -472,12 +466,12 @@ custom_constants/margin_bottom = 15
 [node name="V" type="VBoxContainer" parent="CanvasLayer/Menu/BG/M"]
 margin_left = 10.0
 margin_top = 15.0
-margin_right = 90.0
-margin_bottom = 145.0
-custom_constants/separation = 3
+margin_right = 93.0
+margin_bottom = 159.0
+custom_constants/separation = 5
 
 [node name="Label" type="Label" parent="CanvasLayer/Menu/BG/M/V"]
-margin_right = 80.0
+margin_right = 83.0
 margin_bottom = 15.0
 custom_colors/font_color = Color( 0.964706, 0.580392, 0.0823529, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -487,15 +481,15 @@ align = 1
 valign = 1
 
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/Menu/BG/M/V"]
-margin_top = 18.0
-margin_right = 80.0
-margin_bottom = 22.0
+margin_top = 20.0
+margin_right = 83.0
+margin_bottom = 24.0
 custom_styles/separator = SubResource( 8 )
 
 [node name="StartBtn" type="TextureButton" parent="CanvasLayer/Menu/BG/M/V"]
-margin_top = 25.0
-margin_right = 80.0
-margin_bottom = 43.0
+margin_top = 29.0
+margin_right = 83.0
+margin_bottom = 48.0
 focus_mode = 1
 size_flags_vertical = 3
 enabled_focus_mode = 1
@@ -515,9 +509,9 @@ valign = 1
 uppercase = true
 
 [node name="LoadBtn" type="TextureButton" parent="CanvasLayer/Menu/BG/M/V"]
-margin_top = 46.0
-margin_right = 80.0
-margin_bottom = 65.0
+margin_top = 53.0
+margin_right = 83.0
+margin_bottom = 72.0
 focus_mode = 1
 size_flags_vertical = 3
 enabled_focus_mode = 1
@@ -538,9 +532,9 @@ valign = 1
 uppercase = true
 
 [node name="OptionBtn" type="TextureButton" parent="CanvasLayer/Menu/BG/M/V"]
-margin_top = 68.0
-margin_right = 80.0
-margin_bottom = 86.0
+margin_top = 77.0
+margin_right = 83.0
+margin_bottom = 96.0
 size_flags_vertical = 3
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 3 )
@@ -558,9 +552,9 @@ valign = 1
 uppercase = true
 
 [node name="CreditsBtn" type="TextureButton" parent="CanvasLayer/Menu/BG/M/V"]
-margin_top = 89.0
-margin_right = 80.0
-margin_bottom = 108.0
+margin_top = 101.0
+margin_right = 83.0
+margin_bottom = 120.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 2 )
@@ -579,9 +573,9 @@ valign = 1
 uppercase = true
 
 [node name="ExitBtn" type="TextureButton" parent="CanvasLayer/Menu/BG/M/V"]
-margin_top = 111.0
-margin_right = 80.0
-margin_bottom = 130.0
+margin_top = 125.0
+margin_right = 83.0
+margin_bottom = 144.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 2 )
