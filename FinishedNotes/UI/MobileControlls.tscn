@@ -89,7 +89,6 @@ shape_visible = false
 action = "jump"
 
 [node name="ZTouchButton" type="TouchScreenButton" parent="ActionPad" groups=["z-button"]]
-visible = false
 position = Vector2( 91, -57 )
 scale = Vector2( 3.66667, 3.58334 )
 normal = ExtResource( 11 )
@@ -98,4 +97,3 @@ shape = SubResource( 5 )
 action = "sword_attack"
 
 [connection signal="pressed" from="ActionPad/XTouchButton" to="." method="_on_XTouchButton_pressed"]
-[connection signal="pressed" from="ActionPad/ZTouchButton" to="." method="_on_ZTouchButton_pressed"]
