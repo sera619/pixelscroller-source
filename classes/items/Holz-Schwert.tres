@@ -1,13 +1,13 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://classes/items/item.gd" type="Script" id=1]
-[ext_resource path="res://img/Icons/items/PracticeSword.png" type="Texture" id=2]
+[ext_resource path="res://img/Icons/items/Holz-Schwert.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
 name = "Holz-Schwert"
 description = "Ein altes Spielzeugschwert. Hast du geglaubt es kann etwas Besonderes?!"
-item_type = "Weapon"
+item_type = "Waffe"
 icon = ExtResource( 2 )
 value_to_add = 0
 weapon_damage = 5

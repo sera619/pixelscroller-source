@@ -1,13 +1,13 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://classes/items/item.gd" type="Script" id=1]
-[ext_resource path="res://img/super-epic-fantasy-weapons-pack/Plate Amor.png" type="Texture" id=2]
+[ext_resource path="res://img/Icons/items/Rostiger Panzer.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
 name = "Rostiger Panzer"
 description = "Der Panzer macht dich sehr schwer. Du kannst nicht mehr zurück geworfen werden."
-item_type = "Amor"
+item_type = "Ruestung"
 icon = ExtResource( 2 )
 value_to_add = 0
 weapon_damage = 0

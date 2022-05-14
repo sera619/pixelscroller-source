@@ -1,13 +1,13 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://classes/items/item.gd" type="Script" id=1]
-[ext_resource path="res://img/Icons/items/Light Body.png" type="Texture" id=2]
+[ext_resource path="res://img/Icons/items/Alte Weste.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
 name = "Alte Weste"
 description = "Deine alte Rüstung sollte sich dringend ein Schmied ansehen.  "
-item_type = "Amor"
+item_type = "Ruestung"
 icon = ExtResource( 2 )
 value_to_add = 0
 weapon_damage = 0
