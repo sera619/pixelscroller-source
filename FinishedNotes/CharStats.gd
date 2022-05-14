@@ -90,7 +90,7 @@ func get_char_stats():
 	playername.text = DataManager.player_data.name
 	health.text = String(player.max_health)
 	stamina.text = String(player.max_stamina)
-	amor.text = String(player.max_amor)
+	amor.text = String(player.bodyamor.current_bodyamor.amor_defense)
 	element.text = player.weapon.current_weapon.element_type
 
 
