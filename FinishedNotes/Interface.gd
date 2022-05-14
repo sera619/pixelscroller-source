@@ -10,6 +10,8 @@ onready var inventory = get_parent().get_node('Player/Inventory')
 onready var infoBox = get_node('InfoBox')
 onready var mana_pot_label = $Inv/H/BG/M/H/MPotion/StackTxt
 onready var heal_pot_label = $Inv/H/BG/M/H/HPotion/StackTxt
+onready var heal_pot_icon = $Inv/H/BG/M/H/HPotion/HPotIocn
+onready var mana_pot_icon = $Inv/H/BG/M/H/MPotion/MPotIcon
 onready var animPlayer = $AnimationPlayer
 onready var death_screen =$DeathScreen
 onready var player_weapon = player.get_node("Weapon/Sword")
@@ -97,6 +99,15 @@ func update_keys():
 func update_potions():
 	heal_pot_label.text = str(inventory.health_potion)
 	mana_pot_label.text = str(inventory.mana_potion)
+	if inventory.health_potion == 0:
+		heal_pot_icon.set('modulate', Color(1, 1, 1, 0.235294))
+	else:
+		heal_pot_icon.set('modulate', Color(1,1,1,1))
+	if inventory.mana_potion == 0:
+		mana_pot_icon.set('modulate', Color(1, 1, 1, 0.235294))
+	else:
+		mana_pot_icon.set('modulate', Color(1,1,1,1))
+
 
 func update_weapon():
 	weaponLabel.text = player_weapon.current_weapon.name
@@ -139,3 +150,7 @@ func _on_ExitBtn_pressed():
 	yield(get_tree().create_timer(1.0),"timeout")
 	get_tree().change_scene("res://World/MainMenu.tscn")
 	
+
+
+func _on_HPotIocn_pressed():
+	player.use_healthpotion()
