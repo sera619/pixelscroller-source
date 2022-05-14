@@ -164,7 +164,7 @@ func _on_WeaponEquipBtn_pressed():
 
 func _on_ChangeAmorBtn_pressed():
 	get_node('../ButtonSFX').play()
-	player.bodyamor.equip_amor(next_amor_name)
+	player.bodyamor.equip_bodyamor(next_amor_name)
 	update_amor_eq()
 	get_char_stats()
 
