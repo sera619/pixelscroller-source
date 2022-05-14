@@ -21,7 +21,7 @@ anchor_bottom = 0.5
 margin_left = -121.0
 margin_top = -86.0
 margin_right = 121.0
-margin_bottom = 86.0
+margin_bottom = 107.0
 popup_exclusive = true
 script = ExtResource( 8 )
 
@@ -46,7 +46,7 @@ custom_constants/margin_bottom = 10
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 232.0
-margin_bottom = 162.0
+margin_bottom = 183.0
 custom_constants/separation = 5
 alignment = 1
 
@@ -62,23 +62,23 @@ valign = 1
 uppercase = true
 
 [node name="HS" type="HSeparator" parent="BG/M/V"]
-margin_top = 17.0
+margin_top = 20.0
 margin_right = 222.0
-margin_bottom = 21.0
+margin_bottom = 24.0
 custom_styles/separator = ExtResource( 9 )
 
 [node name="TextureRect" type="TextureRect" parent="BG/M/V"]
 margin_left = 95.0
-margin_top = 23.0
+margin_top = 29.0
 margin_right = 127.0
-margin_bottom = 55.0
+margin_bottom = 61.0
 size_flags_horizontal = 6
 texture = ExtResource( 1 )
 
 [node name="Main" type="RichTextLabel" parent="BG/M/V"]
-margin_top = 57.0
+margin_top = 66.0
 margin_right = 222.0
-margin_bottom = 134.0
+margin_bottom = 152.0
 size_flags_vertical = 3
 custom_colors/default_color = Color( 0.129412, 0.717647, 0.898039, 1 )
 custom_fonts/normal_font = ExtResource( 7 )
@@ -86,9 +86,9 @@ bbcode_enabled = true
 
 [node name="OkBtn" type="TextureButton" parent="BG/M/V"]
 margin_left = 87.0
-margin_top = 136.0
+margin_top = 157.0
 margin_right = 135.0
-margin_bottom = 152.0
+margin_bottom = 173.0
 size_flags_horizontal = 6
 size_flags_vertical = 0
 texture_normal = ExtResource( 4 )
