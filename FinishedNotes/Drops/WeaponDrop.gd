@@ -25,5 +25,5 @@ func _on_WeaponDrop_body_entered(body):
 		player.weapon.loot_weapon(String(weapon_to_drop.name))
 		var loot_popup = loot_popup_scene.instance()
 		GameManager.interface.add_child(loot_popup)
-		loot_popup.set_loot_text(String(weapon_to_drop.item_type),String(weapon_to_drop.name), weapon_icon)
+		loot_popup.set_loot_text(String(weapon_to_drop.item_type),String(weapon_to_drop.name), String(weapon_to_drop.drop_text) , weapon_icon)
 		self.call_deferred('queue_free')

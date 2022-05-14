@@ -25,5 +25,5 @@ func _on_AmorDrop_body_entered(body):
 		player.bodyamor.loot_amor(String(amor_to_drop.name))
 		var loot_popup = loot_popup_scene.instance()
 		GameManager.interface.add_child(loot_popup)
-		loot_popup.set_loot_text(String(amor_to_drop.item_type),String(amor_to_drop.name),amor_to_drop.icon)
+		loot_popup.set_loot_text(String(amor_to_drop.item_type),String(amor_to_drop.name),String(amor_to_drop.drop_text),amor_to_drop.icon)
 		self.call_deferred('queue_free')
