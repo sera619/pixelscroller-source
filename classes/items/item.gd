@@ -3,7 +3,7 @@ class_name Item
 
 export(String) var name = ""
 export(String) var description = ""
-export(String, 'Consumable', 'Weapon', 'Amor', '') var item_type
+export(String, 'Consumeable', 'Waffe', 'Ruestung', '') var item_type
 export(Texture) var icon
 export(int) var value_to_add = 0
 export(int) var weapon_damage = 0
