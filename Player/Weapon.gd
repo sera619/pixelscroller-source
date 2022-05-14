@@ -54,7 +54,7 @@ func get_damage():
 	return damage
 
 func equip_weapon(new_weapon):
-	var sword = load("res://classes/items/"+new_weapon+".tres")
+	var sword = load("res://classes/items/"+String(new_weapon)+".tres")
 	current_weapon = sword
 	reset_dmg = current_weapon.weapon_damage
 	DataManager.player_data.current_weapon = str(new_weapon)
