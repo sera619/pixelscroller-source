@@ -25,6 +25,7 @@ onready var weaponElementLabel = $CharStats/Bg/M/V/Equip/WeaponStats/V/WeaponEle
 onready var weaponEnergiePlate = $WeaponEnergie
 onready var weapon_energie_bar = $WeaponEnergie/WeaponEnergiePlate/WEnergieBar
 onready var debuff_bar = $DebuffBar
+onready var dungeon_timer = $DungeonTimer
 
 onready var game_menu = $GameMenu
 

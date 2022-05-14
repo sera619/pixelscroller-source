@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=2]
+[gd_scene load_steps=77 format=2]
 
 [ext_resource path="res://img/Skull.png" type="Texture" id=1]
 [ext_resource path="res://img/pixel-art-gui-elements/playerplate.png" type="Texture" id=2]
@@ -56,6 +56,7 @@
 [ext_resource path="res://img/button-red-small-normalt.png" type="Texture" id=54]
 [ext_resource path="res://FinishedNotes/HelpMenu.gd" type="Script" id=55]
 [ext_resource path="res://FinishedNotes/UI/DebuffBar.tscn" type="PackedScene" id=56]
+[ext_resource path="res://FinishedNotes/UI/DungeonTimer.tscn" type="PackedScene" id=57]
 
 [sub_resource type="Gradient" id=18]
 offsets = PoolRealArray( 0.0354331, 0.980315 )
@@ -521,6 +522,9 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource( 25 )
 expand = true
+
+[node name="DungeonTimer" parent="." instance=ExtResource( 57 )]
+visible = true
 
 [node name="DebuffBar" parent="." instance=ExtResource( 56 )]
 
