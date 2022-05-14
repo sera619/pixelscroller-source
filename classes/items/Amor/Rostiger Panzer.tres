@@ -8,7 +8,7 @@ load_path = "res://.import/Plate Amor.png-61f6bf7767e02cadecdf6cdae10e1674.stex"
 [resource]
 script = ExtResource( 1 )
 name = "Rostiger Panzer"
-description = "Ein parr Dellen und Macken aber sonst gut in Schuss!"
+description = "Ein paar Dellen und Macken aber sonst gut in Schuss!"
 drop_text = "Dieser Panzer macht dich so schwer das du nicht mehr zurück geworfen werden kannst."
 item_type = "Ruestung"
 icon = SubResource( 1 )
