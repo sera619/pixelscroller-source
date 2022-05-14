@@ -34,7 +34,7 @@ onready var max_health : int = DataManager.player_data.max_health
 onready var max_amor : int = DataManager.player_data.max_amor
 onready var max_stamina: int = DataManager.player_data.max_stamina
 
-var normal_speed:=max_speed
+var normal_speed := max_speed
 var health := max_health setget set_health
 var amor := max_amor setget set_amor
 var stamina := max_stamina setget set_stamina
@@ -369,9 +369,11 @@ func dead_state():
 
 
 func slow_debuff():
+	var debuff_time = 2.5
 	normal_speed = max_speed
 	max_speed = max_speed / 2
-	status_timer.start()
+	status_timer.start(debuff_time)
+	GameManager.interface.debuff_bar.start_slow(debuff_time)
 	print('>>> PLAYER: Slow Debuff active for 2.5 sec')
 
 func hurt_animation_finished():
