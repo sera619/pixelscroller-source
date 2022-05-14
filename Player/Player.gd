@@ -43,7 +43,8 @@ var slide_vector := Vector2.ZERO
 
 const AUDIO_EFFECTS: Dictionary = {
 	'Hurt': preload("res://audio/audioassets/damage_1_karen.wav"),
-	'SwordSlash': preload("res://audio/SwordSlashSFX.tscn")
+	'SwordSlash': preload("res://audio/SwordSlashSFX.tscn"),
+	'Potion': preload('res://audio/PotionSFX.tscn')
 }
 var look_right = true
 var can_move = true
@@ -109,16 +110,25 @@ func _input(_event):
 		else:
 			interact_obj.interact()
 	if Input.is_action_just_pressed('hotkey1') && inventory.health_potion != 0:
-		if health == max_health:
-			print('Health is full no need for health potion')
-			return
-		else:
-			set_health(health + 10)
-			inventory.set_potion_h(inventory.health_potion - 1)
+		use_healthpotion()
 	if Input.is_action_just_pressed("weapon1") && can_attack:
 		weapon.equip_weapon(weapon.weapon)
 	if Input.is_action_just_pressed("weapon2") && can_attack:
 		weapon.equip_weapon(weapon.fire_sword)
+
+
+func use_healthpotion():
+	if health == max_health:
+		print('>>> PLAYER: Health full, no need for health potion')
+		return
+	elif inventory.health_potion < 1:
+		print('>>> PLAYER: Not enough Health-Potions.')
+		return
+	else:
+		var potion_sfx = AUDIO_EFFECTS.Potion.instance()
+		get_tree().root.add_child(potion_sfx)
+		set_health(health + 10)
+		inventory.set_potion_h(inventory.health_potion - 1)
 
 func _process(_delta):
 	DataManager.player_data.last_position = position
