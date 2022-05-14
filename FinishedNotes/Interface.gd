@@ -154,3 +154,7 @@ func _on_ExitBtn_pressed():
 
 func _on_HPotIocn_pressed():
 	player.use_healthpotion()
+
+
+func _on_MPotIcon_pressed():
+	player.use_manapotion()

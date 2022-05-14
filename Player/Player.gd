@@ -48,7 +48,7 @@ const AUDIO_EFFECTS: Dictionary = {
 
 const EFFECTS: Dictionary = {
 	'Healup': preload("res://Effects/HealupEffect.tscn"),
-	'Shieldup': preload("res://Effects/ShieldupEffect.tscn")
+	'Manaup': preload("res://Effects/ShieldupEffect.tscn")
 }
 	
 var look_right = true
@@ -140,17 +140,17 @@ func use_healthpotion():
 
 
 func use_manapotion():
-	if amor == max_amor:
-		print('>>> PLAYER: Shield is full, no need for Shieldpotion!')
+	if stamina == max_stamina:
+		print('>>> PLAYER: Mana is full, no need for Manapotion!')
 		return
 	elif inventory.mana_potion < 1:
-		print('>>> PLAYER: Not enough Shield-Potions!')
+		print('>>> PLAYER: Not enough Mana-Potions!')
 		return
 	else:
-		var shieldeffect = EFFECTS.Shieldup.instance()
-		self.add_child(shieldeffect)
-		shieldeffect.position.y -= 32
-		set_amor(amor + 5)
+		var manaupeffect = EFFECTS.Manaup.instance()
+		self.add_child(manaupeffect)
+		manaupeffect.position.y -= 32
+		set_stamina(stamina + 5)
 		inventory.set_potion_m(inventory.mana_potion - 1)
 
 func _process(_delta):

@@ -2425,6 +2425,7 @@ bus = "Menu"
 [connection signal="button_down" from="GameMenu/NinePatchRect/MarginContainer/VBoxContainer/ExitBtn" to="GameMenu" method="_on_ExitBtn_button_down"]
 [connection signal="pressed" from="GameMenu/NinePatchRect/MarginContainer/VBoxContainer/DevMap" to="GameMenu" method="_on_DevMap_pressed"]
 [connection signal="pressed" from="Inv/H/BG/M/H/HPotion/HPotIocn" to="." method="_on_HPotIocn_pressed"]
+[connection signal="pressed" from="Inv/H/BG/M/H/MPotion/MPotIcon" to="." method="_on_MPotIcon_pressed"]
 [connection signal="timeout" from="InfoBox/Timer" to="InfoBox" method="_on_Timer_timeout"]
 [connection signal="pressed" from="MarcroMenu/Bg/HomeBtn" to="GameMenu" method="_on_HomeBtn_pressed"]
 [connection signal="pressed" from="MarcroMenu/Menu/M/V/StatsBtn" to="GameMenu" method="_on_StatsBtn_pressed"]
