@@ -22,7 +22,7 @@ void fragment(){
 [sub_resource type="ShaderMaterial" id=16]
 shader = SubResource( 15 )
 shader_param/scroll = Vector2( 0.08, 0.05 )
-shader_param/scroll2 = Vector2( 0.2, 0.2 )
+shader_param/scroll2 = Vector2( 0.15, 0.15 )
 shader_param/active = true
 
 [sub_resource type="OpenSimplexNoise" id=17]
