@@ -9,10 +9,12 @@ signal defense_changed
 
 var current_bodyamor = null
 var defense = defense setget set_defense
-
 var defense_arsenal = []
 
-# Called when the node enters the scene tree for the first time.
+
+
+
+
 func _ready():
 	defense_arsenal = DataManager.player_data.defense_arsenal
 	equip_bodyamor(DataManager.player_data.current_bodyamor)
@@ -36,8 +38,6 @@ func loot_amor(amor_name:String):
 	DataManager.player_data.defense_arsenal = defense_arsenal
 	print('>>> PlayerAmor: New Bodyamor '+String(amor_name)+' added to arsenal.')
 	equip_bodyamor(amor_name)
-
-
 
 
 func set_defense(new_defense):
