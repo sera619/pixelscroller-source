@@ -2,7 +2,7 @@ extends Node
 class_name Config
 
 var user_device = null
-var game_version = "0.7.1 "
+var game_version = "0.7.4 "
 
 
 func _init():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://img/warrior-free-animation-set/Warrior/SpriteSheet/Warrior_SheetnoEffect.png" type="Texture" id=1]
 [ext_resource path="res://Hitbox.gd" type="Script" id=2]
@@ -11,18 +11,25 @@
 [ext_resource path="res://classes/items/Amor/Alte Weste.tres" type="Resource" id=12]
 [ext_resource path="res://Player/BodyAmor.gd" type="Script" id=13]
 
-[sub_resource type="RectangleShape2D" id=87]
-extents = Vector2( 10, 16.5 )
+[sub_resource type="CapsuleShape2D" id=124]
+radius = 9.0
+height = 16.0
 
 [sub_resource type="CapsuleShape2D" id=120]
-height = 18.0
+radius = 9.0
+height = 14.0
 
 [sub_resource type="CapsuleShape2D" id=88]
 radius = 9.0
 height = 34.0
 
 [sub_resource type="CapsuleShape2D" id=89]
+radius = 9.0
 height = 30.0
+
+[sub_resource type="CapsuleShape2D" id=125]
+radius = 9.0
+height = 12.0
 
 [sub_resource type="Animation" id=90]
 length = 0.001
@@ -57,6 +64,30 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Hitbox/CollisionShape2D2:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -103,10 +134,34 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true, true ]
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Hitbox/CollisionShape2D2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=109]
@@ -440,7 +495,7 @@ tracks/1/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 10 )
 } ],
-"times": PoolRealArray( 0, 0.4 )
+"times": PoolRealArray( 0.2, 0.6 )
 }
 
 [sub_resource type="Animation" id=100]
@@ -900,11 +955,11 @@ script = ExtResource( 3 )
 jump_force = 480
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1, -16.5 )
-shape = SubResource( 87 )
+position = Vector2( -3, -17 )
+shape = SubResource( 124 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -33 )
+position = Vector2( -3, -34 )
 shape = SubResource( 120 )
 
 [node name="Weapon" type="Node2D" parent="."]
@@ -928,12 +983,16 @@ collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2( 0, 5 )
+position = Vector2( -3, 6 )
 shape = SubResource( 89 )
 
 [node name="BodyAmor" type="Node" parent="Hitbox"]
 script = ExtResource( 13 )
 practice_amor = ExtResource( 12 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( -3, 15 )
+shape = SubResource( 125 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
@@ -986,6 +1045,7 @@ anims/dark2light = SubResource( 122 )
 anims/light2dark = SubResource( 123 )
 
 [node name="InteractionZone" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 256
 
@@ -1031,7 +1091,6 @@ one_shot = true
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
 [connection signal="area_entered" from="Hitbox" to="Hitbox" method="_on_Hitbox_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="InteractionZone" to="." method="_on_InteractionZone_area_entered"]
 [connection signal="area_exited" from="InteractionZone" to="." method="_on_InteractionZone_area_exited"]

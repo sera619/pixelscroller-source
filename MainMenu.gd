@@ -74,7 +74,7 @@ func check_loadbtn():
 		savegame1 = file1.get_var()
 		file1.close()
 		save_slot1.get_node("Label2").text = savegame1['name']
-		save_slot1.get_node("Label3").text = "%02d:%02d" % [savegame1['played_min'],savegame1['played_sec']]
+		save_slot1.get_node("Label3").text = "%02d:%02d:%02d" % [savegame1['played_h'],savegame1['played_min'],savegame1['played_sec']]
 	if not directory.file_exists("user://save_file2.save"):
 		save_slot2.get_node("Label2").text = nosave_name
 		save_slot2.get_node("Label3").text = nosave_time
@@ -88,7 +88,7 @@ func check_loadbtn():
 		savegame2 = file2.get_var()
 		file2.close()
 		save_slot2.get_node("Label2").text = savegame2['name']
-		save_slot2.get_node("Label3").text = "%02d:%02d" % [savegame2['played_min'],savegame2['played_sec']]
+		save_slot2.get_node("Label3").text = "%02d:%02d:%02d" % [savegame2['played_h'],savegame2['played_min'],savegame2['played_sec']]
 	if not directory.file_exists("user://save_file3.save"):
 		save_slot3.get_node("Label2").text = nosave_name 
 		save_slot3.get_node("Label3").text = nosave_time
@@ -102,7 +102,7 @@ func check_loadbtn():
 		savegame3 = file3.get_var()
 		file3.close()
 		save_slot3.get_node("Label2").text = savegame3['name']
-		save_slot3.get_node("Label3").text = "%02d:%02d" % [savegame3['played_min'],savegame3['played_sec']]
+		save_slot3.get_node("Label3").text = "%02d:%02d:%02d" % [savegame3['played_h'],savegame3['played_min'],savegame3['played_sec']]
 	if loadbtn3.disabled && loadbtn1.disabled && loadbtn2.disabled:
 		if $CanvasLayer/LoadPanel.visible:
 			animPlayer.play("LoadHide")

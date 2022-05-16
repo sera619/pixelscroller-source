@@ -57,7 +57,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 10 )
-frame = 5
+frame = 1
 playing = true
 offset = Vector2( 0, -52 )
 

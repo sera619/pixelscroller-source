@@ -9,16 +9,29 @@ var played_time = null
 var mobile_controller: MobileController = null
 var current_map: Node2D
 var current_map_name: String
-var spawn_positions: Dictionary = {
+var map_audio = null
+
+
+const spawn_positions: Dictionary = {
 	'Map': [120,224],
 	#'Map':[7146,-707],
-	#'Dungeonmap': [-108,-168],
-	'Dungeonmap': [3770, -112],
-	'DevWorld': [-49,-33]
+	'Dungeonmap': [-108,-168],
+	#'Dungeonmap': [3770, -112],
+	'DevWorld': [-49,-33],
+	'Map2':[0,10]
 }
 
 const LOOT: Dictionary ={
 	'Gold': preload("res://FinishedNotes/Gold.tscn")
+}
+const AUDIO: Dictionary = {
+	'PlayerDead': preload('res://audio/DeadSFX.tscn')
+}
+const MAPS: Dictionary = {
+	'Map': preload('res://World/Map/Map.tscn'),
+	'Map2': preload('res://World/Map/Map2.tscn'),
+	'Dungeonmap': preload('res://World/Map/Dungeonmap.tscn'),
+	'DevWorld': preload('res://World/Map/DevWorld.tscn')
 }
 
 
@@ -39,6 +52,10 @@ func register_interface(node: Interface):
 	interface = node
 	print('>>> GAMEMANAGER: Game-UI successfully loaded.')
 
+func register_mapaudio(node):
+	map_audio = node
+	print('>>> GAMEMANAGER: Map Audio successfully loaded.')
+
 func register_inventory(node: Inventory):
 	inventory = node
 func register_mapholder(node:Node):
@@ -46,23 +63,18 @@ func register_mapholder(node:Node):
 
 
 func changeMap(map_name:String):
-	var new_map_instance: PackedScene = load("res://World/Map/"+str(map_name)+".tscn")
-	var new_map = new_map_instance.instance()
+	map_audio = null
+	var new_map = MAPS[map_name].instance()
 	if map_holder.get_child_count() != 0:
 		map_holder.get_child(0).queue_free()
-	map_holder.add_child(new_map)
-	current_map = map_holder.get_child(0)
+	map_holder.call_deferred('add_child',new_map)
+	current_map = new_map
 	DataManager.player_data.map = str(map_name)
 	new_map = null
 	set_player_pos(map_name)
-"""
-	if map_name == "Map":
-		interface.change_parallax(1)
-	elif map_name == "Dungeonmap":
-		interface.change_parallax(2)
-"""
+
 
 func set_player_pos(map_name):
 	player.velocity.y = 0
 	player.position =Vector2(spawn_positions[String(map_name)][0],spawn_positions[String(map_name)][1])
-	print('Playerspawn found')
+	print('>>> GAMEMANAGER: Player-Position is set to: X: '+String(spawn_positions[String(map_name)][0])+' | Y: '+String(spawn_positions[String(map_name)][1]))

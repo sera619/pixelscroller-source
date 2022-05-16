@@ -10,6 +10,38 @@
 [ext_resource path="res://img/mini-health-bar.png" type="Texture" id=8]
 [ext_resource path="res://classes/Enemys/Breath.gd" type="Script" id=9]
 
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 192, 176 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 3 )
+region = Rect2( 192, 0, 192, 176 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 3 )
+region = Rect2( 384, 0, 192, 176 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 3 )
+region = Rect2( 576, 0, 192, 176 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 3 )
+region = Rect2( 768, 0, 192, 176 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 3 )
+region = Rect2( 960, 0, 192, 176 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 3 )
+region = Rect2( 1152, 0, 192, 176 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 3 )
+region = Rect2( 1344, 0, 192, 176 )
+
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 160, 144 )
@@ -134,38 +166,6 @@ region = Rect2( 320, 0, 64, 64 )
 atlas = ExtResource( 1 )
 region = Rect2( 384, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=27]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 192, 176 )
-
-[sub_resource type="AtlasTexture" id=28]
-atlas = ExtResource( 3 )
-region = Rect2( 192, 0, 192, 176 )
-
-[sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 3 )
-region = Rect2( 384, 0, 192, 176 )
-
-[sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 3 )
-region = Rect2( 576, 0, 192, 176 )
-
-[sub_resource type="AtlasTexture" id=31]
-atlas = ExtResource( 3 )
-region = Rect2( 768, 0, 192, 176 )
-
-[sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 3 )
-region = Rect2( 960, 0, 192, 176 )
-
-[sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 3 )
-region = Rect2( 1152, 0, 192, 176 )
-
-[sub_resource type="AtlasTexture" id=34]
-atlas = ExtResource( 3 )
-region = Rect2( 1344, 0, 192, 176 )
-
 [sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 64, 48 )
@@ -188,6 +188,11 @@ region = Rect2( 0, 0, 160, 144 )
 
 [sub_resource type="SpriteFrames" id=35]
 animations = [ {
+"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
+"loop": false,
+"name": "Attack",
+"speed": 10.0
+}, {
 "frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "Idle",
@@ -207,11 +212,6 @@ animations = [ {
 "loop": false,
 "name": "Death",
 "speed": 8.0
-}, {
-"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
-"loop": false,
-"name": "Attack",
-"speed": 10.0
 }, {
 "frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ) ],
 "loop": false,
@@ -257,26 +257,30 @@ func _ready():
 "
 
 [node name="Deamon" type="KinematicBody2D"]
+position = Vector2( 294, 244 )
 script = ExtResource( 6 )
 move_speed = 110
 
 [node name="Body" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -72 )
 frames = SubResource( 35 )
-animation = "Appear"
-frame = 4
+animation = "Idle"
+frame = 3
 playing = true
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -38 )
 shape = SubResource( 48 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -62 )
 shape = SubResource( 49 )
 
 [node name="Weapon" type="Node2D" parent="."]
+visible = false
 
 [node name="Breath" type="Area2D" parent="Weapon" groups=["enemy_weapon"]]
 position = Vector2( -54, -37 )
@@ -298,11 +302,13 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+visible = false
 position = Vector2( 0, -63 )
 rotation = 1.5708
 shape = SubResource( 50 )
 
 [node name="PlayerDetect" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
@@ -329,6 +335,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 8 )
 expand = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
 
 [connection signal="animation_finished" from="Body" to="." method="_on_Body_animation_finished"]
 [connection signal="frame_changed" from="Body" to="." method="_on_Body_frame_changed"]

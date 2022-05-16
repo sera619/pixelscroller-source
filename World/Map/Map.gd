@@ -4,6 +4,7 @@ onready var interface: Interface = GameManager.interface
 onready var enemy_container = $SpawnContainer/EnemySpawns
 onready var enemy2_container =$SpawnContainer/EnemySpawns2
 onready var boss_spawn = $SpawnContainer/BossSpawn
+onready var map_audio = $AudioStreamPlayer
 export(PackedScene) var enemy_scene
 export(PackedScene) var enemy2_scene
 export(PackedScene) var boss_scene
@@ -11,6 +12,7 @@ var infobox: InfoBox
 
 
 func _ready():
+	GameManager.map_audio = map_audio
 	infobox = interface.get_node('InfoBox')
 	if infobox != null:
 		infobox.set_text('Willkommen bei <keksdose>', 'In diesem ersten Level kannst du dich mit der Steuerung vertraut machen.\nKlicke auf das "?" um die Tastaturbelegung zu sehen.')

@@ -12,6 +12,7 @@ var default_player_data ={
 	'chest_key':0,
 	'health_potions': 1,
 	'mana_potions':1,
+	'played_h': 0,
 	'played_min':0,
 	'played_sec':0,
 	'arsenal': ['Holz-Schwert'],
@@ -44,7 +45,8 @@ func save_data(id: int):
 	file.open("user://save_file"+String(id)+".save", File.WRITE)
 	file.store_var(player_data)
 	file.close()
-	print('>>> DATAMANAGER: Playerdata successfully saved!')
+	var save_note = ">>> DATAMANAGER: Playerdata with ID %s successfully saved!" % id
+	print(save_note)
 	
 
 func load_data(savefile):
@@ -53,5 +55,8 @@ func load_data(savefile):
 	file.open(savefile, File.READ)
 	player_data = file.get_var()
 	file.close()
-	print('>>> DATAMANGER: Loaded Playerdata:\n')
-	print(player_data)
+	print('>>> DATAMANGER: Loaded Playerdata:')
+	print('--------------------------------------------------------')
+	for key in player_data:
+		printt(key, player_data[key])
+	print('--------------------------------------------------------')

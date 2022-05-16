@@ -100,12 +100,12 @@ func show_macromenu():
 	macro_showing = true
 	macro_buttons.visible = true
 	macro_buttons.mouse_filter = Control.MOUSE_FILTER_STOP
-	tween.interpolate_property(macro_buttons, "modulate",Color(1, 1, 1, 0), Color(1,1,1,1),0.8, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	tween.interpolate_property(macro_buttons, "modulate",Color(1, 1, 1, 0), Color(1,1,1,1),0.4, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween.start()
 
 func hide_macromenu():
 	macro_showing = false
-	tween.interpolate_property(macro_buttons, "modulate",Color(1, 1, 1, 1), Color(1,1,1,0),0.8, Tween.TRANS_LINEAR, Tween.EASE_OUT)
+	tween.interpolate_property(macro_buttons, "modulate",Color(1, 1, 1, 1), Color(1,1,1,0),0.4, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	tween.start()
 
 func _on_Save_pressed():

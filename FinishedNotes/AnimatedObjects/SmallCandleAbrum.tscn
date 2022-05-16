@@ -66,26 +66,15 @@ func _ready():
 
 [node name="SmallCandleAbrum" type="AnimatedSprite" groups=["dungeon_light"]]
 frames = SubResource( 8 )
-animation = "On"
-frame = 4
+animation = "Off"
 playing = true
 offset = Vector2( 0, -20 )
 script = SubResource( 9 )
 
-[node name="Light2D" type="Light2D" parent="."]
-position = Vector2( -5, -27 )
-texture = ExtResource( 2 )
-color = Color( 0.858824, 0.494118, 0.0705882, 1 )
-energy = 0.3
-
-[node name="Light2D2" type="Light2D" parent="."]
+[node name="MidLight" type="Light2D" parent="."]
 position = Vector2( 0, -31 )
+enabled = false
 texture = ExtResource( 2 )
+texture_scale = 0.7
 color = Color( 0.858824, 0.494118, 0.0705882, 1 )
-energy = 0.3
-
-[node name="Light2D3" type="Light2D" parent="."]
-position = Vector2( 5, -27 )
-texture = ExtResource( 2 )
-color = Color( 0.858824, 0.494118, 0.0705882, 1 )
-energy = 0.3
+energy = 0.9

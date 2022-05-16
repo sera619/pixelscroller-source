@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://img/red-button-normal.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://img/x-symbol.png" type="Texture" id=17]
 [ext_resource path="res://img/button-small-disabled.png" type="Texture" id=18]
 [ext_resource path="res://img/free-swamp-2d-tileset-pixel-art/2 Background/Layers/5.png" type="Texture" id=19]
+[ext_resource path="res://audio/audioassets/MainTheme.wav" type="AudioStream" id=20]
 
 [sub_resource type="StyleBoxLine" id=8]
 color = Color( 0.988235, 0.545098, 0.0235294, 1 )
@@ -1095,7 +1096,7 @@ margin_left = 160.0
 margin_top = 11.0
 margin_right = 483.0
 margin_bottom = 21.0
-custom_colors/font_color = Color( 0.184314, 0.176471, 0.176471, 0.411765 )
+custom_colors/font_color = Color( 0.2, 0.196078, 0.196078, 1 )
 custom_fonts/font = ExtResource( 6 )
 align = 1
 valign = 1
@@ -1320,6 +1321,11 @@ anims/ShowCredits = SubResource( 16 )
 stream = ExtResource( 12 )
 volume_db = -10.0
 bus = "Menu"
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+volume_db = -20.0
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/Menu/BG/M/V/StartBtn" to="." method="_on_StartBtn_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu/BG/M/V/LoadBtn" to="." method="_on_LoadBtn_pressed"]

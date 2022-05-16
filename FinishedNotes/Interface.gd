@@ -21,26 +21,18 @@ onready var buttonSFX = $ButtonSFX
 onready var mobile_controlls = preload("res://FinishedNotes/UI/MobileControlls.tscn")
 onready var chest_key = $Inv/ChestKey
 onready var weaponLabel = $CharStats/Bg/M/V/Equip/WeaponStats/V/WeaponName
-onready var weaponElementLabel = $CharStats/Bg/M/V/Equip/WeaponStats/V/WeaponElement
 onready var weaponEnergiePlate = $WeaponEnergie
 onready var weapon_energie_bar = $WeaponEnergie/WeaponEnergiePlate/WEnergieBar
 onready var debuff_bar = $DebuffBar
 onready var dungeon_timer = $DungeonTimer
-
 onready var game_menu = $GameMenu
-
 onready var amorIcon = $CharStats/Bg/M/V/Equip/AmorIcon
 onready var amorLabel = $CharStats/Bg/M/V/Equip/AmorStats/V/AmorName
-onready var amorElementLabel = $CharStats/Bg/M/V/Equip/AmorStats/V/AmorElement
 onready var mobile_stick = $MobileStick
 
 
 var mobile_controller = null
 
-const BGS ={
-	1: preload("res://World/ParallaxMap.tscn"),
-	2: preload("res://World/ParallaxDungeon.tscn")
-	}
 
 
 func _ready():
@@ -63,6 +55,10 @@ func _ready():
 	player_amor.connect('bodyamor_changed', self, 'update_bodyamor')
 
 func show_deathscreen():
+	var deathSFX = GameManager.AUDIO.PlayerDead.instance()
+	if GameManager.map_audio != null:
+		GameManager.map_audio.stop()
+	get_tree().root.add_child(deathSFX)
 	death_screen.visible =true
 	death_screen.mouse_filter = Control.MOUSE_FILTER_STOP
 	animPlayer.play("fadeIn_deathscreen")
@@ -112,7 +108,6 @@ func update_potions():
 
 func update_weapon():
 	weaponLabel.text = player_weapon.current_weapon.name
-	weaponElementLabel.text = player_weapon.current_weapon.element_type
 	$CharStats/Bg/M/V/Equip/WeaponIcon.texture_normal = player_weapon.current_weapon.icon
 	$CharStats/Bg/M/V/Equip/WeaponIcon.texture_pressed = player_weapon.current_weapon.icon
 	$CharStats/Bg/M/V/Equip/WeaponIcon.texture_hover = player_weapon.current_weapon.icon
@@ -120,7 +115,6 @@ func update_weapon():
 
 func update_bodyamor():
 	amorLabel.text = player_amor.current_bodyamor.name
-	amorElementLabel.text = str(player_amor.current_bodyamor.amor_defense)
 	amorIcon.texture_normal = player_amor.current_bodyamor.icon
 	amorIcon.texture_hover = player_amor.current_bodyamor.icon
 	amorIcon.texture_pressed = player_amor.current_bodyamor.icon

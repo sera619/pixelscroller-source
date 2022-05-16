@@ -3,7 +3,7 @@ extends Area2D
 
 
 onready var shape = $CollisionShape2D
-export (String, "Map", 'Dungeonmap') var teleportlocation ='Dungeonmap'
+export (String, "Map", 'Dungeonmap','DevWorld') var teleportlocation ='Dungeonmap'
 #export(int, FLAGS, "Fire", "Water", "Earth", "Wind") var spell_elements = 0
 
 var map_name = map_name setget set_name

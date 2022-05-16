@@ -25,10 +25,12 @@ onready var weapon = $Weapon/Sword
 onready var bodyamor = $Hitbox/BodyAmor
 onready var inventory = $Inventory
 onready var body_collison = $CollisionShape2D
+onready var body_collider_crouch = $CollisionShape2D2
 onready var sfx: AudioStreamPlayer = $SFX
 onready var food_sfx = $FoodSFX
 onready var status_timer = $StatusHandler/StatusTimer
-
+onready var hitcollider_normal = $Hitbox/CollisionShape2D
+onready var hitcollider_crouch = $Hitbox/CollisionShape2D2
 
 onready var max_health : int = DataManager.player_data.max_health
 onready var max_amor : int = DataManager.player_data.max_amor
@@ -40,6 +42,7 @@ var amor := max_amor setget set_amor
 var stamina := max_stamina setget set_stamina
 var velocity := Vector2.ZERO
 var slide_vector := Vector2.ZERO
+var knock_back_vector := Vector2.ZERO
 
 const AUDIO_EFFECTS: Dictionary = {
 	'Hurt': preload("res://audio/audioassets/damage_1_karen.wav"),
@@ -59,6 +62,7 @@ var can_slide = true
 var alive = true
 var keys: int
 var is_moving: bool = false
+var is_crouching: bool = false
 enum {
 	RUN,
 	ATK,
@@ -91,6 +95,10 @@ func set_stamina(new_stamina):
 	stamina = clamp(new_stamina,0,max_stamina)
 	emit_signal('stamina_changed')
 
+func set_jumpforce(new_force):
+	jump_force = new_force
+	print('>>> PLAYER: Jumpforce changed to: %s' % new_force)
+
 func _input(_event):
 	if Input.is_action_just_pressed('test'):
 		#take_damage(12)
@@ -122,6 +130,11 @@ func _input(_event):
 		weapon.equip_weapon(weapon.weapon)
 	if Input.is_action_just_pressed("weapon2") && can_attack:
 		weapon.equip_weapon(weapon.fire_sword)
+	if Input.is_action_just_released("crouch"):
+		is_crouching = false
+		body_collider_crouch.disabled = false
+		hitcollider_crouch.disabled = true
+		hitcollider_normal.disabled = false
 
 
 func use_healthpotion():
@@ -154,8 +167,8 @@ func use_manapotion():
 		inventory.set_potion_m(inventory.mana_potion - 1)
 
 func _process(_delta):
-	DataManager.player_data.last_position = position
 	check_right_sight()
+
 
 func check_right_sight():
 	if climbing:
@@ -165,10 +178,18 @@ func check_right_sight():
 		look_right = true
 		animSprite.flip_h = false
 		animSprite.position.x = 11
+		body_collider_crouch.position.x = -2
+		body_collison.position.x = -2
+		hitcollider_crouch.position.x = -2
+		hitcollider_normal.position.x = -2
 	else:
 		look_right = false
 		animSprite.flip_h = true
 		animSprite.position.x = -11
+		body_collider_crouch.position.x = 2
+		body_collison.position.x = 2
+		hitcollider_crouch.position.x = 2
+		hitcollider_normal.position.x = 2
 	
 func _physics_process(delta):
 	match state:
@@ -234,7 +255,6 @@ func jump_state():
 
 
 func slide_state():
-	velocity.y += gravity
 	if look_right:
 		velocity.x = velocity.x + dash_speed
 	else:
@@ -301,6 +321,8 @@ func move_state(delta):
 			pass
 	if Input.is_action_pressed("crouch") && is_on_floor() && !climbing:
 		animationPlayer.play("crouch")
+		if !is_crouching:
+			is_crouching = true
 		return
 	if climbing:
 		velocity.y = 0
@@ -353,6 +375,7 @@ func revive():
 	set_health(max_health)
 	set_amor(max_amor)
 	set_stamina(max_stamina)
+	disable_hitbox(false)
 	alive = true
 	can_attack = true
 	can_move = true
@@ -414,6 +437,14 @@ func hurt_animation_finished():
 	can_move = true
 	state = RUN
 
+func disable_hitbox(active: bool):
+	if active:
+		hitcollider_crouch.disabled = true
+		hitcollider_normal.disabled = true
+	else:
+		hitcollider_crouch.disabled = false
+		hitcollider_normal.disabled = false
+
 
 func _on_Hitbox_area_entered(area):
 	if area.is_in_group('enemy_weapon'):
@@ -422,16 +453,15 @@ func _on_Hitbox_area_entered(area):
 			slow_debuff()
 
 
+
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == 'die':
 		animationPlayer.stop()
 		alive = false
+		disable_hitbox(true)
 		emit_signal('died')
 	elif anim_name == 'slide_atk_left' || anim_name == 'slide_atk_right':
 		weapon.reset_damage()
-	else:
-		pass
-
 
 func _on_InteractionZone_body_entered(body): 
 	if body.is_in_group('interact'):
@@ -465,10 +495,6 @@ func _on_SFX_finished():
 
 
 
-func _on_AnimationPlayer_animation_changed(old_name, new_name):
-	if old_name == 'fall_down':
-		print('fall down end')
-		food_sfx.play()
 
 
 func _on_StatusTimer_timeout():

@@ -29,5 +29,5 @@ bus/5/name = "Menu"
 bus/5/solo = false
 bus/5/mute = false
 bus/5/bypass_fx = false
-bus/5/volume_db = 0.267241
+bus/5/volume_db = -5.32994
 bus/5/send = "Master"

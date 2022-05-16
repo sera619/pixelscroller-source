@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=78 format=2]
 
 [ext_resource path="res://img/Skull.png" type="Texture" id=1]
 [ext_resource path="res://img/pixel-art-gui-elements/playerplate.png" type="Texture" id=2]
@@ -57,6 +57,7 @@
 [ext_resource path="res://FinishedNotes/HelpMenu.gd" type="Script" id=55]
 [ext_resource path="res://FinishedNotes/UI/DebuffBar.tscn" type="PackedScene" id=56]
 [ext_resource path="res://FinishedNotes/UI/DungeonTimer.tscn" type="PackedScene" id=57]
+[ext_resource path="res://materials/font2-smaller.tres" type="DynamicFont" id=58]
 
 [sub_resource type="Gradient" id=18]
 offsets = PoolRealArray( 0.0354331, 0.980315 )
@@ -1085,10 +1086,10 @@ stretch_mode = 6
 visible = false
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -122.0
-margin_top = 10.0
-margin_right = 121.0
-margin_bottom = 185.0
+margin_left = -147.0
+margin_top = 9.0
+margin_right = 150.0
+margin_bottom = 184.0
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
@@ -1116,14 +1117,14 @@ custom_constants/margin_bottom = 6
 [node name="V" type="VBoxContainer" parent="CharStats/Bg/M"]
 margin_left = 10.0
 margin_top = 6.0
-margin_right = 233.0
+margin_right = 287.0
 margin_bottom = 169.0
 custom_constants/separation = 7
 alignment = 1
 
 [node name="HeadLabel" type="Label" parent="CharStats/Bg/M/V"]
 margin_top = 2.0
-margin_right = 223.0
+margin_right = 277.0
 margin_bottom = 17.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -1137,14 +1138,14 @@ uppercase = true
 
 [node name="HS" type="HSeparator" parent="CharStats/Bg/M/V"]
 margin_top = 24.0
-margin_right = 223.0
+margin_right = 277.0
 margin_bottom = 25.0
 custom_constants/separation = 1
 custom_styles/separator = SubResource( 6 )
 
 [node name="StatContainer" type="GridContainer" parent="CharStats/Bg/M/V"]
 margin_top = 32.0
-margin_right = 223.0
+margin_right = 277.0
 margin_bottom = 66.0
 size_flags_horizontal = 3
 custom_constants/vseparation = 2
@@ -1152,22 +1153,21 @@ custom_constants/hseparation = 8
 columns = 4
 
 [node name="name" type="Label" parent="CharStats/Bg/M/V/StatContainer"]
-margin_right = 49.0
+margin_right = 63.0
 margin_bottom = 10.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_colors/font_color = Color( 0.0117647, 0.0705882, 0.207843, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0.952941, 0.952941, 0.952941, 1 )
+custom_colors/font_color = Color( 0.94902, 0.686275, 0.0666667, 1 )
+custom_colors/font_color_shadow = Color( 0.0431373, 0.0431373, 0.0470588, 1 )
 custom_fonts/font = ExtResource( 4 )
-text = "Name"
+text = "Name:"
 align = 2
 valign = 1
 uppercase = true
 
 [node name="namevalue" type="Label" parent="CharStats/Bg/M/V/StatContainer"]
-margin_left = 57.0
-margin_right = 106.0
+margin_left = 71.0
+margin_right = 134.0
 margin_bottom = 10.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -1177,23 +1177,22 @@ custom_fonts/font = ExtResource( 4 )
 text = "value"
 
 [node name="health" type="Label" parent="CharStats/Bg/M/V/StatContainer"]
-margin_left = 114.0
-margin_right = 163.0
+margin_left = 142.0
+margin_right = 205.0
 margin_bottom = 10.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_colors/font_color = Color( 0.0117647, 0.0705882, 0.207843, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0.952941, 0.952941, 0.952941, 1 )
+custom_colors/font_color = Color( 0.94902, 0.686275, 0.0666667, 1 )
+custom_colors/font_color_shadow = Color( 0.0431373, 0.0431373, 0.0470588, 1 )
 custom_fonts/font = ExtResource( 4 )
-text = "Leben"
+text = "Leben:"
 align = 2
 valign = 1
 uppercase = true
 
 [node name="healthvalue" type="Label" parent="CharStats/Bg/M/V/StatContainer"]
-margin_left = 171.0
-margin_right = 220.0
+margin_left = 213.0
+margin_right = 276.0
 margin_bottom = 10.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -1204,23 +1203,22 @@ text = "value"
 
 [node name="amor" type="Label" parent="CharStats/Bg/M/V/StatContainer"]
 margin_top = 12.0
-margin_right = 49.0
+margin_right = 63.0
 margin_bottom = 22.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_colors/font_color = Color( 0.0117647, 0.0705882, 0.207843, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0.952941, 0.952941, 0.952941, 1 )
+custom_colors/font_color = Color( 0.94902, 0.686275, 0.0666667, 1 )
+custom_colors/font_color_shadow = Color( 0.0431373, 0.0431373, 0.0470588, 1 )
 custom_fonts/font = ExtResource( 4 )
-text = "Ruestung"
+text = "Ruestung:"
 align = 2
 valign = 1
 uppercase = true
 
 [node name="amorvalue" type="Label" parent="CharStats/Bg/M/V/StatContainer"]
-margin_left = 57.0
+margin_left = 71.0
 margin_top = 12.0
-margin_right = 106.0
+margin_right = 134.0
 margin_bottom = 22.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -1230,25 +1228,24 @@ custom_fonts/font = ExtResource( 4 )
 text = "value"
 
 [node name="Stamina" type="Label" parent="CharStats/Bg/M/V/StatContainer"]
-margin_left = 114.0
+margin_left = 142.0
 margin_top = 12.0
-margin_right = 163.0
+margin_right = 205.0
 margin_bottom = 22.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_colors/font_color = Color( 0.0117647, 0.0705882, 0.207843, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0.952941, 0.952941, 0.952941, 1 )
+custom_colors/font_color = Color( 0.94902, 0.686275, 0.0666667, 1 )
+custom_colors/font_color_shadow = Color( 0.0431373, 0.0431373, 0.0470588, 1 )
 custom_fonts/font = ExtResource( 4 )
-text = "Ausdauer"
+text = "Ausdauer:"
 align = 2
 valign = 1
 uppercase = true
 
 [node name="StaminaValue" type="Label" parent="CharStats/Bg/M/V/StatContainer"]
-margin_left = 171.0
+margin_left = 213.0
 margin_top = 12.0
-margin_right = 220.0
+margin_right = 276.0
 margin_bottom = 22.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -1259,23 +1256,22 @@ text = "value"
 
 [node name="Damage" type="Label" parent="CharStats/Bg/M/V/StatContainer"]
 margin_top = 24.0
-margin_right = 49.0
+margin_right = 63.0
 margin_bottom = 34.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_colors/font_color = Color( 0.0117647, 0.0705882, 0.207843, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0.952941, 0.952941, 0.952941, 1 )
+custom_colors/font_color = Color( 0.94902, 0.686275, 0.0666667, 1 )
+custom_colors/font_color_shadow = Color( 0.0431373, 0.0431373, 0.0470588, 1 )
 custom_fonts/font = ExtResource( 4 )
-text = "Schaden"
+text = "Schaden:"
 align = 2
 valign = 1
 uppercase = true
 
 [node name="DamageValue" type="Label" parent="CharStats/Bg/M/V/StatContainer"]
-margin_left = 57.0
+margin_left = 71.0
 margin_top = 24.0
-margin_right = 106.0
+margin_right = 134.0
 margin_bottom = 34.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -1285,25 +1281,24 @@ custom_fonts/font = ExtResource( 4 )
 text = "value"
 
 [node name="Element" type="Label" parent="CharStats/Bg/M/V/StatContainer"]
-margin_left = 114.0
+margin_left = 142.0
 margin_top = 24.0
-margin_right = 163.0
+margin_right = 205.0
 margin_bottom = 34.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_colors/font_color = Color( 0.0117647, 0.0705882, 0.207843, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0.952941, 0.952941, 0.952941, 1 )
+custom_colors/font_color = Color( 0.94902, 0.686275, 0.0666667, 1 )
+custom_colors/font_color_shadow = Color( 0.0431373, 0.0431373, 0.0470588, 1 )
 custom_fonts/font = ExtResource( 4 )
-text = "Element"
+text = "Element:"
 align = 2
 valign = 1
 uppercase = true
 
 [node name="ElementValue" type="Label" parent="CharStats/Bg/M/V/StatContainer"]
-margin_left = 171.0
+margin_left = 213.0
 margin_top = 24.0
-margin_right = 220.0
+margin_right = 276.0
 margin_bottom = 34.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -1314,14 +1309,14 @@ text = "value"
 
 [node name="HS2" type="HSeparator" parent="CharStats/Bg/M/V"]
 margin_top = 73.0
-margin_right = 223.0
+margin_right = 277.0
 margin_bottom = 74.0
 custom_constants/separation = 1
 custom_styles/separator = SubResource( 6 )
 
 [node name="Equipment" type="Label" parent="CharStats/Bg/M/V"]
 margin_top = 81.0
-margin_right = 223.0
+margin_right = 277.0
 margin_bottom = 91.0
 custom_colors/font_color = Color( 0.807843, 0.588235, 0.0745098, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -1333,8 +1328,10 @@ uppercase = true
 
 [node name="Equip" type="GridContainer" parent="CharStats/Bg/M/V"]
 margin_top = 98.0
-margin_right = 223.0
+margin_right = 277.0
 margin_bottom = 130.0
+custom_constants/vseparation = 0
+custom_constants/hseparation = 0
 columns = 4
 
 [node name="WeaponIcon" type="TextureButton" parent="CharStats/Bg/M/V/Equip"]
@@ -1344,12 +1341,12 @@ size_flags_horizontal = 0
 texture_normal = ExtResource( 21 )
 
 [node name="WeaponStats" type="ColorRect" parent="CharStats/Bg/M/V/Equip"]
-margin_left = 36.0
-margin_right = 109.0
+margin_left = 32.0
+margin_right = 138.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.560784, 0.788235, 0.756863, 1 )
+color = Color( 0.137255, 0.231373, 0.286275, 1 )
 
 [node name="V" type="VBoxContainer" parent="CharStats/Bg/M/V/Equip/WeaponStats"]
 anchor_right = 1.0
@@ -1358,42 +1355,31 @@ custom_constants/separation = -1
 alignment = 2
 
 [node name="WeaponName" type="Label" parent="CharStats/Bg/M/V/Equip/WeaponStats/V"]
-margin_right = 73.0
-margin_bottom = 16.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 4 )
-text = "Weaponname"
-align = 1
-valign = 1
-
-[node name="WeaponElement" type="Label" parent="CharStats/Bg/M/V/Equip/WeaponStats/V"]
-margin_top = 15.0
-margin_right = 73.0
+margin_right = 106.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 4 )
-text = "Damage"
+custom_colors/font_color = Color( 0.964706, 0.580392, 0.0823529, 1 )
+custom_fonts/font = ExtResource( 58 )
+text = "Weaponname"
 align = 1
 valign = 1
+autowrap = true
 
 [node name="AmorIcon" type="TextureButton" parent="CharStats/Bg/M/V/Equip"]
-margin_left = 113.0
-margin_right = 145.0
+margin_left = 138.0
+margin_right = 170.0
 margin_bottom = 32.0
 size_flags_horizontal = 0
 texture_normal = ExtResource( 18 )
 
 [node name="AmorStats" type="ColorRect" parent="CharStats/Bg/M/V/Equip"]
-margin_left = 149.0
-margin_right = 222.0
+margin_left = 170.0
+margin_right = 276.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.560784, 0.788235, 0.756863, 1 )
+color = Color( 0.137255, 0.231373, 0.286275, 1 )
 
 [node name="V" type="VBoxContainer" parent="CharStats/Bg/M/V/Equip/AmorStats"]
 anchor_right = 1.0
@@ -1401,36 +1387,27 @@ anchor_bottom = 1.0
 alignment = 1
 
 [node name="AmorName" type="Label" parent="CharStats/Bg/M/V/Equip/AmorStats/V"]
-margin_top = 4.0
-margin_right = 73.0
-margin_bottom = 14.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 4 )
+margin_top = 8.0
+margin_right = 106.0
+margin_bottom = 23.0
+custom_colors/font_color = Color( 0.964706, 0.580392, 0.0823529, 1 )
+custom_fonts/font = ExtResource( 58 )
 text = "Amorname"
 align = 1
 valign = 1
-
-[node name="AmorElement" type="Label" parent="CharStats/Bg/M/V/Equip/AmorStats/V"]
-margin_top = 18.0
-margin_right = 73.0
-margin_bottom = 28.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 4 )
-text = "Defense"
-align = 1
-valign = 2
+autowrap = true
 
 [node name="HS3" type="HSeparator" parent="CharStats/Bg/M/V"]
 margin_top = 137.0
-margin_right = 223.0
+margin_right = 277.0
 margin_bottom = 138.0
 custom_constants/separation = 1
 custom_styles/separator = SubResource( 6 )
 
 [node name="OkStatsBtn" type="TextureButton" parent="CharStats/Bg/M/V"]
-margin_left = 87.0
+margin_left = 114.0
 margin_top = 145.0
-margin_right = 135.0
+margin_right = 162.0
 margin_bottom = 161.0
 size_flags_horizontal = 6
 size_flags_vertical = 0
@@ -1475,12 +1452,12 @@ custom_constants/margin_bottom = 10
 [node name="V" type="VBoxContainer" parent="CharStats/EQWeapon/M"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 233.0
+margin_right = 287.0
 margin_bottom = 165.0
 custom_constants/separation = 4
 
 [node name="WHead" type="Label" parent="CharStats/EQWeapon/M/V"]
-margin_right = 223.0
+margin_right = 277.0
 margin_bottom = 15.0
 custom_colors/font_color = Color( 0.964706, 0.580392, 0.0823529, 1 )
 custom_fonts/font = ExtResource( 43 )
@@ -1490,13 +1467,13 @@ valign = 1
 
 [node name="HS" type="HSeparator" parent="CharStats/EQWeapon/M/V"]
 margin_top = 19.0
-margin_right = 223.0
+margin_right = 277.0
 margin_bottom = 23.0
 custom_styles/separator = SubResource( 16 )
 
 [node name="WeaponName" type="Label" parent="CharStats/EQWeapon/M/V"]
 margin_top = 27.0
-margin_right = 223.0
+margin_right = 277.0
 margin_bottom = 37.0
 custom_colors/font_color = Color( 0.129412, 0.717647, 0.898039, 1 )
 custom_fonts/font = ExtResource( 4 )
@@ -1506,15 +1483,15 @@ valign = 1
 
 [node name="H" type="HBoxContainer" parent="CharStats/EQWeapon/M/V"]
 margin_top = 41.0
-margin_right = 223.0
+margin_right = 277.0
 margin_bottom = 73.0
 custom_constants/separation = 22
 alignment = 1
 
 [node name="BeforeBtn" type="TextureButton" parent="CharStats/EQWeapon/M/V/H"]
-margin_left = 57.0
+margin_left = 84.0
 margin_top = 8.0
-margin_right = 73.0
+margin_right = 100.0
 margin_bottom = 24.0
 size_flags_vertical = 6
 texture_normal = ExtResource( 54 )
@@ -1528,16 +1505,16 @@ anchor_bottom = 1.0
 texture = ExtResource( 53 )
 
 [node name="WeaponIcon" type="TextureRect" parent="CharStats/EQWeapon/M/V/H"]
-margin_left = 95.0
-margin_right = 127.0
+margin_left = 122.0
+margin_right = 154.0
 margin_bottom = 32.0
 texture = ExtResource( 50 )
 stretch_mode = 6
 
 [node name="NextBtn" type="TextureButton" parent="CharStats/EQWeapon/M/V/H"]
-margin_left = 149.0
+margin_left = 176.0
 margin_top = 8.0
-margin_right = 165.0
+margin_right = 192.0
 margin_bottom = 24.0
 size_flags_vertical = 6
 texture_normal = ExtResource( 54 )
@@ -1552,13 +1529,13 @@ texture = ExtResource( 52 )
 
 [node name="HS2" type="HSeparator" parent="CharStats/EQWeapon/M/V"]
 margin_top = 77.0
-margin_right = 223.0
+margin_right = 277.0
 margin_bottom = 81.0
 custom_styles/separator = SubResource( 17 )
 
 [node name="GC" type="GridContainer" parent="CharStats/EQWeapon/M/V"]
 margin_top = 85.0
-margin_right = 223.0
+margin_right = 277.0
 margin_bottom = 95.0
 size_flags_horizontal = 15
 custom_constants/vseparation = 0
@@ -1566,7 +1543,7 @@ custom_constants/hseparation = 0
 columns = 3
 
 [node name="DamageLabel" type="Label" parent="CharStats/EQWeapon/M/V/GC"]
-margin_right = 74.0
+margin_right = 92.0
 margin_bottom = 10.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
@@ -1576,8 +1553,8 @@ text = "Schaden:"
 align = 2
 
 [node name="OldDamage" type="Label" parent="CharStats/EQWeapon/M/V/GC"]
-margin_left = 74.0
-margin_right = 148.0
+margin_left = 92.0
+margin_right = 184.0
 margin_bottom = 10.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1588,8 +1565,8 @@ align = 1
 valign = 1
 
 [node name="NewDamage" type="Label" parent="CharStats/EQWeapon/M/V/GC"]
-margin_left = 148.0
-margin_right = 222.0
+margin_left = 184.0
+margin_right = 276.0
 margin_bottom = 10.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1601,7 +1578,7 @@ valign = 1
 
 [node name="Desc" type="Label" parent="CharStats/EQWeapon/M/V"]
 margin_top = 99.0
-margin_right = 223.0
+margin_right = 277.0
 margin_bottom = 135.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1614,13 +1591,13 @@ autowrap = true
 
 [node name="H2" type="HBoxContainer" parent="CharStats/EQWeapon/M/V"]
 margin_top = 139.0
-margin_right = 223.0
+margin_right = 277.0
 margin_bottom = 155.0
 alignment = 1
 
 [node name="WeaponEquipBtn" type="TextureButton" parent="CharStats/EQWeapon/M/V/H2"]
-margin_left = 61.0
-margin_right = 109.0
+margin_left = 88.0
+margin_right = 136.0
 margin_bottom = 16.0
 size_flags_horizontal = 10
 texture_normal = ExtResource( 42 )
@@ -1633,13 +1610,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0.988235, 0.988235, 0.988235, 1 )
 custom_fonts/font = ExtResource( 4 )
-text = "OKAY"
+text = "ANLEGEN"
 align = 1
 valign = 1
 
 [node name="WeaponBackBtn" type="TextureButton" parent="CharStats/EQWeapon/M/V/H2"]
-margin_left = 113.0
-margin_right = 161.0
+margin_left = 140.0
+margin_right = 188.0
 margin_bottom = 16.0
 size_flags_horizontal = 2
 texture_normal = ExtResource( 42 )
@@ -1676,7 +1653,7 @@ custom_constants/margin_bottom = 10
 [node name="V" type="VBoxContainer" parent="CharStats/EQAmor/M"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 233.0
+margin_right = 287.0
 margin_bottom = 165.0
 
 [node name="Head" type="Label" parent="CharStats/EQAmor/M/V"]
