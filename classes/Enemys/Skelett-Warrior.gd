@@ -20,13 +20,15 @@ var can_attack: bool = true
 var is_attacking: bool = false
 var can_move: bool = true
 var is_alive: bool = true
+var reward_dropped: bool = false
 
 var see_player: bool = false
 var player: Player = null
 var start_pos: = position
-
+var rng = RandomNumberGenerator.new()
 
 func _ready():
+	rng.randomize()
 	$AnimatedSprite.play('Idle')
 	stats.connect("health_changed", self, 'update_healthbar')
 
@@ -125,8 +127,24 @@ func _on_HitBox_area_entered(area):
 
 func _on_AttackTimer_timeout():
 	can_attack = true
-
-
+func reward_player():
+	var roll = rng.randi_range(0, 10)
+	if roll < 5:
+		loot_drop()
+func loot_drop():
+	var loot 
+	var roll = rng.randi_range(0,10)
+	if roll < 5:
+		loot = GameManager.LOOT.HealthDrop.instance()
+	else:
+		loot = GameManager.LOOT.Gold.instance()
+	add_child(loot)
+	if look_right:
+		loot.global_position = self.global_position
+		loot.global_position.x -= 32
+	else:
+		loot.global_position = self.global_position
+		loot.global_position.x += 32
 func _on_AnimatedSprite_animation_finished():
 	if is_attacking:
 		is_attacking = false
@@ -139,6 +157,9 @@ func _on_AnimatedSprite_animation_finished():
 		$HitBox/CollisionShape2D.disabled = true
 		$MeleeWeapon/SkelettSword/CollisionShape2D.disabled = true
 		z_index = 0
+		if !reward_dropped:
+			reward_dropped = true
+			reward_player()
 	elif $AnimatedSprite.animation == 'Hurt':
 		can_move = true
 		return

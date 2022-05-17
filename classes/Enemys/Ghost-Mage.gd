@@ -40,14 +40,14 @@ func _ready():
 
 func _process(_delta):
 	if look_right:
-		sprite.flip_h = false
-		sprite.offset.x = 4
-		spell_spawn.position.x = 24
-	else:
 		sprite.flip_h = true
 		sprite.offset.x = -4
-		spell_spawn.position.x = -24
-
+		spell_spawn.position.x = -32
+	else:
+		sprite.flip_h = false
+		sprite.offset.x = 4
+		spell_spawn.position.x = 32
+		
 func _physics_process(_delta):
 	show_bar()
 	if is_alive:
@@ -196,7 +196,7 @@ func cast_spell():
 func _on_AnimatedSprite_frame_changed():
 	if sprite.animation == 'Hurt':
 		velocity.x = 0
-	if sprite.animation == 'Attack' && sprite.frame == 10:
+	if sprite.animation == 'Attack' && sprite.frame == 2:
 		cast_spell()
 		
 

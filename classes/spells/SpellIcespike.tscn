@@ -337,16 +337,15 @@ tracks/4/keys = {
 
 [node name="SpellIcespike" type="Area2D" groups=["enemy_weapon"]]
 collision_layer = 2
-collision_mask = 0
+collision_mask = 2
 script = SubResource( 36 )
-spell_damage = 4
+spell_damage = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 32 )
-frame = 5
 playing = true
 offset = Vector2( -30, 0 )
 

@@ -18,11 +18,14 @@ func set_loot_text(item_type, itemname:String,drop_text:String, new_icon):
 	header_label.text = full_header
 	item_icon.texture = new_icon
 	self.popup_centered()
+	get_tree().paused = true
+	GameManager.player.set_process_input(false)
 
 
 
 func _on_OkBtn_pressed():
 	get_tree().paused = false
+	GameManager.player.set_process_input(true)
 	sfx.play()
 	yield(sfx,"finished")
 	self.call_deferred('queue_free')

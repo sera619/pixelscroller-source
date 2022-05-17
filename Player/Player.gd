@@ -53,7 +53,8 @@ const EFFECTS: Dictionary = {
 	'Healup': preload("res://Effects/HealupEffect.tscn"),
 	'Manaup': preload("res://Effects/ShieldupEffect.tscn")
 }
-	
+
+var dash_atk_costs: int = 6 
 var look_right = true
 var can_move = true
 var can_attack = true
@@ -213,14 +214,18 @@ func _physics_process(delta):
 			sword_attack()
 
 func dash_attack():
-	can_attack = false
-	velocity.x = 0
-	attack_timer.start()
-	weapon.set_damage(weapon.damage + weapon.damage)
-	if look_right:
-		animationPlayer.play("slide_atk_right")
+	if !stamina < dash_atk_costs:
+		return
 	else:
-		animationPlayer.play("slide_atk_left")
+		set_stamina(stamina - dash_atk_costs)
+		can_attack = false
+		velocity.x = 0
+		attack_timer.start()
+		weapon.set_damage(weapon.damage + weapon.damage)
+		if look_right:
+			animationPlayer.play("slide_atk_right")
+		else:
+			animationPlayer.play("slide_atk_left")
 
 
 

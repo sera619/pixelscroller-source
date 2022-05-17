@@ -32,11 +32,13 @@ func game_pause():
 		time_label.text = String(GameManager.played_time)
 		if get_tree().paused:
 			get_tree().paused = false
+			GameManager.player.set_process_input(true)
 			var unpauseSFX = unpause_sound.instance()
 			get_tree().root.add_child(unpauseSFX)
 			self.hide()
 		else:
 			get_tree().paused = true
+			GameManager.player.set_process_input(false)
 			var pauseSFX = pause_sound.instance()
 			get_tree().root.add_child(pauseSFX)
 			self.show()
@@ -73,9 +75,11 @@ func _on_StatsBtn_pressed():
 func _on_HelpBtn_pressed():
 	btnSFX.play()
 	if !get_tree().paused:
+		GameManager.player.set_process_input(false)
 		get_tree().paused = true
 		help_panel.visible = true
 	else:
+		GameManager.player.set_process_input(true)
 		get_tree().paused = false
 		help_panel.visible = false
 

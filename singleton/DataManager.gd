@@ -4,7 +4,7 @@ var default_player_data ={
 	'name': '',
 	'level':1,
 	'max_health': 10,
-	'max_stamina': 10,
+	'max_stamina': 18,
 	'max_amor': 3,
 	'map':'Map',
 	'gold': 10,

@@ -1,15 +1,37 @@
 extends KinematicBody2D
+class_name DirectFollowEnemy
+
+
+export var stop_radius := 3.0
+export var slow_radius := 70.0
+export var move_speed := 220.0
+
+onready var stats = $EnemyStats
+onready var health_plate =$HealthPlate
+onready var health_bar = $HealthPlate/HealthBar
+
 
 
 var player: Player = null
-var boost_speed:= 260.0
-var move_speed := 160.0
-
+var boost_speed:= 360.0
 var max_speed := move_speed
 var velocity = Vector2.ZERO
 var last_x := 0.0
 var drag_factor := 0.1
 
+
+
+func _ready():
+	stats.connect("health_changed", self, 'update_healthbar')
+
+func update_healthbar():
+	health_bar.rect_size.x = 46 * stats.health / stats.max_health
+
+
+func _input(event):
+	if event.is_action_pressed("sword_attack"):
+		move_speed = boost_speed
+		$AtkTimer.start(2.0)
 
 func _process(delta):
 	if last_x < 0.0:
@@ -24,29 +46,36 @@ func _process(delta):
 #	var steering_vector = desired_velocity -velocity
 #	velocity += steering_vector * drag_factor
 #	position += velocity * delta
-	if velocity.x != 0.0:
-		last_x = velocity.x
+#	if velocity.x != 0.0:
+#		last_x = velocity.x
 
-func _physics_process(delta):
-	velocity = Vector2.ZERO
+
+
+func _physics_process(delta: float) -> void:
+	var target_global_position : Vector2 = Steering.target_position
 	
-	if player != null:
-		var direction = position.direction_to(player.position)
-		var desrired_velocity = max_speed * direction
-		var steering_vector = desrired_velocity - velocity
-		velocity += steering_vector * drag_factor
-		position += velocity * delta
-	else:
-		velocity = Vector2.ZERO
+	if global_position.distance_to(target_global_position) < stop_radius:
+		return # idle
 	
-	velocity = velocity.normalized()
-	velocity = move_and_collide(velocity)
-	
+	# moving 
+	#velocity = Steering.follow(
+	#	velocity,
+	#	global_position,
+	#	target_global_position,
+	#	max_speed
+	#)
+	velocity = Steering.arrive_to(
+		velocity,
+		global_position,
+		target_global_position,
+		move_speed,
+		slow_radius
+		)
+	last_x = velocity.x
+	velocity = move_and_slide(velocity)
 
 
 
-func _on_Timer_timeout():
-	move_speed = max_speed
 
 
 func _on_PlayerDetect_body_entered(body):
@@ -60,3 +89,11 @@ func _on_PlayerDetect_body_exited(body):
 		return
 	else:
 		player = null
+
+
+func _on_HitBox_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_AtkTimer_timeout():
+	move_speed = max_speed

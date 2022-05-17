@@ -21,8 +21,16 @@ const spawn_positions: Dictionary = {
 	'Map2':[0,10]
 }
 
+const ENEMYS: Dictionary = {
+	'SkeletonW': preload("res://classes/Enemys/Skelett-Warrior.tscn"),
+	'SkeletonM': preload("res://classes/Enemys/Skeleton-Mage.tscn"),
+	'SkeletonBoss': preload("res://classes/Enemys/Skeleton-Mage-Boss.tscn"),
+	'GhostMage': preload("res://classes/Enemys/Ghost-Mage.tscn")
+}
+
 const LOOT: Dictionary ={
-	'Gold': preload("res://FinishedNotes/Gold.tscn")
+	'Gold': preload("res://FinishedNotes/Gold.tscn"),
+	'HealthDrop': preload("res://FinishedNotes/HPotionDrop.tscn")
 }
 const AUDIO: Dictionary = {
 	'PlayerDead': preload('res://audio/DeadSFX.tscn')
