@@ -35,13 +35,12 @@ func _on_RegTimer_timeout():
 	if player.stamina != player.max_stamina:
 		if wait == 0:
 			wait += 1
-			return
 		else:
 			wait = 0
 			player.set_stamina(player.stamina + 1)
 			print('>>> PLAYER STATS: New Stamina: '+ str(player.stamina))
 			return
-	elif player.amor != player.max_amor:
+	if player.amor != player.max_amor:
 		player.set_amor(player.amor +1)
 		print('>>> PLAYER STATS: New Shield: ' + str(player.amor))
 		return
