@@ -214,18 +214,14 @@ func _physics_process(delta):
 			sword_attack()
 
 func dash_attack():
-	if !stamina < dash_atk_costs:
-		return
+	can_attack = false
+	velocity.x = 0
+	attack_timer.start()
+	weapon.set_damage(weapon.damage + weapon.damage)
+	if look_right:
+		animationPlayer.play("slide_atk_right")
 	else:
-		set_stamina(stamina - dash_atk_costs)
-		can_attack = false
-		velocity.x = 0
-		attack_timer.start()
-		weapon.set_damage(weapon.damage + weapon.damage)
-		if look_right:
-			animationPlayer.play("slide_atk_right")
-		else:
-			animationPlayer.play("slide_atk_left")
+		animationPlayer.play("slide_atk_left")
 
 
 
@@ -315,7 +311,11 @@ func move_state(delta):
 	if Input.is_action_just_pressed("attack")  && is_on_floor() && can_attack:
 		state = ATK
 	if Input.is_action_just_pressed("dash_attack") && is_on_floor() && can_attack:
-		state = DASH_ATK
+		if stamina >= dash_atk_costs:
+			set_stamina(stamina - dash_atk_costs)
+			state = DASH_ATK
+		else:
+			pass
 	if Input.is_action_just_pressed('sword_attack') && is_on_floor() && can_attack && weapon.current_weapon.weapon_energie !=0 && weapon.weapon_energie == weapon.max_weapon_energie:
 		state = SWORD_ATK
 	if Input.is_action_just_pressed("slide") && is_on_floor() && can_slide && is_moving:
